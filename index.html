@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Strahd Reloaded · Daggerheart — Mesa do Mestre</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+  <!-- ====================================================================
+       BARRA SUPERIOR ÚNICA E MINIMALISTA (ZERO POLUIÇÃO VISUAL)
+       ==================================================================== -->
+  <header class="top-header">
+    <div class="header-left">
+      <button class="btn btn-xs" id="btnToggleLeftCol" title="Mostrar/Ocultar lista de cenas">☰ Cenas</button>
+      <h1 class="brand-title">🦇 Strahd · Daggerheart</h1>
+      <nav class="nav-pills">
+        <button class="nav-tab active" data-tab="tab-cockpit">🎛️ Sessão</button>
+        <button class="nav-tab" data-tab="tab-atlas">🗺️ Mapas (44)</button>
+        <button class="nav-tab" data-tab="tab-soundboard">🔊 Sons</button>
+        <button class="nav-tab" data-tab="tab-catalogs">📚 Catálogo</button>
+        <button class="nav-tab" data-tab="tab-notion">📝 Resumo</button>
+      </nav>
+    </div>
+
+    <!-- Controles Compactos: Medo + Rolador de Dualidade -->
+    <div class="header-center">
+      <div class="compact-pill fear-pill" title="Reserva de Medo do Mestre (0 a 12)">
+        <span>💀 Medo</span>
+        <button class="btn btn-xs" id="btnFearMinus">-</button>
+        <span class="fear-val" id="fearCountText">2/12</span>
+        <button class="btn btn-xs btn-crimson" id="btnFearPlus">+</button>
+        <button class="btn btn-xs" id="btnShortRest" title="Descanso Curto (+1d4 Medo)">⛺</button>
+        <button class="btn btn-xs" id="btnLongRest" title="Descanso Longo (+1d4 + PJs Medo)">🌙</button>
+      </div>
+
+      <div class="compact-pill">
+        <span title="Modificador">Mod</span>
+        <input type="number" id="dualityMod" value="2" style="width:44px;padding:2px 4px;text-align:center">
+        <span title="Dificuldade (CD)">CD</span>
+        <input type="number" id="dualityDC" value="14" style="width:46px;padding:2px 4px;text-align:center">
+        <button class="btn btn-xs btn-gold" id="btnRollDuality">🎲 2d12</button>
+        <button class="btn btn-xs" id="btnRollGM20" title="Ataque do Mestre (1d20)">d20</button>
+        <span id="dualityResultBox" class="duality-output">Pronto</span>
+      </div>
+    </div>
+
+    <!-- Controles do 2º Monitor Físico e Áudio -->
+    <div class="header-right">
+      <button class="btn btn-xs" id="btnMiniMute" style="display:none;border-color:#e5c170;color:#e5c170">
+        🔊 <span id="miniAudioCount">0</span> ⏹
+      </button>
+      <button class="btn btn-xs" id="btnClearPlayerOverlays" title="Oculta qualquer citação ou pista aberta no 2º Monitor, deixando apenas o mapa">
+        🧹 Limpar 2º Monitor
+      </button>
+      <button class="btn btn-xs btn-emerald" id="btnOpenPlayerScreen" title="Abrir janela de alta visibilidade para o 2º Monitor Físico">
+        📺 2º Monitor
+      </button>
+    </div>
+  </header>
+
+  <!-- ====================================================================
+       ABA 1: SESSÃO (LAYOUT LIMPO EM 3 COLUNAS SEM CORTES)
+       ==================================================================== -->
+  <section id="tab-cockpit" class="tab-content active">
+    <div class="cockpit-grid" id="cockpitGrid">
+
+      <!-- COLUNA ESQUERDA: LISTA LIMPA DE ARCOS E CENAS -->
+      <aside class="col-panel" id="leftColPanel">
+        <div class="col-header">
+          <span>Roteiro (180 Cenas)</span>
+          <span id="scenesCounterBadge" class="tag">180</span>
+        </div>
+        <div class="col-body">
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <select id="arcFilterSelect" style="width:100%"></select>
+            <div style="display:flex;gap:4px">
+              <input type="search" id="sceneSearchInput" placeholder="Buscar cena…" style="flex:1">
+              <select id="sceneStatusFilter" style="width:96px">
+                <option value="">Todas</option>
+                <option value="Em jogo">Em jogo</option>
+                <option value="A preparar">A prep.</option>
+                <option value="Concluída">Concl.</option>
+              </select>
+            </div>
+          </div>
+          <div id="sceneListContainer" class="scene-list"></div>
+        </div>
+      </aside>
+
+      <!-- COLUNA CENTRAL: LEITOR DE CENA SEM POLUIÇÃO VISUAL -->
+      <main class="col-panel">
+        <div class="col-header">
+          <div style="display:flex;align-items:center;gap:6px">
+            <button class="btn btn-xs" id="btnPrevScene">◀</button>
+            <span id="activeSceneHeaderCode">Cena A1</span>
+            <button class="btn btn-xs" id="btnNextScene">▶</button>
+            <select id="activeSceneStatusSelect" style="height:26px;padding:0 6px;font-size:12px">
+              <option value="A preparar">📋 A preparar</option>
+              <option value="Em jogo">🔥 Em jogo</option>
+              <option value="Concluída">✅ Concluída</option>
+            </select>
+          </div>
+
+          <div style="display:flex;gap:5px;flex-wrap:wrap">
+            <button class="btn btn-xs btn-gold" id="btnSceneOpenMap">🗺️ Mapa</button>
+            <button class="btn btn-xs" id="btnScenePlayAudio">🔊 Som</button>
+            <button class="btn btn-xs btn-crimson" id="btnSceneLoadEncounters">⚔️ Encontros (<span id="sceneEncCount">0</span>)</button>
+            <span id="sceneArcSummaryBtnWrap"></span>
+          </div>
+        </div>
+
+        <div class="col-body" id="sceneReaderScroll">
+          <div class="scene-top-bar">
+            <h2 class="scene-main-title" id="sceneMainTitle">Carregando…</h2>
+            <div id="sceneMetaBadges" style="display:flex;gap:5px;flex-wrap:wrap"></div>
+          </div>
+
+          <!-- Barra Compacta de Áudio da Cena (180 Cenas Mapeadas) -->
+          <div id="sceneAudioBar" class="stack-box" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;margin-bottom:10px;padding:6px 10px;background:#121622;border-color:#2b3550"></div>
+
+          <!-- Texto Integral Estruturado -->
+          <div id="sceneRoteiroContent" class="roteiro-container"></div>
+
+          <!-- Notas do Mapa e Notas do Mestre (Recolhidas / Limpas) -->
+          <details id="sceneMapNotesDetails" style="margin-top:18px;border-top:1px solid var(--border);padding-top:10px">
+            <summary style="cursor:pointer;color:var(--text-muted);font-size:12.5px">🗺️ Notas de Atlas desta Cena</summary>
+            <div id="sceneMapNotesBody" style="margin-top:6px;font-size:12.5px;color:#94a0b8;white-space:pre-wrap"></div>
+          </details>
+
+          <div style="margin-top:12px">
+            <textarea id="sceneLiveNotes" rows="2" style="width:100%" placeholder="✍️ Anotações rápidas ou decisões do grupo nesta cena…"></textarea>
+          </div>
+        </div>
+      </main>
+
+      <!-- COLUNA DIREITA: ENCONTROS & PV (CORRIGIDO, SEM CORTES), GRUPO & RELÓGIOS -->
+      <aside class="col-panel">
+        <div class="subtabs">
+          <button class="subtab-btn active" data-righttab="rt-combat">⚔️ Encontros &amp; PV</button>
+          <button class="subtab-btn" data-righttab="rt-party">🛡️ Grupo &amp; Âmbar</button>
+          <button class="subtab-btn" data-righttab="rt-clocks">⏳ Relógios &amp; Contadores</button>
+        </div>
+
+        <!-- SUB-ABA 1: ENCONTROS & PV (LAYOUT FLUIDO 100% DENTRO DA COLUNA) -->
+        <div class="right-tab-pane" id="rt-combat">
+          <!-- Seletores de Encontro e Criatura (100% width, sem estourar) -->
+          <div class="stack-box">
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <select id="encounterSelect" style="width:100%" title="Carregar Encontro da Campanha"></select>
+              <div style="display:flex;gap:5px;width:100%">
+                <select id="addBestiarySelect" style="flex:1;min-width:0"></select>
+                <button class="btn btn-xs btn-gold" id="btnAddCreatureToTracker">+ Incluir</button>
+                <button class="btn btn-xs" id="btnClearCombatTracker" title="Limpar combate">🗑️</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Calculadora Compacta de Limiares -->
+          <div class="stack-box" style="display:flex;align-items:center;justify-content:space-between;gap:6px">
+            <span style="font-size:11.5px;color:var(--text-muted);white-space:nowrap">🩸 Dano vs Limiar:</span>
+            <input type="number" id="calcDmgInput" placeholder="Dano" style="width:58px;padding:3px 6px">
+            <input type="text" id="calcThresholdsInput" value="7/14" title="Maior/Severo" style="width:58px;padding:3px 6px;text-align:center">
+            <button class="btn btn-xs btn-crimson" id="btnCalcThreshold">Ver</button>
+            <strong id="calcThresholdOutput" style="font-size:12px;color:var(--gold);white-space:nowrap">1–3 PV</strong>
+          </div>
+
+          <!-- Resumo do Encontro Ativo -->
+          <div id="activeEncounterSummary" class="stack-box" style="display:none;border-color:#582c7a;background:#191422;font-size:12px"></div>
+
+          <!-- Lista de Criaturas Ativas -->
+          <div id="combatTrackerList"></div>
+        </div>
+
+        <!-- SUB-ABA 2: GRUPO (PJs), PACTOS DE ÂMBAR & TAROKKA -->
+        <div class="right-tab-pane" id="rt-party" style="display:none">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+            <strong style="font-size:12.5px;color:var(--gold)">Personagens Jogadores</strong>
+            <button class="btn btn-xs btn-gold" id="btnAddPartyMember">+ PJ</button>
+          </div>
+          <div id="partyTrackerList"></div>
+
+          <div class="stack-box" style="margin-top:10px">
+            <strong style="font-size:12px;color:var(--gold);display:block;margin-bottom:5px">🔮 20 Pactos de Âmbar</strong>
+            <select id="quickAmberSelect" style="width:100%;margin-bottom:6px"></select>
+            <div id="quickAmberDetail" style="font-size:12px;max-height:200px;overflow-y:auto"></div>
+          </div>
+
+          <div class="stack-box">
+            <strong style="font-size:12px;color:var(--gold);display:block;margin-bottom:5px">📘 Regras Daggerheart</strong>
+            <select id="quickRuleSelect" style="width:100%;margin-bottom:6px"></select>
+            <div id="quickRuleDetail" style="font-size:12px;max-height:200px;overflow-y:auto"></div>
+          </div>
+        </div>
+
+        <!-- SUB-ABA 3: RELÓGIOS, CONTADORES ILIMITADOS & PRAZOS DO ARCO -->
+        <div class="right-tab-pane" id="rt-clocks" style="display:none">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            <strong style="font-size:12.5px;color:var(--gold)">⏳ Relógios &amp; Contadores (Qualquer Valor)</strong>
+            <button class="btn btn-xs btn-gold" id="btnAddClock">+ Contador / Relógio</button>
+          </div>
+          <div id="clocksContainer"></div>
+
+          <div style="margin-top:12px;margin-bottom:6px">
+            <strong style="font-size:12.5px;color:#fda4af">📅 Prazos do Arco Atual</strong>
+          </div>
+          <div id="arcDeadlinesContainer"></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       ABA 2: MAPAS COM NÉVOA (44 MAPAS REAIS EMBUTIDOS)
+       ==================================================================== -->
+  <section id="tab-atlas" class="tab-content">
+    <iframe id="atlasIframe" src="mapas.html" style="flex:1;width:100%;border:none;background:#080a0f" title="Mapas de Baróvia"></iframe>
+  </section>
+
+  <!-- ====================================================================
+       ABA 3: SOUNDBOARD ATMOSFÉRICO (46 ÁUDIOS REAIS + 180 CENAS)
+       ==================================================================== -->
+  <section id="tab-soundboard" class="tab-content">
+    <div class="page-scroll">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--border)">
+        <div>
+          <strong style="color:var(--gold);font-size:16px">🔊 Mixer Atmosférico de Baróvia (46 Trilhas Reais + 180 Cenas)</strong>
+          <span style="color:var(--text-muted);font-size:12.5px;margin-left:8px">Áudios reais de Curse of Strahd em MP3 + Mixagem ao vivo</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <label style="display:inline-flex;align-items:center;gap:5px;font-size:12px;color:#fde68a;cursor:pointer" title="Trocar automaticamente a trilha sonora ao mudar de cena">
+            <input type="checkbox" id="chkAutoSceneAudio"> Auto-tocar ao mudar de cena
+          </label>
+          <label style="display:flex;align-items:center;gap:6px;font-size:12.5px">
+            Volume: <input type="range" id="masterVolSlider" min="0" max="1" step="0.02" value="0.75" style="width:110px">
+            <span id="masterVolText">75%</span>
+          </label>
+          <button class="btn btn-xs btn-crimson" id="btnStopAllAudio">🔇 Parar Tudo</button>
+        </div>
+      </div>
+
+      <!-- Seletor Direto das 180 Cenas -->
+      <div class="stack-box" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:14px">
+        <div style="display:flex;align-items:center;gap:8px;flex:1;min-width:260px">
+          <strong style="color:var(--gold);font-size:12.5px;white-space:nowrap">🎬 Trilha por Cena (180):</strong>
+          <select id="soundSceneSelect" style="flex:1;min-width:200px"></select>
+          <button class="btn btn-xs btn-gold" id="btnPlaySelectedSceneAudio">▶ Tocar Cena</button>
+        </div>
+        <div id="soundSceneRecommendedSfx" style="display:flex;align-items:center;gap:5px;flex-wrap:wrap"></div>
+      </div>
+
+      <div style="margin-bottom:14px">
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:6px;font-weight:600">PRESETS RÁPIDOS DE REGIÃO / CLIMA (16)</div>
+        <div id="soundPresetsGrid" style="display:flex;flex-wrap:wrap;gap:6px"></div>
+      </div>
+
+      <div style="margin-bottom:14px">
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:6px;font-weight:600">AMBIENTES CONTÍNUOS REAIS (14 LOOPS MIXÁVEIS)</div>
+        <div id="ambientChannelsGrid" class="sound-grid"></div>
+      </div>
+
+      <div style="margin-bottom:14px">
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:6px;font-weight:600">MÚSICA &amp; TRILHAS DRAMÁTICAS REAIS (14 TRILHAS)</div>
+        <div id="musicChannelsGrid" class="sound-grid"></div>
+      </div>
+
+      <div>
+        <div style="font-size:12px;color:var(--text-muted);margin-bottom:6px;font-weight:600">EFEITOS SONOROS INSTANTÂNEOS REAIS (18 GATILHOS)</div>
+        <div id="sfxPadsGrid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:6px"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       ABA 4: CATÁLOGO UNIFICADO
+       ==================================================================== -->
+  <section id="tab-catalogs" class="tab-content">
+    <div class="page-scroll">
+      <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-bottom:12px">
+        <button class="btn btn-xs btn-gold cat-type-btn" data-cattype="bestiary">👹 Bestiário (152)</button>
+        <button class="btn btn-xs cat-type-btn" data-cattype="encounters">⚔️ Encontros (86)</button>
+        <button class="btn btn-xs cat-type-btn" data-cattype="items_spells">✨ Magias &amp; Itens (234)</button>
+        <button class="btn btn-xs cat-type-btn" data-cattype="amber_pacts">🔮 Âmbar (20)</button>
+        <button class="btn btn-xs cat-type-btn" data-cattype="calendar">📅 Prazos (23)</button>
+        <button class="btn btn-xs cat-type-btn" data-cattype="rules">📘 Regras (12)</button>
+        <input type="search" id="catalogSearchInput" placeholder="Buscar no catálogo…" style="flex:1;min-width:200px">
+      </div>
+      <div id="catalogGridContainer" class="catalog-cards"></div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       ABA 5: RESUMO DA SESSÃO P/ NOTION & OBSIDIAN
+       ==================================================================== -->
+  <section id="tab-notion" class="tab-content">
+    <div class="page-scroll">
+      <div class="stack-box">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong style="color:var(--gold)">📝 Resumo Automático da Sessão (Markdown p/ Notion ou Obsidian)</strong>
+          <div style="display:flex;gap:6px">
+            <button class="btn btn-xs" id="btnRefreshSessionLog">🔄 Atualizar</button>
+            <button class="btn btn-xs btn-emerald" id="btnCopySessionLog">📋 Copiar Markdown</button>
+          </div>
+        </div>
+        <textarea id="sessionLogOutput" rows="16" style="width:100%;font-family:monospace;font-size:12.5px"></textarea>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================================================================
+     MODAL DE DETALHES (COM PRÉVIA ANTI-SPOILER ANTES DE PROJETAR)
+     ====================================================================== -->
+<div class="modal-backdrop" id="detailModal">
+  <div class="modal-dialog">
+    <div class="modal-header">
+      <strong id="modalTitle" style="color:var(--gold);font-size:15px">Detalhes</strong>
+      <div style="display:flex;gap:6px">
+        <button class="btn btn-xs" id="btnTogglePlayerPreview" title="Revisar texto seguro sem spoilers antes de enviar ao 2º Monitor">📺 Projetar s/ Spoilers…</button>
+        <button class="btn btn-xs" id="btnCloseModal">✖</button>
+      </div>
+    </div>
+    <!-- Gaveta Anti-Spoiler: O Mestre vê e edita exatamente o que vai para o 2º Monitor -->
+    <div id="modalPlayerSafeBox" style="display:none;padding:10px 14px;background:#101d19;border-bottom:1px solid #10b981">
+      <div style="font-size:11.5px;color:#6ee7b7;font-weight:700;margin-bottom:4px">
+        🔒 Filtro Anti-Spoiler Ativo — Apenas o título e texto abaixo aparecerão no 2º Monitor (sem PV, sem CD, sem segredos):
+      </div>
+      <input type="text" id="safeProjectTitle" style="width:100%;margin-bottom:5px" placeholder="Título público p/ jogadores">
+      <textarea id="safeProjectText" rows="3" style="width:100%;margin-bottom:6px" placeholder="Descrição visual ou pista pública (edite livremente antes de projetar)…"></textarea>
+      <div style="display:flex;justify-content:flex-end;gap:6px">
+        <button class="btn btn-xs btn-emerald" id="btnConfirmSafeProject">✅ Enviar agora ao 2º Monitor</button>
+      </div>
+    </div>
+    <div class="modal-body" id="modalBodyContent"></div>
+  </div>
+</div>
+
+<script src="data/campaign_data.js"></script>
+<script src="soundboard.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

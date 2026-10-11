@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Baróvia · 2º Monitor (Visão dos Jogadores)</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;width:100vw;height:100vh;overflow:hidden;background:#040508;color:#f2ede2;font:16px/1.45 'Inter','Segoe UI',system-ui,sans-serif;user-select:none}
+
+/* Fullscreen 100vw x 100vh Canvas for the 2nd Physical Monitor */
+#stageCanvas{
+  width:100vw;
+  height:100vh;
+  display:block;
+}
+
+.empty-state{
+  position:fixed;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:32px;
+  background:radial-gradient(circle at center, #141824 0%, #05060a 75%);
+  z-index:2;
+}
+.empty-state h1{
+  font:700 38px Georgia,serif;
+  color:#e5c170;
+  margin:0 0 10px 0;
+  text-shadow:0 4px 20px rgba(0,0,0,.9);
+}
+.empty-state p{
+  color:#94a0b8;
+  font-size:18px;
+  max-width:560px;
+}
+
+/* HUD Scale Wrapper for Distance Reading on 2nd Monitor / TV */
+body.hud-xl .hud-top-left{
+  transform:scale(1.25);
+  transform-origin:top left;
+}
+body.hud-xl .clocks-stack{
+  transform:scale(1.22);
+  transform-origin:top right;
+}
+
+/* Floating Top-Left HUD: Location & Giant Fear Counter */
+.hud-top-left{
+  position:fixed;
+  top:18px;
+  left:18px;
+  display:flex;
+  align-items:stretch;
+  gap:14px;
+  z-index:10;
+  pointer-events:none;
+  transition:transform .2s ease;
+}
+.hud-pill{
+  background:rgba(10, 12, 18, 0.92);
+  backdrop-filter:blur(10px);
+  border:2px solid rgba(229, 193, 112, 0.55);
+  border-radius:14px;
+  padding:12px 20px;
+  box-shadow:0 12px 34px rgba(0,0,0,.85);
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.loc-title{
+  font:700 26px Georgia,serif;
+  color:#e5c170;
+  text-shadow:0 2px 8px rgba(0,0,0,.9);
+}
+
+/* GIANT FEAR COUNTER FOR 2ND MONITOR */
+.fear-pill{
+  border:2px solid rgba(239, 68, 68, 0.85);
+  background:linear-gradient(180deg, rgba(45, 10, 16, 0.95) 0%, rgba(22, 6, 10, 0.95) 100%);
+  box-shadow:0 12px 36px rgba(0,0,0,.9), 0 0 24px rgba(220, 38, 38, 0.35);
+  padding:10px 24px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+.fear-icon{
+  font-size:38px;
+  line-height:1;
+  filter:drop-shadow(0 0 10px rgba(239,68,68,.6));
+}
+.fear-info{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.fear-label{
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#fca5a5;
+  line-height:1.1;
+}
+.fear-number{
+  font:900 46px/1 'Inter','Segoe UI',system-ui,sans-serif;
+  color:#ffffff;
+  text-shadow:0 0 18px rgba(239, 68, 68, 0.9), 0 2px 6px #000;
+}
+
+/* Floating Top-Right HUD: Public Clocks & Fullscreen Button */
+.hud-top-right{
+  position:fixed;
+  top:18px;
+  right:18px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:12px;
+  z-index:10;
+}
+.top-controls{
+  display:flex;
+  gap:8px;
+}
+.btn-hud{
+  background:rgba(16, 20, 30, 0.88);
+  color:#e5c170;
+  border:1px solid #8c6d32;
+  border-radius:8px;
+  padding:7px 13px;
+  font:600 13.5px inherit;
+  cursor:pointer;
+  transition:opacity .2s;
+}
+:fullscreen .top-controls{
+  opacity:0.12;
+  transition:opacity .2s;
+}
+:fullscreen .top-controls:hover{
+  opacity:1;
+}
+
+/* GIANT CLOCKS / COUNTERS FOR 2ND MONITOR */
+.clocks-stack{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  min-width:390px;
+  max-width:480px;
+  pointer-events:none;
+  transition:transform .2s ease;
+}
+.clock-hud{
+  background:rgba(10, 12, 18, 0.94);
+  backdrop-filter:blur(10px);
+  border:2px solid rgba(245, 158, 11, 0.78);
+  border-radius:14px;
+  padding:14px 20px;
+  box-shadow:0 12px 34px rgba(0,0,0,.88);
+}
+.clock-hud-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:14px;
+  margin-bottom:10px;
+}
+.clock-name{
+  font-weight:800;
+  font-size:22px;
+  color:#fef3c7;
+  text-shadow:0 2px 6px #000;
+}
+.clock-val{
+  font-weight:900;
+  font-size:32px;
+  color:#fbbf24;
+  text-shadow:0 0 14px rgba(245,158,11,.5), 0 2px 6px #000;
+  white-space:nowrap;
+}
+.clock-segs{
+  display:flex;
+  gap:6px;
+}
+.seg{
+  flex:1;
+  height:22px;
+  border-radius:5px;
+  background:#141824;
+  border:1.5px solid #475569;
+}
+.seg.on{
+  background:linear-gradient(180deg,#fde047 0%,#d97706 100%);
+  border-color:#fef9c3;
+  box-shadow:0 0 12px rgba(245,158,11,.65);
+}
+
+/* Large Counter Progress Bar (when max > 16) */
+.clock-progress-wrap{
+  position:relative;
+  height:26px;
+  background:#111520;
+  border:2px solid #475569;
+  border-radius:8px;
+  overflow:hidden;
+}
+.clock-progress-fill{
+  height:100%;
+  background:linear-gradient(90deg, #b45309 0%, #f59e0b 55%, #fde047 100%);
+  box-shadow:0 0 16px rgba(245,158,11,.7);
+  transition:width .2s ease;
+}
+.clock-progress-ticks{
+  position:absolute;
+  inset:0;
+  background-image:linear-gradient(to right, rgba(255,255,255,0.14) 1px, transparent 1px);
+  background-size:10% 100%;
+  pointer-events:none;
+}
+.clock-progress-pct{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:15px;
+  color:#ffffff;
+  text-shadow:0 1px 4px #000, 0 0 8px #000;
+}
+
+/* Floating Bottom Cinema Subtitle: Read-Aloud Narration (Only shown when active) */
+.narration-banner{
+  position:fixed;
+  bottom:24px;
+  left:50%;
+  transform:translateX(-50%);
+  max-width:min(1050px, 90vw);
+  width:max-content;
+  background:rgba(10, 12, 18, 0.94);
+  backdrop-filter:blur(10px);
+  border:2px solid #e5c170;
+  border-left:6px solid #e5c170;
+  border-radius:12px;
+  padding:18px 26px;
+  font:italic 24px/1.55 Georgia,serif;
+  color:#f7f2e7;
+  box-shadow:0 16px 48px rgba(0,0,0,.92);
+  z-index:15;
+  display:none;
+}
+
+/* Center Handout Card (Spoiler-Free, only shown when projected by GM) */
+.handout-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(4, 6, 10, 0.8);
+  backdrop-filter:blur(6px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:25;
+  padding:32px;
+}
+.handout-card{
+  background:#121621;
+  border:2px solid #e5c170;
+  border-radius:14px;
+  max-width:780px;
+  width:100%;
+  padding:28px 32px;
+  box-shadow:0 24px 64px rgba(0,0,0,.95);
+}
+.handout-card h2{
+  margin:0 0 14px 0;
+  font:700 30px Georgia,serif;
+  color:#e5c170;
+  border-bottom:1px solid #2b3348;
+  padding-bottom:10px;
+}
+.handout-card .handout-body{
+  font-size:21px;
+  line-height:1.65;
+  color:#ece7dc;
+  white-space:pre-wrap;
+}
+</style>
+</head>
+<body>
+
+<div id="emptyNotice" class="empty-state">
+  <div style="font-size:58px;margin-bottom:10px">🦇</div>
+  <h1>Crônicas de Baróvia</h1>
+  <p>Posicione esta janela no <b>2º Monitor Físico</b> e clique em <b>⛶ Tela Cheia</b>.<br>O mapa revelado, o enquadramento de zoom e os contadores aparecerão aqui em tempo real sem nenhum spoiler do Mestre.</p>
+</div>
+
+<canvas id="stageCanvas"></canvas>
+
+<!-- Top-Left HUD: Location & Giant Fear Counter -->
+<div class="hud-top-left">
+  <div class="hud-pill">
+    <span style="font-size:28px">🦇</span>
+    <span class="loc-title" id="publicLocTitle">Baróvia</span>
+  </div>
+  <div class="fear-pill" title="Medo acumulado nas Brumas">
+    <span class="fear-icon">💀</span>
+    <div class="fear-info">
+      <span class="fear-label">Medo</span>
+      <span class="fear-number" id="fearValue">2</span>
+    </div>
+  </div>
+</div>
+
+<!-- Top-Right HUD: Giant Public Clocks/Counters & Controls -->
+<div class="hud-top-right">
+  <div class="top-controls">
+    <button class="btn-hud" id="hudScaleBtn" title="Alternar tamanho Extra-Grande para TVs distantes">🔍 Contadores: Grande</button>
+    <button class="btn-hud" id="fullBtn">⛶ Tela Cheia (2º Monitor)</button>
+  </div>
+  <div class="clocks-stack" id="publicClocks"></div>
+</div>
+
+<!-- Bottom Cinema Narration Banner -->
+<div class="narration-banner" id="quoteBanner"></div>
+
+<!-- Center Spoiler-Free Handout Overlay -->
+<div class="handout-modal" id="handoutModal" onclick="this.style.display='none'">
+  <div class="handout-card">
+    <h2 id="handoutTitle">Pista Revelada</h2>
+    <div class="handout-body" id="handoutBody"></div>
+  </div>
+</div>
+
+<script>
+const bc = typeof BroadcastChannel !== 'undefined' ? new BroadcastChannel('strahd-daggerheart-live') : null;
+const canvas = document.getElementById('stageCanvas');
+const ctx = canvas.getContext('2d');
+const emptyNotice = document.getElementById('emptyNotice');
+const publicLocTitle = document.getElementById('publicLocTitle');
+const fearValue = document.getElementById('fearValue');
+const publicClocks = document.getElementById('publicClocks');
+const quoteBanner = document.getElementById('quoteBanner');
+const handoutModal = document.getElementById('handoutModal');
+const handoutTitle = document.getElementById('handoutTitle');
+const handoutBody = document.getElementById('handoutBody');
+
+let currentImg = null;
+let currentViewport = null;
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  drawMapFrame();
+}
+window.addEventListener('resize', resizeCanvas);
+
+function drawMapFrame() {
+  ctx.fillStyle = '#040508';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  if (!currentImg) return;
+
+  const iw = currentImg.width, ih = currentImg.height;
+  let sx = 0, sy = 0, sw = iw, sh = ih;
+
+  // Accurate Master-to-Player camera framing at ANY zoom/pan position
+  if (currentViewport && typeof currentViewport.w === 'number' && typeof currentViewport.h === 'number') {
+    sx = Math.max(0, Math.min(iw - 1, currentViewport.x * iw));
+    sy = Math.max(0, Math.min(ih - 1, currentViewport.y * ih));
+    sw = Math.max(16, Math.min(iw - sx, currentViewport.w * iw));
+    sh = Math.max(16, Math.min(ih - sy, currentViewport.h * ih));
+  }
+
+  const scale = Math.min(canvas.width / sw, canvas.height / sh);
+  const dw = sw * scale;
+  const dh = sh * scale;
+  const dx = (canvas.width - dw) / 2;
+  const dy = (canvas.height - dh) / 2;
+
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(currentImg, sx, sy, sw, sh, dx, dy, dw, dh);
+}
+
+function escapeHtml(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function renderClocks(clocks) {
+  const pub = (clocks || []).filter(c => c.public);
+  if (!pub.length) {
+    publicClocks.innerHTML = '';
+    return;
+  }
+  publicClocks.innerHTML = pub.map(c => {
+    const max = Math.max(1, Number(c.max) || 6);
+    const cur = Math.max(0, Math.min(max, Number(c.current) || 0));
+    const pct = Math.round((cur / max) * 100);
+
+    let barHtml = '';
+    if (max <= 16) {
+      let segs = '';
+      for (let i = 0; i < max; i++) {
+        segs += `<span class="seg ${i < cur ? 'on' : ''}"></span>`;
+      }
+      barHtml = `<div class="clock-segs">${segs}</div>`;
+    } else {
+      barHtml = `
+        <div class="clock-progress-wrap">
+          <div class="clock-progress-fill" style="width:${pct}%"></div>
+          <div class="clock-progress-ticks"></div>
+          <div class="clock-progress-pct">${pct}%</div>
+        </div>
+      `;
+    }
+
+    return `<div class="clock-hud">
+      <div class="clock-hud-top">
+        <span class="clock-name">${escapeHtml(c.name)}</span>
+        <span class="clock-val">${cur} / ${max}</span>
+      </div>
+      ${barHtml}
+    </div>`;
+  }).join('');
+}
+
+function handleMessage(msg) {
+  if (!msg || typeof msg !== 'object') return;
+
+  if (msg.type === 'barovia-player-frame') {
+    if ('viewport' in msg) currentViewport = msg.viewport;
+    if (msg.png) {
+      const im = new Image();
+      im.onload = () => {
+        currentImg = im;
+        emptyNotice.style.display = 'none';
+        drawMapFrame();
+      };
+      im.src = msg.png;
+      if (msg.title) publicLocTitle.textContent = msg.title;
+    } else {
+      drawMapFrame();
+    }
+  } else if (msg.type === 'barovia-player-viewport') {
+    currentViewport = msg.viewport || null;
+    drawMapFrame();
+  } else if (msg.type === 'cockpit-state-sync') {
+    if (typeof msg.fear === 'number') fearValue.textContent = msg.fear;
+    if (msg.publicLocation) publicLocTitle.textContent = msg.publicLocation;
+    if (Array.isArray(msg.clocks)) renderClocks(msg.clocks);
+
+    if (msg.clearOverlays) {
+      quoteBanner.style.display = 'none';
+      handoutModal.style.display = 'none';
+      return;
+    }
+
+    if (typeof msg.quote === 'string') {
+      if (msg.quote.trim()) {
+        quoteBanner.textContent = msg.quote;
+        quoteBanner.style.display = 'block';
+      } else {
+        quoteBanner.style.display = 'none';
+      }
+    }
+
+    if (msg.handout && msg.handout.title) {
+      handoutTitle.textContent = msg.handout.title;
+      handoutBody.textContent = msg.handout.text || '';
+      handoutModal.style.display = 'flex';
+    }
+  }
+}
+
+if (bc) bc.onmessage = e => handleMessage(e.data);
+window.addEventListener('message', e => handleMessage(e.data));
+
+resizeCanvas();
+
+try {
+  const saved = JSON.parse(localStorage.getItem('strahd-cockpit-state-v2') || '{}');
+  if (typeof saved.fear === 'number') fearValue.textContent = saved.fear;
+  if (Array.isArray(saved.clocks)) renderClocks(saved.clocks);
+} catch (e) {}
+
+document.getElementById('hudScaleBtn').onclick = () => {
+  const isXl = document.body.classList.toggle('hud-xl');
+  document.getElementById('hudScaleBtn').textContent = isXl ? '🔍 Contadores: Extra-Grande (TV)' : '🔍 Contadores: Grande';
+};
+
+document.getElementById('fullBtn').onclick = () => {
+  if (document.fullscreenElement) document.exitFullscreen();
+  else document.documentElement.requestFullscreen?.();
+};
+
+// Notify opener/parent that player screen is ready
+try {
+  if (window.opener) window.opener.postMessage({ type: 'barovia-player-ready' }, '*');
+  if (bc) bc.postMessage({ type: 'barovia-player-ready' });
+} catch (e) {}
+</script>
+</body>
+</html>
