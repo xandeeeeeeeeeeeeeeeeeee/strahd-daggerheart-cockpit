@@ -132,6 +132,37 @@ input[type=range]{{width:85px;accent-color:#e5c170;cursor:pointer}}
 .player .back{{display:inline-flex;align-items:center}}
 footer.foot{{height:28px;background:#0f1219;border-top:1px solid #222838;padding:0 12px;display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#94a0b8}}
 #status{{color:#e5c170;margin:0}}
+
+@media (max-width: 768px) {{
+  header.bar {{
+    padding: 4px 6px;
+    gap: 4px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    scrollbar-width: none;
+    height: auto;
+    min-height: 38px;
+  }}
+  .group {{
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    gap: 4px;
+  }}
+  button, select {{
+    height: 30px;
+    padding: 0 6px;
+    font-size: 11.5px;
+  }}
+  select {{
+    max-width: 150px;
+  }}
+  footer.foot {{
+    font-size: 10.5px;
+    padding: 0 6px;
+  }}
+}}
 </style>
 </head>
 <body>

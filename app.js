@@ -233,10 +233,45 @@
     broadcastCockpitState({ clearOverlays: true, quote: '' });
   };
 
-  $('btnOpenPlayerScreen').onclick = () => {
+  function openPlayerPopup() {
     playerPopup = window.open('player.html', 'strahd-player-live', 'width=1366,height=840');
     setTimeout(() => broadcastCockpitState(), 500);
-  };
+  }
+
+  $('btnOpenPlayerScreen').onclick = openPlayerPopup;
+  const btnMobPlayer = $('btnOpenPlayerScreenMobile');
+  if (btnMobPlayer) btnMobPlayer.onclick = openPlayerPopup;
+
+  function setMobileView(target) {
+    state.mobileView = target;
+    const bar = $('mobileCockpitBar');
+    if (bar) {
+      bar.querySelectorAll('[data-mobilecol]').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.mobilecol === target);
+      });
+    }
+    const grid = $('cockpitGrid');
+    if (grid) {
+      grid.dataset.activemobilecol = target;
+    }
+
+    if (target === 'combat') {
+      document.querySelector('[data-righttab="rt-combat"]')?.click();
+    } else if (target === 'party') {
+      document.querySelector('[data-righttab="rt-party"]')?.click();
+    } else if (target === 'clocks') {
+      document.querySelector('[data-righttab="rt-clocks"]')?.click();
+    }
+  }
+
+  function initMobileCockpitSwitcher() {
+    const bar = $('mobileCockpitBar');
+    if (bar) {
+      bar.querySelectorAll('[data-mobilecol]').forEach(btn => {
+        btn.onclick = () => setMobileView(btn.dataset.mobilecol);
+      });
+    }
+  }
 
   // ==========================================================================
   // 2. NAVIGATION TABS & SUBTABS
@@ -464,6 +499,9 @@
     if (window.baroviaSound && window.baroviaSound.autoPlayOnSceneChange) {
       window.baroviaSound.playSceneAudio(code, false);
     }
+    if (window.innerWidth <= 900) {
+      setMobileView('center');
+    }
   }
 
   function renderSceneAudioBar(sc) {
@@ -555,6 +593,8 @@
 
     const encList = sc.encounters || [];
     $('sceneEncCount').textContent = encList.length;
+    const mobEnc = $('mobileEncCount');
+    if (mobEnc) mobEnc.textContent = encList.length;
 
     const container = $('sceneRoteiroContent');
     container.innerHTML = renderLosslessStructuredRoteiro(sc.roteiro_raw || sc.body);
@@ -631,6 +671,7 @@
       document.querySelector('[data-righttab="rt-combat"]').click();
       $('encounterSelect').value = found.id;
       loadEncounterIntoTracker(found.id);
+      if (window.innerWidth <= 900) setMobileView('combat');
     }
   };
 
@@ -1416,4 +1457,5 @@
   renderPartyTracker();
   initSoundboardUI();
   renderCatalog();
+  initMobileCockpitSwitcher();
 })();

@@ -22,6 +22,7 @@
         <button class="nav-tab" data-tab="tab-catalogs">📚 Catálogo</button>
         <button class="nav-tab" data-tab="tab-notion">📝 Resumo</button>
       </nav>
+      <button class="btn btn-xs btn-emerald mobile-only-header-btn" id="btnOpenPlayerScreenMobile" title="2º Monitor">📺 2º Mon.</button>
     </div>
 
     <!-- Controles Compactos: Medo + Rolador de Dualidade -->
@@ -61,9 +62,18 @@
   </header>
 
   <!-- ====================================================================
-       ABA 1: SESSÃO (LAYOUT LIMPO EM 3 COLUNAS SEM CORTES)
+       ABA 1: SESSÃO (LAYOUT FLUIDO ADAPTÁVEL PARA CELULAR E DESKTOP)
        ==================================================================== -->
   <section id="tab-cockpit" class="tab-content active">
+    <!-- Barra de Navegação Móvel (Visível apenas em Telas Menores / Celular) -->
+    <div class="mobile-cockpit-bar" id="mobileCockpitBar">
+      <button class="mobile-nav-btn active" data-mobilecol="center">📜 Roteiro</button>
+      <button class="mobile-nav-btn" data-mobilecol="combat">⚔️ Combate (<span id="mobileEncCount">0</span>)</button>
+      <button class="mobile-nav-btn" data-mobilecol="party">🛡️ PJs &amp; Grupo</button>
+      <button class="mobile-nav-btn" data-mobilecol="clocks">⏳ Relógios</button>
+      <button class="mobile-nav-btn" data-mobilecol="left">☰ 180 Cenas</button>
+    </div>
+
     <div class="cockpit-grid" id="cockpitGrid">
 
       <!-- COLUNA ESQUERDA: LISTA LIMPA DE ARCOS E CENAS -->
@@ -90,9 +100,9 @@
       </aside>
 
       <!-- COLUNA CENTRAL: LEITOR DE CENA SEM POLUIÇÃO VISUAL -->
-      <main class="col-panel">
+      <main class="col-panel" id="centerColPanel">
         <div class="col-header">
-          <div style="display:flex;align-items:center;gap:6px">
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
             <button class="btn btn-xs" id="btnPrevScene">◀</button>
             <span id="activeSceneHeaderCode">Cena A1</span>
             <button class="btn btn-xs" id="btnNextScene">▶</button>
@@ -136,7 +146,7 @@
       </main>
 
       <!-- COLUNA DIREITA: ENCONTROS & PV (CORRIGIDO, SEM CORTES), GRUPO & RELÓGIOS -->
-      <aside class="col-panel">
+      <aside class="col-panel" id="rightColPanel">
         <div class="subtabs">
           <button class="subtab-btn active" data-righttab="rt-combat">⚔️ Encontros &amp; PV</button>
           <button class="subtab-btn" data-righttab="rt-party">🛡️ Grupo &amp; Âmbar</button>
