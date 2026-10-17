@@ -62,6 +62,13 @@ new_maps = [
         "file": "Casa_da_Morte_Masmorra_Catacumbas.jpg",
         "group": "Strahd Reloaded",
         "arcs": ["A"]
+    },
+    {
+        "key": "reloaded_cdm_fachada",
+        "title": "Casa da Morte · Fachada Exterior & Rua nas Brumas",
+        "file": "Casa_da_Morte_Fachada_Exterior.jpg",
+        "group": "Strahd Reloaded",
+        "arcs": ["A"]
     }
 ]
 
@@ -376,8 +383,8 @@ for ill in ILLUSTRATIONS:
 
 # 3. Update scenes: map_key & illustrations
 scene_map_overrides = {
-    "A2": "real_27",
-    "A2a": "reloaded_cdm_02",
+    "A2": "reloaded_cdm_fachada",
+    "A2a": "real_27",
     "A2b": "reloaded_cdm_02",
     "A2c": "reloaded_cdm_03",
     "A2d": "reloaded_cdm_04",
@@ -391,7 +398,9 @@ for s in campaign["scenes"]:
     code = s.get("code")
     if code in scene_map_overrides:
         s["map_key"] = scene_map_overrides[code]
-        s["map_title"] = maps_map.get(s["map_key"], {}).get("title", s.get("map_title", ""))
+        meta = maps_map.get(s["map_key"], {})
+        s["map_title"] = meta.get("title", s.get("map_title", ""))
+        s["map_file"] = meta.get("file", s.get("map_file", ""))
 
     # Attach illustration(s)
     if code in illust_by_scene:
