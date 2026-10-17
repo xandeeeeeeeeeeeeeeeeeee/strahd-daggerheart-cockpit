@@ -462,6 +462,41 @@ input:focus, select:focus, textarea:focus {
   background: rgba(16, 185, 129, 0.06);
 }
 
+.callout-sensory {
+  border-left-color: #38bdf8;
+  background: rgba(56, 189, 248, 0.07);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.callout-clues {
+  border-left-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.07);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.callout-dialogue {
+  border-left-color: #ec4899;
+  background: rgba(236, 72, 153, 0.07);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.callout-tactics {
+  border-left-color: #ef4444;
+  background: rgba(239, 68, 68, 0.07);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.callout-stakes {
+  border-left-color: #eab308;
+  background: rgba(234, 179, 8, 0.07);
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
 .dc-chip {
   display: inline-flex;
   align-items: center;

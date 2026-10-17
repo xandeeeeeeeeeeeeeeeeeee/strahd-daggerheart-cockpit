@@ -424,6 +424,10 @@
       return `<a href="#" class="wikilink-ref" data-ref="${escapeHtml(target)}" style="color:var(--gold);text-decoration:underline dotted">${escapeHtml(target)}</a>`;
     });
 
+    html = html.replace(/\b(Instinto|Presença|Conhecimento|Agilidade|Força|Finesse)\s*\((?:CD|Dificuldade)?\s*(\d{1,2})\)/gi, (_, trait, dc) => {
+      return `<span class="dc-chip" onclick="window.setDualityDCAndRoll(${dc})" title="Rolar 2d12 Dualidade para ${trait} vs CD ${dc}">🎲 ${trait} (CD ${dc})</span>`;
+    });
+
     html = html.replace(/\b(Dificuldade|CD)\s+(\d{1,2})\b/gi, (_, label, dc) => {
       return `<span class="dc-chip" onclick="window.setDualityDCAndRoll(${dc})" title="Rolar 2d12 Dualidade vs ${label} ${dc}">🎲 ${label} ${dc}</span>`;
     });
@@ -480,7 +484,7 @@
       } else if (line.startsWith('- ')) {
         if (!inList) { out.push('<ul style="margin:5px 0 9px 0;padding-left:18px">'); inList = true; }
         out.push(`<li style="margin-bottom:3px">${formatInlineMarkdown(line.slice(2))}</li>`);
-      } else if (line.startsWith('**Para narrar:**') || line.startsWith('**Leitura em voz alta:**')) {
+      } else if (line.startsWith('**Para narrar:**') || line.startsWith('**Leitura em voz alta:**') || line.startsWith('**Narração:**')) {
         closeList();
         const plainQuote = line.replace(/^\*\*[^*]+\*\*\s*/, '').replace(/[“”"]/g, '');
         out.push(`
@@ -498,6 +502,47 @@
       } else if (line.startsWith('**Segredo:**') || line.startsWith('**Armadilha')) {
         closeList();
         out.push(`<div class="callout-block callout-secret">🔒 ${formatInlineMarkdown(line)}</div>`);
+      } else if (
+        line.startsWith('**Ambiente & Sensações:**') ||
+        line.startsWith('**Ambiente & Atmosfera:**') ||
+        line.startsWith('**Sensações:**') ||
+        line.startsWith('**Atmosfera & Sensações:**')
+      ) {
+        closeList();
+        out.push(`<div class="callout-block callout-sensory">🕯️ ${formatInlineMarkdown(line)}</div>`);
+      } else if (
+        line.startsWith('**Investigação & Pistas:**') ||
+        line.startsWith('**Pistas & Investigação:**') ||
+        line.startsWith('**Pistas & Detalhes:**') ||
+        line.startsWith('**Investigação:**') ||
+        line.startsWith('**Pistas:**')
+      ) {
+        closeList();
+        out.push(`<div class="callout-block callout-clues">🔍 ${formatInlineMarkdown(line)}</div>`);
+      } else if (
+        line.startsWith('**NPCs & Diálogos:**') ||
+        line.startsWith('**Diálogos & Interpretação:**') ||
+        line.startsWith('**Interpretação & Diálogo:**') ||
+        line.startsWith('**Interpretação:**') ||
+        line.startsWith('**Diálogos:**') ||
+        line.startsWith('**Diálogo:**')
+      ) {
+        closeList();
+        out.push(`<div class="callout-block callout-dialogue">💬 ${formatInlineMarkdown(line)}</div>`);
+      } else if (
+        line.startsWith('**Ameaças & Táticas:**') ||
+        line.startsWith('**Combate & Táticas:**') ||
+        line.startsWith('**Táticas de Combate:**') ||
+        line.startsWith('**Táticas:**')
+      ) {
+        closeList();
+        out.push(`<div class="callout-block callout-tactics">⚔️ ${formatInlineMarkdown(line)}</div>`);
+      } else if (
+        line.startsWith('**O que Está em Jogo:**') ||
+        line.startsWith('**Apostas & Consequências:**')
+      ) {
+        closeList();
+        out.push(`<div class="callout-block callout-stakes">⚖️ ${formatInlineMarkdown(line)}</div>`);
       } else if (
         line.startsWith('**Daggerheart:**') ||
         line.startsWith('**DH:**') ||
