@@ -996,4 +996,138 @@ input:focus, select:focus, textarea:focus {
     width: 96vw;
     margin: auto;
   }
+
+  .scene-art-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .scene-art-thumb-wrap {
+    width: 100%;
+    height: 140px;
+  }
+  .illustrations-grid {
+    grid-template-columns: 1fr;
+  }
 }
+
+/* ==========================================================================
+   ILUSTRAÇÕES & ARTES DA CENA (ATMOSFERA & PROJEÇÃO NO 2º MONITOR)
+   ========================================================================== */
+
+/* Card de Arte no Roteiro do Mestre */
+.scene-art-card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(20, 24, 36, 0.95) 0%, rgba(12, 14, 20, 0.95) 100%);
+  border: 1.5px solid #3b4560;
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+.scene-art-thumb-wrap {
+  position: relative;
+  width: 120px;
+  height: 80px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #4a5578;
+  cursor: pointer;
+  background: #000;
+}
+.scene-art-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+.scene-art-thumb:hover {
+  transform: scale(1.08);
+}
+.scene-art-info {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Galeria de Artes da Campanha */
+.illustrations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 14px;
+  padding-bottom: 30px;
+}
+.art-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.art-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.5);
+}
+.art-card-img-wrap {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: #06080c;
+  cursor: pointer;
+  position: relative;
+}
+.art-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.art-card:hover .art-card-img {
+  transform: scale(1.05);
+}
+.art-card-body {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+.art-card-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+.art-card-subtitle {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 12px;
+  flex: 1;
+}
+.art-card-footer {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+  border-top: 1px solid #232a3b;
+  padding-top: 8px;
+}
+
+/* Lightbox Dialog */
+.lightbox-dialog {
+  max-width: 90vw;
+  max-height: 90vh;
+  background: #0e111a;
+  border: 2px solid var(--gold);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.9);
+  margin: auto;
+}
+

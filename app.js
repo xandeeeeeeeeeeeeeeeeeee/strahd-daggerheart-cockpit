@@ -83,6 +83,47 @@
     }
   }
 
+  function broadcastSceneArt(ill) {
+    if (!ill) return;
+    const payload = {
+      type: 'barovia-player-art',
+      file: ill.file,
+      title: ill.title,
+      subtitle: ill.subtitle || '',
+      publicLocation: ill.title
+    };
+    if (bc) {
+      try { bc.postMessage(payload); } catch (e) {}
+    }
+    if (playerPopup && !playerPopup.closed) {
+      try { playerPopup.postMessage(payload, '*'); } catch (e) {}
+    }
+    window.baroviaSound?.triggerSFX('sting');
+  }
+
+  function restorePlayerMap() {
+    const payload = { type: 'barovia-player-map' };
+    if (bc) {
+      try { bc.postMessage(payload); } catch (e) {}
+    }
+    if (playerPopup && !playerPopup.closed) {
+      try { playerPopup.postMessage(payload, '*'); } catch (e) {}
+    }
+  }
+
+  function openArtLightbox(ill) {
+    if (!ill) return;
+    const modal = $('artLightboxModal');
+    if (!modal) return;
+    $('lightboxTitle').textContent = ill.title;
+    $('lightboxSubtitle').textContent = ill.subtitle || '';
+    $('lightboxImg').src = 'assets/illustrations/' + ill.file;
+    $('btnLightboxProject').onclick = () => {
+      broadcastSceneArt(ill);
+    };
+    modal.style.display = 'flex';
+  }
+
   // Sanitizes any markdown body to extract ONLY player-safe descriptive text
   // Strips all statblocks, PV, Estresse, Dificuldade, Segredos, Gatilhos, Táticas, etc.
   function extractPlayerSafeText(rawBody) {
@@ -284,6 +325,7 @@
       const target = $(btn.dataset.tab);
       if (target) target.classList.add('active');
       if (btn.dataset.tab === 'tab-notion') generateSessionMarkdownLog();
+      if (btn.dataset.tab === 'tab-illustrations') renderIllustrationsGallery();
     };
   });
 
@@ -566,6 +608,43 @@
     }
   }
 
+  function renderSceneArtBar(sc) {
+    const bar = $('sceneArtBar');
+    if (!bar) return;
+    const ill = sc.illustration || (Array.isArray(sc.illustrations) && sc.illustrations[0]);
+    if (!ill) {
+      bar.style.display = 'none';
+      return;
+    }
+    bar.style.display = 'flex';
+    const thumb = $('sceneArtThumb');
+    const category = $('sceneArtCategory');
+    const title = $('sceneArtTitle');
+    const subtitle = $('sceneArtSubtitle');
+    const thumbWrap = $('sceneArtThumbWrap');
+
+    thumb.src = 'assets/illustrations/' + ill.file;
+    category.textContent = ill.category || 'Atmosfera';
+    title.textContent = ill.title;
+    subtitle.textContent = ill.subtitle || '';
+
+    const btnProj = $('btnProjectSceneArt');
+    if (btnProj) {
+      btnProj.onclick = () => broadcastSceneArt(ill);
+    }
+    const btnRest = $('btnRestoreMapOnPlayer');
+    if (btnRest) {
+      btnRest.onclick = () => restorePlayerMap();
+    }
+    const btnInsp = $('btnInspectSceneArt');
+    if (btnInsp) {
+      btnInsp.onclick = () => openArtLightbox(ill);
+    }
+    if (thumbWrap) {
+      thumbWrap.onclick = () => openArtLightbox(ill);
+    }
+  }
+
   function renderActiveScene() {
     const sc = getActiveScene();
     if (!sc) return;
@@ -581,6 +660,7 @@
     `;
 
     renderSceneAudioBar(sc);
+    renderSceneArtBar(sc);
 
     const arcObj = DATA.arcs.find(a => a.code === sc.arc_code);
     $('sceneArcSummaryBtnWrap').innerHTML = arcObj
@@ -1412,6 +1492,66 @@
   $('btnCloseModal').onclick = () => $('detailModal').classList.remove('open');
   $('detailModal').onclick = (e) => { if (e.target === $('detailModal')) $('detailModal').classList.remove('open'); };
 
+  // ==========================================================================
+  // 9. ILLUSTRATIONS & HANDOUTS GALLERY (33 HD ARTWORKS)
+  // ==========================================================================
+  function renderIllustrationsGallery() {
+    const grid = $('illustrationsGrid');
+    if (!grid) return;
+    const cat = state.activeIllCategory || 'all';
+    const q = ($('illSearchInput')?.value || '').toLowerCase().trim();
+    const list = (DATA.illustrations || []).filter(item => {
+      const matchCat = cat === 'all' || item.category === cat;
+      const matchQ = !q || item.title.toLowerCase().includes(q) || (item.subtitle || '').toLowerCase().includes(q) || (item.category || '').toLowerCase().includes(q);
+      return matchCat && matchQ;
+    });
+
+    if (!list.length) {
+      grid.innerHTML = '<div style="color:var(--text-muted);padding:24px;text-align:center;grid-column:1/-1">Nenhuma ilustração encontrada com este filtro.</div>';
+      return;
+    }
+
+    grid.innerHTML = list.map(item => `
+      <div class="art-card">
+        <div class="art-card-img-wrap" onclick="window.openArtLightboxById('${escapeHtml(item.id)}')">
+          <img src="assets/illustrations/${escapeHtml(item.file)}" alt="${escapeHtml(item.title)}" class="art-card-img" loading="lazy" />
+        </div>
+        <div class="art-card-body">
+          <div>
+            <span class="tag tag-gold" style="font-size:10.5px;margin-bottom:6px;display:inline-block">${escapeHtml(item.category || 'Atmosfera')}</span>
+            <div class="art-card-title">${escapeHtml(item.title)}</div>
+            <div class="art-card-subtitle">${escapeHtml(item.subtitle || '')}</div>
+          </div>
+          <div class="art-card-footer">
+            <button class="btn btn-xs btn-emerald" onclick="window.projectArtById('${escapeHtml(item.id)}')">📺 Projetar</button>
+            <button class="btn btn-xs" onclick="window.openArtLightboxById('${escapeHtml(item.id)}')">🔍 Ver HD</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  document.querySelectorAll('.ill-cat-btn').forEach(btn => {
+    btn.onclick = () => {
+      document.querySelectorAll('.ill-cat-btn').forEach(b => b.classList.remove('active', 'btn-gold'));
+      btn.classList.add('active', 'btn-gold');
+      state.activeIllCategory = btn.dataset.illcat;
+      renderIllustrationsGallery();
+    };
+  });
+
+  if ($('illSearchInput')) $('illSearchInput').oninput = renderIllustrationsGallery;
+
+  window.projectArtById = function (id) {
+    const ill = (DATA.illustrations || []).find(i => i.id === id);
+    if (ill) broadcastSceneArt(ill);
+  };
+
+  window.openArtLightboxById = function (id) {
+    const ill = (DATA.illustrations || []).find(i => i.id === id);
+    if (ill) openArtLightbox(ill);
+  };
+
   function generateSessionMarkdownLog() {
     const sc = getActiveScene();
     const doneScenes = Object.entries(state.sceneStates).filter(([, st]) => st === 'Concluída').map(([c]) => c);
@@ -1457,5 +1597,6 @@
   renderPartyTracker();
   initSoundboardUI();
   renderCatalog();
+  renderIllustrationsGallery();
   initMobileCockpitSwitcher();
 })();

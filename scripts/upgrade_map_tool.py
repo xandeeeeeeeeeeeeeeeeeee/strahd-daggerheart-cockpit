@@ -12,6 +12,7 @@ import os
 import json
 import base64
 from pathlib import Path
+import io
 from PIL import Image
 
 WORKSPACE = Path(r"c:\Users\Alex\Documents\antigravity\beautiful-bohr")
@@ -23,6 +24,17 @@ VAULT_COCKPIT_MAP_PATH = VAULT_DIR / "_ferramentas" / "cockpit" / "mapas.html"
 
 CAMPAIGN_JSON = WORKSPACE / "data" / "campaign_data.json"
 MAPS_DIR = WORKSPACE / "assets" / "maps"
+
+
+def encode_optimized_image(img_path: Path, max_dim=2200, quality=82):
+    with Image.open(img_path) as im:
+        im = im.convert("RGB")
+        if im.width > max_dim or im.height > max_dim:
+            im.thumbnail((max_dim, max_dim), Image.Resampling.LANCZOS)
+        buf = io.BytesIO()
+        im.save(buf, format="JPEG", quality=quality, optimize=True)
+        b64 = base64.b64encode(buf.getvalue()).decode("ascii")
+        return b64, im.width, im.height
 
 
 def extract_original_28_maps(html_path: Path):
@@ -50,15 +62,28 @@ def build_upgraded_html():
         m["arcs"] = cm.get("arcs", [])
         m["publicTitle"] = m["title"].split("·")[0].strip()
 
-    # Append the 16 real high-resolution maps
-    new_maps_list = [cm for cm in all_maps_meta if cm["key"].startswith("novo_")]
+        # Replace with high-resolution Strahd Reloaded / HD image if available
+        if cm.get("file"):
+            img_path = MAPS_DIR / cm["file"]
+            if img_path.exists():
+                b64, w, h = encode_optimized_image(img_path)
+                m["src"] = f"data:image/jpeg;base64,{b64}"
+                m["w"] = w
+                m["h"] = h
+                if "title" in cm:
+                    m["title"] = cm["title"]
+                    m["publicTitle"] = cm["title"].split("·")[0].strip()
+
+    # Append the 16 real high-resolution maps + new Strahd Reloaded tactical floors
+    new_maps_list = [cm for cm in all_maps_meta if cm["key"].startswith("novo_") or cm["key"].startswith("reloaded_")]
     for cm in new_maps_list:
         key = cm["key"]
         img_path = MAPS_DIR / cm["file"]
-        with Image.open(img_path) as im:
-            w, h = im.size
-        b64 = base64.b64encode(img_path.read_bytes()).decode("ascii")
+        if not img_path.exists():
+            continue
+        b64, w, h = encode_optimized_image(img_path)
 
+        category_label = "Strahd Reloaded · Tático" if key.startswith("reloaded_") else "Mapa Tático / Regional"
         entry = {
             "key": key,
             "title": f"★ {cm['title']}",
@@ -66,19 +91,19 @@ def build_upgraded_html():
             "src": f"data:image/jpeg;base64,{b64}",
             "w": w,
             "h": h,
-            "category": "Mapa Tático / Regional",
+            "category": category_label,
             "arcs": cm.get("arcs", [])
         }
 
         # Check if a player-safe version (without pins/numbers) exists
         player_candidate = MAPS_DIR / cm["file"].replace(".jpg", "_Players.jpg")
         if player_candidate.exists():
-            pb64 = base64.b64encode(player_candidate.read_bytes()).decode("ascii")
+            pb64, _, _ = encode_optimized_image(player_candidate)
             entry["playerSrc"] = f"data:image/jpeg;base64,{pb64}"
 
         orig_maps.append(entry)
 
-    print(f"Total embedded maps in v3.5: {len(orig_maps)}")
+    print(f"Total embedded maps in v3.6: {len(orig_maps)}")
 
     scene_index = []
     for s in scenes:

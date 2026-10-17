@@ -290,6 +290,58 @@ body.hud-xl .clocks-stack{
   white-space:pre-wrap;
 }
 
+/* Fullscreen Scene Artwork / Atmosphere Illustration */
+.art-display {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #101420 0%, #040508 85%);
+  z-index: 4;
+  overflow: hidden;
+}
+.art-img {
+  max-width: 100vw;
+  max-height: 100vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 0 60px rgba(0,0,0,0.95);
+  animation: artFadeIn 0.4s ease-out;
+}
+@keyframes artFadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+.art-caption-pill {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10, 12, 18, 0.94);
+  backdrop-filter: blur(12px);
+  border: 2px solid rgba(229, 193, 112, 0.7);
+  border-radius: 14px;
+  padding: 10px 24px;
+  text-align: center;
+  box-shadow: 0 12px 34px rgba(0,0,0,.92);
+  pointer-events: none;
+  max-width: min(850px, 90vw);
+  z-index: 12;
+}
+.art-title {
+  font: 700 24px Georgia, serif;
+  color: #e5c170;
+  text-shadow: 0 2px 8px rgba(0,0,0,.9);
+}
+.art-subtitle {
+  font: italic 15px/1.4 'Inter', 'Segoe UI', sans-serif;
+  color: #cbd5e1;
+  margin-top: 4px;
+}
+
+
 @media (max-width: 768px) {
   .hud-top-left {
     top: 8px;
@@ -326,6 +378,15 @@ body.hud-xl .clocks-stack{
 
 <canvas id="stageCanvas"></canvas>
 
+<!-- Fullscreen Atmosphere Art / Scene Illustration -->
+<div id="artDisplay" class="art-display" style="display:none">
+  <img id="artImage" class="art-img" alt="Ilustração de Baróvia" />
+  <div class="art-caption-pill" id="artCaptionPill">
+    <div class="art-title" id="artTitle">Ilustração da Cena</div>
+    <div class="art-subtitle" id="artSubtitle"></div>
+  </div>
+</div>
+
 <!-- Top-Left HUD: Location & Giant Fear Counter -->
 <div class="hud-top-left">
   <div class="hud-pill">
@@ -344,6 +405,7 @@ body.hud-xl .clocks-stack{
 <!-- Top-Right HUD: Giant Public Clocks/Counters & Controls -->
 <div class="hud-top-right">
   <div class="top-controls">
+    <button class="btn-hud" id="toggleViewBtn" style="display:none" title="Alternar entre visualização de Mapa e Ilustração">🖼️/🗺️ Alternar Vista</button>
     <button class="btn-hud" id="hudScaleBtn" title="Alternar tamanho Extra-Grande para TVs distantes">🔍 Contadores: Grande</button>
     <button class="btn-hud" id="fullBtn">⛶ Tela Cheia (2º Monitor)</button>
   </div>
@@ -460,7 +522,31 @@ function renderClocks(clocks) {
 function handleMessage(msg) {
   if (!msg || typeof msg !== 'object') return;
 
-  if (msg.type === 'barovia-player-frame') {
+  if (msg.type === 'barovia-player-art') {
+    const artDisplay = document.getElementById('artDisplay');
+    const artImage = document.getElementById('artImage');
+    const artTitle = document.getElementById('artTitle');
+    const artSubtitle = document.getElementById('artSubtitle');
+    const toggleBtn = document.getElementById('toggleViewBtn');
+    emptyNotice.style.display = 'none';
+    const src = msg.file ? (msg.file.startsWith('data:') || msg.file.startsWith('http') ? msg.file : 'assets/illustrations/' + msg.file) : msg.url;
+    artImage.src = src;
+    artTitle.textContent = msg.title || 'Ilustração da Cena';
+    if (msg.subtitle) {
+      artSubtitle.textContent = msg.subtitle;
+      artSubtitle.style.display = 'block';
+    } else {
+      artSubtitle.style.display = 'none';
+    }
+    artDisplay.style.display = 'flex';
+    if (toggleBtn) toggleBtn.style.display = 'inline-block';
+    if (msg.publicLocation) publicLocTitle.textContent = msg.publicLocation;
+  } else if (msg.type === 'barovia-player-map') {
+    const artDisplay = document.getElementById('artDisplay');
+    if (artDisplay) artDisplay.style.display = 'none';
+  } else if (msg.type === 'barovia-player-frame') {
+    const artDisplay = document.getElementById('artDisplay');
+    if (artDisplay && !msg.keepArt) artDisplay.style.display = 'none';
     if ('viewport' in msg) currentViewport = msg.viewport;
     if (msg.png) {
       const im = new Image();
@@ -504,6 +590,13 @@ function handleMessage(msg) {
     }
   }
 }
+
+document.getElementById('toggleViewBtn').onclick = () => {
+  const artDisplay = document.getElementById('artDisplay');
+  if (artDisplay) {
+    artDisplay.style.display = artDisplay.style.display === 'none' ? 'flex' : 'none';
+  }
+};
 
 if (bc) bc.onmessage = e => handleMessage(e.data);
 window.addEventListener('message', e => handleMessage(e.data));
