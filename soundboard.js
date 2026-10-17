@@ -50,26 +50,290 @@ class BaroviaSoundEngine {
       { id: 'dread', icon: '👑', name: 'Presença do Senhor da Noite', file: 'assets/audio/mus_creepy_tension.mp3', defaultVol: 0.50 }
     ];
 
-    // 18 Real SFX Pads (One-Shot Effects)
+    // 28 Real SFX Pads (One-Shot Effects)
     this.sfxPads = [
       { id: 'thunder', icon: '⚡', name: 'Trovão Violento', file: 'assets/audio/sfx_thunder_strike.mp3' },
       { id: 'wolf', icon: '🐺', name: 'Uivo da Alcateia', file: 'assets/audio/sfx_wolves_howl.mp3' },
+      { id: 'wolf_growl', icon: '🐺', name: 'Rosnado Ameaçador', file: 'assets/audio/sfx_wolf_growl.mp3' },
       { id: 'ravens', icon: '🐦‍⬛', name: 'Revoada de Corvos', file: 'assets/audio/sfx_ravens_flock.mp3' },
       { id: 'door', icon: '🚪', name: 'Portão Pesado', file: 'assets/audio/sfx_heavy_gate.mp3' },
       { id: 'iron_door', icon: '🗝️', name: 'Porta de Ferro', file: 'assets/audio/sfx_iron_door.mp3' },
+      { id: 'trapdoor', icon: '🪜', name: 'Alçapão Abrindo', file: 'assets/audio/sfx_trapdoor.mp3' },
+      { id: 'wood_creek', icon: '🪵', name: 'Madeira Rangendo', file: 'assets/audio/sfx_wood_creek.mp3' },
+      { id: 'stone_scrape', icon: '🪨', name: 'Arrastar de Pedra', file: 'assets/audio/sfx_stone_scrape.mp3' },
+      { id: 'glass_break', icon: '🪟', name: 'Vidro Quebrando', file: 'assets/audio/sfx_glass_break.mp3' },
+      { id: 'sword_swing', icon: '⚔️', name: 'Golpe de Lâmina', file: 'assets/audio/sfx_sword_swing.mp3' },
       { id: 'strahd_laugh', icon: '🧛', name: 'Risada de Strahd', file: 'assets/audio/sfx_strahd_laugh.mp3' },
       { id: 'hag_laugh', icon: '🧙‍♀️', name: 'Risada de Bruxa', file: 'assets/audio/sfx_hag_laugh.mp3' },
       { id: 'bell', icon: '🔔', name: 'Sino / Gongo Fúnebre', file: 'assets/audio/sfx_church_bell.mp3' },
       { id: 'heartbeat', icon: '💓', name: 'Batimento Cardíaco', file: 'assets/audio/sfx_heartbeat.mp3' },
+      { id: 'scared_breath', icon: '😮‍💨', name: 'Respiração Ofegante', file: 'assets/audio/sfx_scared_breath.mp3' },
       { id: 'scream', icon: '👻', name: 'Grito Espectral', file: 'assets/audio/sfx_ghost_scream.mp3' },
       { id: 'zombie', icon: '🧟', name: 'Horda de Zumbis', file: 'assets/audio/sfx_zombie_scream.mp3' },
       { id: 'werewolf', icon: '🐾', name: 'Rugido Lobisomem', file: 'assets/audio/sfx_werewolf_roar.mp3' },
       { id: 'horn', icon: '📯', name: 'Trombeta de Alarme', file: 'assets/audio/sfx_war_horn.mp3' },
       { id: 'trap', icon: '🪤', name: 'Armadilha Disparando', file: 'assets/audio/sfx_trap_snap.mp3' },
       { id: 'chains', icon: '⛓️', name: 'Correntes & Grades', file: 'assets/audio/sfx_chains_door.mp3' },
-      { id: 'fireball', icon: '🔥', name: 'Explosão / Magia', file: 'assets/audio/sfx_fireball.mp3' },
+      { id: 'fireball', icon: '🔥', name: 'Explosão de Fogo', file: 'assets/audio/sfx_fireball.mp3' },
+      { id: 'flame_burst', icon: '🔥', name: 'Labareda Súbita', file: 'assets/audio/sfx_flame_burst.mp3' },
+      { id: 'avalanche', icon: '🏔️', name: 'Avalanche / Desmoronamento', file: 'assets/audio/sfx_avalanche.mp3' },
       { id: 'bats', icon: '🦇', name: 'Enxame de Morcegos', file: 'assets/audio/sfx_bats_swarm.mp3' },
-      { id: 'sting', icon: '💀', name: 'Impacto de Terror', file: 'assets/audio/sfx_horror_sting.mp3' }
+      { id: 'horror_impact', icon: '💥', name: 'Impacto Macabro', file: 'assets/audio/sfx_horror_impact.mp3' },
+      { id: 'sting', icon: '💀', name: 'Acorde de Terror', file: 'assets/audio/sfx_horror_sting.mp3' }
+    ];
+
+    // 25 Curated YouTube Masterpieces (Travis Savoie, Michael Ghelfi Studios, Bard's Legacy)
+    this.youtubeTracks = [
+      {
+        id: 'yt_into_mists',
+        title: 'Into the Mists (Main Theme)',
+        author: 'Travis Savoie',
+        category: 'explore',
+        categoryLabel: '🗺️ Exploração & Névoas',
+        ytId: 'CpTzAPnO1_8',
+        desc: 'Trilha orquestral épica para a chegada em Baróvia, travessia dos portões e viagem pelas estradas.',
+        scenes: ['A1', 'C1', 'C2', 'C3', 'C5', 'L1']
+      },
+      {
+        id: 'yt_he_is_ancient',
+        title: 'I Am The Ancient, I Am The Land',
+        author: 'Travis Savoie',
+        category: 'strahd',
+        categoryLabel: '👑 Strahd & Ravenloft',
+        ytId: 'Za2DU-ijcqc',
+        desc: 'O tema definitivo do Lorde de Baróvia. Ideal para aparições triunfantes e o clímax final da campanha.',
+        scenes: ['U1', 'U2', 'U3', 'U4', 'U5', 'U6', 'C7', 'C8']
+      },
+      {
+        id: 'yt_haunted_mansion',
+        title: 'Haunted Mansion (1h Ambience)',
+        author: 'Michael Ghelfi Studios',
+        category: 'ambient',
+        categoryLabel: '🕯️ Ambientes & Terror',
+        ytId: 'oef3XIRUeII',
+        desc: 'Ambiente soturno de mansão assombrada perfeito para toda a Casa da Morte (Durst Manor).',
+        scenes: ['A2', 'A2a', 'A2b', 'A2c', 'A2d', 'A2e', 'A2f']
+      },
+      {
+        id: 'yt_castle_ravenloft',
+        title: 'Castle Ravenloft',
+        author: 'Travis Savoie',
+        category: 'strahd',
+        categoryLabel: '👑 Strahd & Ravenloft',
+        ytId: '-_CXNbSkYAA',
+        desc: 'Tema gótico orquestrado para a aproximação e entrada na fortaleza ancestral de Ravenloft.',
+        scenes: ['P1', 'P2', 'P3', 'P4']
+      },
+      {
+        id: 'yt_castle_reworked',
+        title: 'Castle Ravenloft (Incursão & Catacumbas)',
+        author: 'Travis Savoie',
+        category: 'strahd',
+        categoryLabel: '👑 Strahd & Ravenloft',
+        ytId: 'Xe42Pv_SDA0',
+        desc: 'Trilha tensa e sinistra para a exploração profunda das torres, criptas e catacumbas do castelo.',
+        scenes: ['P5', 'P6', 'P7', 'P8']
+      },
+      {
+        id: 'yt_vampire_lair',
+        title: 'Vampire Lair (Gothic Dark Ambience)',
+        author: "Bard's Legacy",
+        category: 'ambient',
+        categoryLabel: '🕯️ Ambientes & Terror',
+        ytId: 'w9__x5MvilQ',
+        desc: 'Atmosfera macabra e imersiva para masmorras de vampiros, sepulcros e catacumbas.',
+        scenes: ['A2f', 'P6', 'P7']
+      },
+      {
+        id: 'yt_barovian_legends',
+        title: 'Barovian Legends (Town Theme)',
+        author: 'Travis Savoie',
+        category: 'explore',
+        categoryLabel: '🗺️ Exploração & Névoas',
+        ytId: 'K_j5L7zmA9s',
+        desc: 'Melodia melancólica que captura a tristeza e desesperança dos aldeões de Baróvia e Vallaki.',
+        scenes: ['B1', 'B2', 'B3', 'B4', 'B5', 'D1', 'D2', 'D3', 'D4', 'D5']
+      },
+      {
+        id: 'yt_quiet_tavern',
+        title: 'Quiet Tavern / Innkeeper ASMR (1h Ambience)',
+        author: 'Michael Ghelfi Studios',
+        category: 'ambient',
+        categoryLabel: '🕯️ Ambientes & Terror',
+        ytId: 'b1DUhonNQXM',
+        desc: 'Ambiente caloroso de estalagem com lareira, canecas e murmúrios na Taverna Sangue na Vinha ou Água Azul.',
+        scenes: ['B5c', 'F1', 'F2', 'F3', 'A1']
+      },
+      {
+        id: 'yt_waltzing_shadows',
+        title: 'Waltzing Shadows (O Jantar de Strahd)',
+        author: 'Travis Savoie',
+        category: 'story',
+        categoryLabel: '🥀 História & NPCs',
+        ytId: 'lBRHq-Ym_pQ',
+        desc: 'Valsa macabra e aristocrática para o célebre banquete oferecido pelo Conde em Ravenloft.',
+        scenes: ['O1', 'O2', 'O3', 'O4', 'O5', 'O6']
+      },
+      {
+        id: 'yt_ireena_theme',
+        title: "A Coveted Soul (Ireena's Theme)",
+        author: 'Travis Savoie',
+        category: 'story',
+        categoryLabel: '🥀 História & NPCs',
+        ytId: 'HbJf4z95eKg',
+        desc: 'Composição tocante e trágica dedicada à reencarnação de Tatyana e sua fuga do destino.',
+        scenes: ['B5a', 'B5b', 'B6', 'C6', 'K4']
+      },
+      {
+        id: 'yt_ezmerelda_theme',
+        title: "All Against Darkness (Ezmerelda's Theme)",
+        author: 'Travis Savoie',
+        category: 'story',
+        categoryLabel: '🥀 História & NPCs',
+        ytId: 'MDsICwz_noI',
+        desc: 'Trilha corajosa e determinada para as aparições de Ezmerelda d’Avenir e Rudolph van Richten.',
+        scenes: ['K5', 'M5', 'R2']
+      },
+      {
+        id: 'yt_dream_pastries',
+        title: 'Dream Pastries (Old Bonegrinder Coven)',
+        author: 'Travis Savoie',
+        category: 'combat',
+        categoryLabel: '⚔️ Combate & Tensão',
+        ytId: 'Qpc8BVTsTpc',
+        desc: 'Música perturbadora para o confronto mortal contra Morgantha e suas filhas no moinho.',
+        scenes: ['C9', 'H7']
+      },
+      {
+        id: 'yt_wolves_dance',
+        title: 'Dancing With the Wolves',
+        author: 'Travis Savoie',
+        category: 'combat',
+        categoryLabel: '⚔️ Combate & Tensão',
+        ytId: 'mX-rasUTpQo',
+        desc: 'Tema rítmico e perigoso de perseguição e emboscadas na floresta escura.',
+        scenes: ['C3', 'L2', 'L3', 'L4', 'L5']
+      },
+      {
+        id: 'yt_vampire_hunters',
+        title: 'Vampire Hunters (Combat Score)',
+        author: 'Travis Savoie',
+        category: 'combat',
+        categoryLabel: '⚔️ Combate & Tensão',
+        ytId: 'TL6ha77oqqE',
+        desc: 'Combate dinâmico e veloz contra vampiros menores, noivos e crias nos corredores ou ruas.',
+        scenes: ['E3', 'G1', 'G2', 'G3', 'G4', 'P3']
+      },
+      {
+        id: 'yt_calm_forest',
+        title: 'Svalich Woods (1h Dark Forest Ambience)',
+        author: 'Michael Ghelfi Studios',
+        category: 'ambient',
+        categoryLabel: '🕯️ Ambientes & Terror',
+        ytId: 'Sd9tKu-8t_I',
+        desc: 'Ventos nas copas negras, corvos e sombras entre os pinheiros milenares de Svalich.',
+        scenes: ['C2', 'C4', 'C6', 'L1']
+      },
+      {
+        id: 'yt_cathedral_abbey',
+        title: 'Abandoned Cathedral (Abbey of Saint Markovia)',
+        author: 'Michael Ghelfi Studios',
+        category: 'ambient',
+        categoryLabel: '🕯️ Ambientes & Terror',
+        ytId: 'uCBqy-KFcqM',
+        desc: 'Eco sagrado em ruínas. Perfeito para a Igreja de Donavich em Baróvia e a Abadia em Krezk.',
+        scenes: ['B7', 'B8', 'K1', 'K2', 'K3']
+      },
+      {
+        id: 'yt_restless_knights',
+        title: 'Restless Knights (Argynvostholt)',
+        author: 'Travis Savoie',
+        category: 'story',
+        categoryLabel: '🥀 História & NPCs',
+        ytId: '28QpslBWLko',
+        desc: 'Marcha fúnebre heroica e desolada para os Cavaleiros Fantasmas de Vladimir Horngaard.',
+        scenes: ['M1', 'M2', 'M3', 'M4', 'M5', 'M6']
+      },
+      {
+        id: 'yt_wicked_rites',
+        title: 'Wicked Rites (Yester Hill Ritual)',
+        author: 'Travis Savoie',
+        category: 'combat',
+        categoryLabel: '⚔️ Combate & Tensão',
+        ytId: 'pUHzlbbollI',
+        desc: 'Percussões xamânicas primitivas para o ritual druídico de evocação do Colosso de Raízes.',
+        scenes: ['J1', 'J2', 'J3', 'J4', 'J5', 'J6']
+      },
+      {
+        id: 'yt_creeping_hut',
+        title: 'The Creeping Hut (Baba Lysaga Boss Battle)',
+        author: 'Travis Savoie',
+        category: 'combat',
+        categoryLabel: '⚔️ Combate & Tensão',
+        ytId: '8l30E92iNLE',
+        desc: 'Tema cataclísmico e frenético de chefe para a batalha contra Baba Lysaga e a Cabana Andante.',
+        scenes: ['T4', 'T5', 'T6']
+      },
+      {
+        id: 'yt_dark_swamp',
+        title: 'Dark Swamp of Berez (1h Ambience)',
+        author: 'Michael Ghelfi Studios',
+        category: 'ambient',
+        categoryLabel: '🕯️ Ambientes & Terror',
+        ytId: 'kzBx8TWcrG4',
+        desc: 'Águas estagnadas, névoa espessa e ruínas submersas da aldeia afogada de Berez.',
+        scenes: ['T1', 'T2', 'T3', 'I1', 'I2', 'I3']
+      },
+      {
+        id: 'yt_cursed_marsh',
+        title: 'Cursed Marsh & Drownings',
+        author: 'Michael Ghelfi Studios',
+        category: 'ambient',
+        categoryLabel: '🕯️ Ambientes & Terror',
+        ytId: 'LqMGCtNlMXQ',
+        desc: 'Inquietante e lamacento, perfeito para exploração cautelosa nas margens do Rio Ivlis.',
+        scenes: ['I4', 'I5', 'I6']
+      },
+      {
+        id: 'yt_frozen_ghakis',
+        title: 'Tsolenka Pass & Mount Ghakis (1h Ambience)',
+        author: 'Michael Ghelfi Studios',
+        category: 'ambient',
+        categoryLabel: '🕯️ Ambientes & Terror',
+        ytId: '4EZpX881Cl4',
+        desc: 'Ventos gélidos cortantes, desfiladeiros perigosos e fogueira solitária na nevasca.',
+        scenes: ['Q1', 'Q2', 'Q3', 'Q4', 'Q5', 'Q6']
+      },
+      {
+        id: 'yt_dark_vestiges',
+        title: 'Dark Vestiges (The Amber Temple)',
+        author: 'Travis Savoie',
+        category: 'explore',
+        categoryLabel: '🗺️ Exploração & Névoas',
+        ytId: 'RssjzJL90_s',
+        desc: 'Terror cósmico sutil e misterioso para os sarcófagos de âmbar e segredos esquecidos.',
+        scenes: ['R1', 'R2', 'R3', 'R4', 'R5', 'R6', 'S1', 'S2', 'S3']
+      },
+      {
+        id: 'yt_march_dead',
+        title: 'March of the Dead',
+        author: 'Travis Savoie',
+        category: 'ambient',
+        categoryLabel: '🕯️ Ambientes & Terror',
+        ytId: '9GSCFzOajmo',
+        desc: 'A procissão fúnebre noturna dos aventureiros caídos caminhando rumo ao Castelo Ravenloft.',
+        scenes: ['B4', 'B8']
+      },
+      {
+        id: 'yt_sunsword_dawn',
+        title: 'Glimmer of Hope (Sunsword & Dawn)',
+        author: 'Travis Savoie',
+        category: 'story',
+        categoryLabel: '🥀 História & NPCs',
+        ytId: 'mEizS-pvr28',
+        desc: 'A luz triunfal da Espada Solar rompendo as trevas de Baróvia. O fim da maldição.',
+        scenes: ['U5', 'U6']
+      }
     ];
 
     // Quick Global Presets for the Soundboard Drawer
@@ -2611,6 +2875,37 @@ class BaroviaSoundEngine {
     if (this.sceneProfiles[sceneCode]) return this.sceneProfiles[sceneCode];
     const base = String(sceneCode).replace(/[a-z]+$/i, '');
     return this.sceneProfiles[base] || this.sceneProfiles['A1'];
+  }
+
+  getYouTubeTracks(category = 'all') {
+    if (!category || category === 'all') return this.youtubeTracks;
+    return this.youtubeTracks.filter(t => t.category === category);
+  }
+
+  getYoutubeRecommendationForScene(sceneCode) {
+    if (!sceneCode) return this.youtubeTracks[0];
+    const match = this.youtubeTracks.find(t => t.scenes && t.scenes.includes(sceneCode));
+    if (match) return match;
+
+    const code = String(sceneCode).trim().toUpperCase();
+    if (code.startsWith('A2')) return this.youtubeTracks.find(t => t.id === 'yt_haunted_mansion') || this.youtubeTracks[0];
+    if (code.startsWith('A1')) return this.youtubeTracks.find(t => t.id === 'yt_quiet_tavern') || this.youtubeTracks[0];
+    if (code.startsWith('B')) return this.youtubeTracks.find(t => t.id === 'yt_barovian_legends') || this.youtubeTracks[0];
+    if (code.startsWith('C9') || code.startsWith('H')) return this.youtubeTracks.find(t => t.id === 'yt_dream_pastries') || this.youtubeTracks[0];
+    if (code.startsWith('C')) return this.youtubeTracks.find(t => t.id === 'yt_into_mists') || this.youtubeTracks[0];
+    if (code.startsWith('D') || code.startsWith('E') || code.startsWith('F') || code.startsWith('G')) return this.youtubeTracks.find(t => t.id === 'yt_barovian_legends') || this.youtubeTracks[0];
+    if (code.startsWith('J')) return this.youtubeTracks.find(t => t.id === 'yt_wicked_rites') || this.youtubeTracks[0];
+    if (code.startsWith('K')) return this.youtubeTracks.find(t => t.id === 'yt_cathedral_abbey') || this.youtubeTracks[0];
+    if (code.startsWith('L')) return this.youtubeTracks.find(t => t.id === 'yt_wolves_dance') || this.youtubeTracks[0];
+    if (code.startsWith('M')) return this.youtubeTracks.find(t => t.id === 'yt_restless_knights') || this.youtubeTracks[0];
+    if (code.startsWith('O')) return this.youtubeTracks.find(t => t.id === 'yt_waltzing_shadows') || this.youtubeTracks[0];
+    if (code.startsWith('P')) return this.youtubeTracks.find(t => t.id === 'yt_castle_ravenloft') || this.youtubeTracks[0];
+    if (code.startsWith('Q')) return this.youtubeTracks.find(t => t.id === 'yt_frozen_ghakis') || this.youtubeTracks[0];
+    if (code.startsWith('R') || code.startsWith('S')) return this.youtubeTracks.find(t => t.id === 'yt_dark_vestiges') || this.youtubeTracks[0];
+    if (code.startsWith('T') || code.startsWith('I')) return this.youtubeTracks.find(t => t.id === 'yt_creeping_hut') || this.youtubeTracks[0];
+    if (code.startsWith('U')) return this.youtubeTracks.find(t => t.id === 'yt_he_is_ancient') || this.youtubeTracks[0];
+    if (code.startsWith('EP')) return this.youtubeTracks.find(t => t.id === 'yt_sunsword_dawn') || this.youtubeTracks[0];
+    return this.youtubeTracks[0];
   }
 
   playSceneAudio(sceneCode, playLeadSfx = false) {

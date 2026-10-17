@@ -571,14 +571,24 @@
     }).join('');
 
     const isScenePlaying = sb.activePreset === ('scene:' + sc.code) && sb.activeLoops.size > 0;
+    const recYt = sb.getYoutubeRecommendationForScene ? sb.getYoutubeRecommendationForScene(sc.code) : null;
+    const isYtPlaying = activeYouTubeTrack && recYt && activeYouTubeTrack.id === recYt.id;
 
     bar.innerHTML = `
       <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap">
         <button class="btn btn-xs ${isScenePlaying ? 'btn-crimson' : 'btn-gold'}" id="btnInlinePlaySceneAudio">
-          ${isScenePlaying ? '⏹ Parar Cena' : '▶ Tocar Trilha da Cena'}
+          ${isScenePlaying ? '⏹ Parar Mix' : '▶ Tocar Mix Local'}
         </button>
         <strong style="font-size:12px;color:var(--gold)">${escapeHtml(prof.name)}</strong>
         ${chTags}
+        ${recYt ? `
+          <div style="display:inline-flex;align-items:center;gap:3px;margin-left:4px">
+            <button class="btn btn-xs ${isYtPlaying ? 'btn-crimson' : 'btn-wine'}" id="btnInlinePlaySceneYouTube" title="Trilha Épica recomendada: ${escapeHtml(recYt.desc || '')}">
+              ${isYtPlaying ? '⏹ Parar YouTube' : '🎬 YouTube: ' + escapeHtml(recYt.title)}
+            </button>
+            <a href="https://www.youtube.com/watch?v=${recYt.ytId}" target="_blank" rel="noopener" class="btn btn-xs" title="Abrir trilha recomendada no YouTube" style="padding:2px 5px">↗</a>
+          </div>
+        ` : ''}
       </div>
       <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap">
         <span style="font-size:11px;color:var(--text-muted)">Gatilhos:</span>
@@ -593,6 +603,18 @@
           sb.stopAll();
         } else {
           sb.playSceneAudio(sc.code, false);
+        }
+        renderSceneAudioBar(sc);
+      };
+    }
+
+    const ytPlayBtn = $('btnInlinePlaySceneYouTube');
+    if (ytPlayBtn && recYt) {
+      ytPlayBtn.onclick = () => {
+        if (isYtPlaying) {
+          closeYouTubeWidget();
+        } else {
+          playYouTubeTrack(recYt);
         }
         renderSceneAudioBar(sc);
       };
@@ -1369,6 +1391,151 @@
   }
 
   // ==========================================================================
+  // YOUTUBE MINI-PLAYER & SOUNDTRACK INTEGRATION (TRAVIS SAVOIE & MICHAEL GHELFI)
+  // ==========================================================================
+  let activeYouTubeTrack = null;
+  let isYouTubeMinimized = false;
+
+  function playYouTubeTrack(track) {
+    if (!track) return;
+    activeYouTubeTrack = track;
+    const widget = $('youtubePlayerWidget');
+    const iframe = $('ytIframe');
+    const titleEl = $('ytWidgetTitle');
+    const authorEl = $('ytWidgetAuthor');
+    const extLink = $('ytWidgetExternalLink');
+    if (!widget || !iframe) return;
+
+    if (titleEl) titleEl.textContent = track.title;
+    if (authorEl) authorEl.textContent = `${track.author} · ${track.categoryLabel || ''}`;
+    if (extLink) extLink.href = `https://www.youtube.com/watch?v=${track.ytId}`;
+
+    iframe.src = `https://www.youtube.com/embed/${track.ytId}?autoplay=1&enablejsapi=1`;
+    widget.style.display = 'block';
+
+    // Highlight card in soundboard
+    document.querySelectorAll('.yt-track-card').forEach(card => {
+      card.classList.toggle('active-yt', card.dataset.ytid === track.id);
+    });
+
+    // Update scene bar
+    const sc = getActiveScene();
+    if (sc) renderSceneAudioBar(sc);
+  }
+
+  function minimizeYouTubeWidget() {
+    const widget = $('youtubePlayerWidget');
+    const btnMin = $('ytWidgetBtnMinimize');
+    if (!widget) return;
+    isYouTubeMinimized = !isYouTubeMinimized;
+    widget.classList.toggle('minimized', isYouTubeMinimized);
+    if (btnMin) btnMin.textContent = isYouTubeMinimized ? '□' : '_';
+  }
+
+  function closeYouTubeWidget() {
+    const widget = $('youtubePlayerWidget');
+    const iframe = $('ytIframe');
+    if (!widget) return;
+    widget.style.display = 'none';
+    if (iframe) iframe.src = '';
+    activeYouTubeTrack = null;
+
+    document.querySelectorAll('.yt-track-card').forEach(card => {
+      card.classList.remove('active-yt');
+    });
+
+    const sc = getActiveScene();
+    if (sc) renderSceneAudioBar(sc);
+  }
+
+  function initYouTubePlayerUI() {
+    const sb = window.baroviaSound;
+    if (!sb || !sb.youtubeTracks) return;
+
+    const btnMin = $('ytWidgetBtnMinimize');
+    const btnClose = $('ytWidgetBtnClose');
+    if (btnMin) btnMin.onclick = minimizeYouTubeWidget;
+    if (btnClose) btnClose.onclick = closeYouTubeWidget;
+
+    let currentYtCat = 'all';
+    let ytSearchQuery = '';
+
+    const renderYtGrid = () => {
+      const container = $('youtubeTracksGrid');
+      if (!container) return;
+
+      const q = ytSearchQuery.trim().toLowerCase();
+      let tracks = sb.getYouTubeTracks(currentYtCat);
+      if (q) {
+        tracks = tracks.filter(t => 
+          t.title.toLowerCase().includes(q) || 
+          t.author.toLowerCase().includes(q) || 
+          (t.desc && t.desc.toLowerCase().includes(q))
+        );
+      }
+
+      container.innerHTML = tracks.map(t => {
+        const isPlaying = activeYouTubeTrack && activeYouTubeTrack.id === t.id;
+        return `
+          <div class="yt-track-card ${isPlaying ? 'active-yt' : ''}" data-ytid="${t.id}">
+            <div>
+              <div class="yt-track-top">
+                <span class="yt-track-title">${escapeHtml(t.title)}</span>
+                <span class="tag" style="font-size:10px;padding:1px 5px">${escapeHtml(t.categoryLabel.split(' ')[0])}</span>
+              </div>
+              <div class="yt-track-author">${escapeHtml(t.author)}</div>
+              <div class="yt-track-desc">${escapeHtml(t.desc || '')}</div>
+            </div>
+            <div class="yt-track-actions">
+              <button class="btn btn-xs ${isPlaying ? 'btn-crimson' : 'btn-gold'}" data-ytplay="${t.id}">
+                ${isPlaying ? '⏹ Parar' : '▶ Tocar no Cockpit'}
+              </button>
+              <a href="https://www.youtube.com/watch?v=${t.ytId}" target="_blank" rel="noopener" class="btn btn-xs" title="Abrir no YouTube em nova aba">
+                ↗ YouTube
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      container.querySelectorAll('[data-ytplay]').forEach(btn => {
+        btn.onclick = () => {
+          const trackId = btn.dataset.ytplay;
+          const trk = sb.youtubeTracks.find(t => t.id === trackId);
+          if (activeYouTubeTrack && activeYouTubeTrack.id === trackId) {
+            closeYouTubeWidget();
+          } else if (trk) {
+            playYouTubeTrack(trk);
+          }
+          renderYtGrid();
+        };
+      });
+    };
+
+    // Category filter buttons
+    const catBtns = document.querySelectorAll('.yt-filter-btn');
+    catBtns.forEach(btn => {
+      btn.onclick = () => {
+        catBtns.forEach(b => b.classList.remove('btn-gold'));
+        btn.classList.add('btn-gold');
+        currentYtCat = btn.dataset.ytcat;
+        renderYtGrid();
+      };
+    });
+
+    // Search filter input
+    const searchInp = $('ytSearchInput');
+    if (searchInp) {
+      searchInp.oninput = (e) => {
+        ytSearchQuery = e.target.value;
+        renderYtGrid();
+      };
+    }
+
+    renderYtGrid();
+  }
+
+  // ==========================================================================
   // 7. CATALOGS & MODAL WITH ANTI-SPOILER DRAWER
   // ==========================================================================
   function renderCatalog() {
@@ -1596,6 +1763,7 @@
   renderCombatTracker();
   renderPartyTracker();
   initSoundboardUI();
+  initYouTubePlayerUI();
   renderCatalog();
   renderIllustrationsGallery();
   initMobileCockpitSwitcher();
