@@ -1,354 +1,551 @@
 # -*- coding: utf-8 -*-
 """
-Enrichment Content - Arc B: O Cerco da Vila de Baróvia (Scenes B1 - B8)
-Detailed, atmospheric, gothic narrative scripts with Daggerheart DCs, NPC dialogues, and 2nd monitor ready read-alouds.
+Curse of Strahd: Reloaded (DragnaCarta) - Arc B: Welcome to Barovia (Scenes B1 - B8)
+Tradução e adaptação fiel do repositório oficial do GitHub (DragnaCarta/Curse-of-Strahd-Reloaded).
+Roteiros completos com descrições originais de leitura em voz alta, investigação de salas,
+perfis de NPCs e conversão para mecânicas de Daggerheart (CDs interativas).
 """
 
 ARC_B_SCENES = {
     "B1": """## Roteiro Completo · B1 · Estrada Svalich
 
-**Objetivo:** Conduzir a primeira caminhada pela lendária Estrada Svalich, estabelecer a imensidão opressiva da floresta baroviana, as brumas sufocantes e a sensação de vigilância constante pelos servos de Strahd.
+**Objetivo:** Conduzir a travessia inaugural pela Estrada Velha Svalich após a saída da Casa da Morte, estabelecer a floresta opressiva e as brumas que cercam o vale, e guiar os personagens em uma caminhada de duas milhas (cerca de 40 minutos) até os lendários Portões de Baróvia.
 
-**Contexto & O que Está em Jogo:** A Estrada Svalich é a única artéria que corta o vale maldito de Baróvia, ligando as fronteiras enevoadas até os penhascos do Castelo Ravenloft e além. Os personagens acabam de emergir da Casa da Morte e estão exaustos, mas a floresta não oferece abrigo seguro. Lobos gigantescos rondam as sombras e a névoa rasteira fecha o caminho de volta com vapores venenosos. A sensação é de estarem entrando em uma gaiola monumental onde as árvores são as grades.
+**Contexto & Segredo (DragnaCarta):**
+- A viagem da torre da Casa da Morte até os Portões de Baróvia tem duas milhas de extensão e leva quarenta minutos de caminhada.
+- Esta cena se desenrola conforme descrito no livro oficial *Curse of Strahd* (Área A, p. 33), adaptado por DragnaCarta.
+- A floresta é escura e sufocante; as árvores formam uma abóbada que bloqueia o sol.
+- As brumas atrás dos personagens pertencem à barreira mágica que isola Baróvia do mundo exterior.
 
 **Ambiente & Sensações:**
-- *Visão:* Pinheiros colossais de trinta metros de altura margeiam a estrada de terra negra batida. Suas copas espessas se entrelaçam no alto, bloqueando quase toda a claridade e transformando o meio-dia em um crepúsculo perpétuo. A névoa cinzenta espalha-se pelo chão em rolos ondulantes.
-- *Sons:* O assobio solitário do vento gelado nas copas pontiagudas; o crocitar seco e metálico de corvos invisíveis na copa das árvores; estalos de galhos quebrando na mata fechada a cerca de cinquenta metros, sugerindo predadores acompanhando o grupo em paralelo.
-- *Cheiro:* Agulhas de pinho pisadas, terra preta fétida, casca de árvore mofada e o odor adocicado e indigesto de vegetação em decomposição.
-- *Tato:* Umidade penetrante que encharca as capas e enferruja fivelas; a lama grudenta da estrada que pesa nas solas das botas a cada passo.
+- *Visão:* Poças de água negra como espelhos escuros na estrada de terra batida; troncos de árvores colossais de ambos os lados da estrada, cujos galhos retorcidos parecem garras arranhando a névoa espessa; penumbra acinzentada permanente.
+- *Sons:* O gotejar constante da umidade das copas nas folhas mortas; o vento assobiando suavemente nas alturas; e um silêncio predatório e tenso.
+- *Cheiro:* Pinho encharcado, terra preta fétida, musgo e o odor denso de vegetação em decomposição.
+- *Tato:* Umidade penetrante que encharca as capas e roupas; ar gélido que arrepia a pele a cada respiração.
 
-**Para narrar:** “A Estrada Velha Svalich serpenteia pela floresta como uma cicatriz negra aberta na terra úmida. À esquerda e à direita, pinheiros colossais erguem-se como colunas de uma catedral em ruínas, com troncos tão grossos que seriam necessários três homens para abraçá-los. Seus galhos retorcidos formam uma abóbada impenetrável no alto, sufocando a luz e transformando a tarde em uma penumbra cinzenta e gélida. Atrás de vocês, as brumas fecham a trilha em uma barreira leitosa e espessa. Diante de vocês, poças de água escura refletem um céu sem estrelas e sem sol. E na beira da mata, o estalo cadenciado de passos sobre folhas secas acompanha cada passo de vocês — predadores invisíveis que sabem que vocês acabaram de entrar no território da caçada.”
+**Para narrar:** “Poças de água negra erguem-se como espelhos escuros ao longo de toda a estrada de terra enlameada. Troncos de árvores gigantescas erguem-se de ambos os lados do caminho, com seus galhos retorcidos esticando-se como garras famintas em direção à névoa espessa. Em todas as direções para onde se olha, o nevoeiro torna-se mais denso e opressivo, e a floresta ancestral parece tornar-se cada vez mais ameaçadora e vigilante a cada passo que vocês dão.”
 
 ### Investigação na Estrada
-- *Evidente (Sem teste):* A estrada tem sulcos profundos de rodas de carroças pesadas e pegadas de cavalos de ferradura militar, mas a água da chuva acumulada nas pegadas indica que ninguém passou por aqui nos últimos dois dias.
-- *Instinto (CD 11):* Percebe rastros largos de patas caninas no acostamento lamacento — lobos três vezes maiores que os normais de Faerûn, andando em matilha organizada.
-- *Conhecimento (CD 12):* As árvores são pinheiros-de-pedra ancestrais; suas cascas liberam uma resina escura que queima lentamente e era usada pelos antigos barovianos para tochas de vigília fúnebre.
-- *Agilidade (CD 12):* Desviar silenciosamente pelas margens para tentar surpreender as criaturas na mata.
+- *Evidente (Sem teste):* A estrada é a única rota visível através da floresta densa; sulcos antigos de rodas de carroça estão cobertos por poças de lama.
+- *Instinto (CD 11):* Quem examinar as poças e a sarjeta nota que a névoa se fecha lentamente atrás do grupo: qualquer tentativa de voltar para trás faz os pulmões arderem com a névoa sufocante de Baróvia.
+- *Conhecimento (CD 12):* As árvores são pinheiros-de-pedra seculares, típicos de vales alpinos isolados há milhares de anos.
 
-### As Brumas Venenosas (Se tentarem voltar)
-- A névoa atrás do grupo não é vapor de água: é a manifestação física da vontade de Strahd e dos Poderes Sombrios.
-- Quem entrar nas brumas sofre sufocamento imediato: teste de *Resistência / Força (CD 14)* ou ganha **1 Ponto de Estresse** e perde o fôlego, sendo repelido de volta para a estrada de terra.
+**Daggerheart & Mecânicas:** A caminhada de 40 minutos permite aos personagens conversar e se recuperar da Casa da Morte. Não há combate forçado nesta cena.
 
-**Daggerheart & Mecânicas:** A tensão da travessia não exige combate forçado agora. Use este percurso para os jogadores conversarem sobre os horrores que testemunharam na Casa da Morte e recuperarem a compostura.
-
-**Transição:** A estrada curva-se abruptamente para a esquerda e, diante dos viajantes, erguem-se os monumentais Portões de Baróvia (Cena B2).""",
+**Transição:** A estrada curva-se suavemente e, diante dos heróis, erguem-se os monumentais Portões de Baróvia (Cena B2).""",
 
     "B2": """## Roteiro Completo · B2 · Portões de Baróvia
 
-**Objetivo:** Apresentar a entrada monumental do domínio de Baróvia, descrever os colossais pilares com estátuas decapitadas e o fechamento sobrenatural dos portões de ferro forjado, selando definitivamente o isolamento do grupo.
+**Objetivo:** Apresentar os colossais Portões de Baróvia, as estátuas gigantes decapitadas cobertas de musgo e o fechamento sobrenatural dos portões de ferro forjado, selando definitivamente a entrada no vale.
 
-**Contexto & O que Está em Jogo:** Os lendários Portões de Baróvia marcam a fronteira entre as brumas externas e o coração do vale maldito de Strahd. É aqui que os heróis cruzam o limiar definitivo do horror gótico. As brumas atrás deles se condensam em uma barreira impenetrável. A terra diante deles é vigiada pelos olhos e corvos do Senhor do Castelo Ravenloft.
+**Contexto & Segredo (DragnaCarta):**
+- Esta cena se desenrola conforme descrito no livro oficial *Curse of Strahd* (Área B, p. 34), adaptado por DragnaCarta.
+- A distância dos Portões de Baróvia até o local do cadáver de Dalvan Olensky na floresta é de um quarto de milha e leva cerca de cinco minutos de caminhada.
+- Os portões abrem-se sozinhos e fecham-se assim que os heróis passam; isso é uma manifestação do poder de Strahd sobre a terra, não uma armadilha mecânica que exija salvaguardas.
 
 **Ambiente & Sensações:**
-- *Visão:* Duas torres colossais de alvenaria cinzenta erguem-se a mais de dez metros de altura. Ladeando a passagem, duas imensas estátuas de pedra negra guardam os batentes — antigos guerreiros nobres cujas cabeças foram violentamente decepadas e agora jazem partidas entre as raízes na beira da estrada, com musgo espesso escorrendo de suas bocas vazias.
-- *Sons:* O lamento contínuo do vento gelado uivando através das grades de ferro forjado; o crocitar rouco e solitário de três corvos empoleirados nas estátuas decapitadas; e o rangido gutural e sobrenatural das dobradiças ancestrais de ferro.
-- *Cheiro:* Terra fétida, musgo encharcado, ferrugem velha e o primeiro aroma tênue e nauseabundo de carniça recente vindo da floresta adiante.
-- *Tato:* O vento que sopra através dos portões carrega uma umidade glacial que arrepia a pele e faz os dedos tremerem.
+- *Visão:* Duas torres de guarda monumentais de pedra escura erguendo-se na névoa; duas estátuas colossais de guerreiros de pedra, sem cabeça e cobertas de musgo, caídas como titãs derrotados; portões de ferro forjado com lanças pontiagudas.
+- *Sons:* O rangido agudo, estridente e sobrenatural de dobradiças de ferro enferrujadas se abrindo sozinhas; o estrondo estrondoso quando os batentes se fecham; e o uivo cortante do vento no ferro.
+- *Cheiro:* Musgo úmido, pedra antiga e um odor sutil e fétido de carniça vindo da floresta adiante.
+- *Tato:* O arrepio gélido que corre pela espinha quando o ferro se fecha atrás do grupo.
 
-**Para narrar:** “A névoa sufocante da Estrada Velha de repente se afasta para revelar duas torres colossais de pedra cinzenta que se erguem na penumbra como sentinelas esquecidas pelo tempo. Ladeando a passagem, duas imensas estátuas esculpidas em pedra negra guardam os batentes — nobres guerreiros de uma era esquecida, cujas cabeças foram violentamente decepadas e agora jazem partidas entre as raízes retorcidas, com musgo espesso escorrendo de suas bocas vazias. Sem que ninguém se aproxime, as colossais folhas de ferro forjado começam a ranger, abrindo-se sozinhas para as profundezas da floresta como as mandíbulas de um predador antigo... e assim que o último de vocês cruza a soleira, os portões se fecham com um estrondo ensurdecedor que faz o chão tremer.”
+**Para narrar:** “A névoa escorre da floresta para engolir a estrada atrás de vocês. Mais adiante, erguendo-se das brumas cinzentas, surgem duas imponentes guaritas de pedra escura que ladeiam o caminho. Duas colossais estátuas de pedra, decapitadas e cobertas por musgo espesso, jazem tombadas como titãs caídos. Conforme vocês se aproximam, os maciços portões de ferro forjado guincham sobre dobradiças enferrujadas, abrindo-se lenta e solenemente por vontade própria... e assim que o último de vocês cruza a soleira, as pesadas folhas de ferro fecham-se atrás de suas costas com um estrondo ensurdecedor.”
 
 ### Investigação dos Portões
-- *Evidente (Sem teste):* As cabeças de pedra no chão foram cortadas por golpes titânicos há séculos. Os portões têm pontas afiadas em lanças enferrujadas e fecham-se por magia pura; não há correntes nem roldanas operadas por guardas humanos.
-- *Conhecimento (CD 12):* As estátuas homenageavam os antigos generais do pai de Strahd, o Rei Barov. Foram decapitadas durante a guerra de conquista que varreu os povos nativos do vale.
-- *Instinto (CD 11):* Três corvos com olhos anormalmente vigilantes pousados no topo da torre direita observam cada gesto do grupo; ao menor movimento hostil, voam em direção ao sul (Castelo Ravenloft).
-- *Agilidade (CD 14):* Tentar inspecionar ou escalar as torres: a pedra é úmida e viscosa, e nos nichos superiores há flecheiras que já serviram a arqueiros há séculos.
+- *Evidente (Sem teste):* As estátuas decapitadas representavam antigos guardiões do vale antes da chegada do conde; suas cabeças de pedra jazem partidas entre as raízes na beira da estrada.
+- *Instinto (CD 11):* O vento que sopra através dos portões carrega um aroma tênue de podridão e terra revolvida vindo da mata cerca de 400 metros à frente.
+- *Se tentarem voltar:* Os portões estão trancados por magia pura e a névoa além deles é a barreira mortal de Baróvia (quem entrar sofre sufocamento e exaustão).
 
-### Fechamento Sobrenatural & Consequência
-- Quando todos cruzam a soleira, as portas fecham com violência.
-- O estrondo ecoa por milhas no vale.
-- O Mestre ganha **1 Ponto de Medo** pela entrada formal no Domínio do Terror.
-- A 400 metros à frente na estrada (cerca de 5 minutos de caminhada rápida), o cheiro de morte atinge as narinas com força avassaladora, conduzindo diretamente à cena B3.
+**Daggerheart & Mecânicas:** O estrondo dos portões ecoa pelas montanhas. O Mestre adiciona **1 Ponto de Medo** à sua reserva pela entrada definitiva no Domínio do Terror.
 
-**Transição:** Seguindo o cheiro de decomposição recente na curva da estrada, vá para a cena **B3 · Floresta e o Destino de Dalvan**.""",
+**Transição:** Seguindo a estrada por 400 metros (5 minutos), os personagens encontram o cadáver de Dalvan Olensky (Cena B3).""",
 
-    "B3": """## Roteiro Completo · B3 · Floresta e o Destino de Dalvan
+    "B3": """## Roteiro Completo · B3 · Floresta Svalich e o Destino de Dalvan
 
-**Objetivo:** Descobrir o corpo fresco do mensageiro Dalvan Flank à beira da estrada, investigar as marcas brutais do ataque de lobos e recuperar a carta ensanguentada do Burgomestre Kolyan Indirovich, revelando o cerco à Vila de Baróvia e o tormento de Ireena.
+**Objetivo:** Descobrir o cadáver de Dalvan Olensky na sarjeta lamacenta, encontrar sua bússola de cobre cuja agulha gira desgovernada perto das brumas, seguir a trilha de árvores marcadas com 13 talhas até o cavalo morto e o punhal cravado na quarta árvore ("O Cavaleiro Cavalga. A Vidente Falou a Verdade"), e apresentar as mecânicas das brumas que aprisionam Baróvia.
 
-**Contexto & O que Está em Jogo:** Dalvan Flank era o mensageiro mais veloz do Burgomestre Kolyan Indirovich. Desesperado com os ataques implacáveis de Strahd contra sua filha adotiva Ireena Kolyana, Kolyan enviou Dalvan para o exterior na tentativa desesperada de encontrar aventureiros ou mercenários que pudessem escoltar Ireena até Vallaki. Mas os lobos de Strahd o alcançaram antes que ele pudesse cruzar os portões. O corpo ainda está fresco, provando que o perigo é iminente e ativo.
+**Contexto & Segredo (DragnaCarta Design Note Oficial):**
+> **O Que Realmente Aconteceu com Dalvan:** No rescaldo do ataque de Strahd à Vila de Baróvia, um jovem aldeão chamado Dalvan Olensky entrou em pânico e desespero absolutos. Determinado a fugir de Baróvia, Dalvan viajou até o acampamento Vistani no Lago Tser Pool e pediu uma leitura de Tarokka para a vidente Madame Eva. Ela tirou a carta do *Cavaleiro* — profetizando que ele morreria no vale.
+> Aterrorizado, Dalvan retornou à vila à noite, roubou um cavalo e uma bússola de cobre e cavalgou para o leste tentando cruzar a fronteira. Quando a estrada terminou na névoa, ele entrou na mata, cruzou as brumas e emergiu no lado oposto do caminho! Delirante de terror, ele repetiu o ciclo treze vezes, até seu cavalo morrer de exaustão e ele próprio sucumbir à névoa mortal — mas não antes de entalhar seu próprio epitáfio na quarta árvore.
+> *(Nota de Reloaded: Dalvan NÃO carrega a carta de Kolyan sobre Ireena; essa mudança oficial de DragnaCarta evita o furo de roteiro original e prenuncia a profecia de Madame Eva. Dalvan e seu cavalo reaparecerão mais tarde no Arco C como o Cavaleiro Esquelético!).*
 
 **Ambiente & Sensações:**
-- *Visão:* À margem da estrada, caído entre a folhagem esmagada, jaz o corpo de um homem jovem com trajes de viagem barovianos puídos. Corvos sobrevoam a copa das árvores. Suas roupas estão rasgadas no peito e na garganta por presas titânicas. Em sua mão fechada pelo rigor mortis, repousa um pergaminho com lacre de cera vermelha quebrado.
-- *Sons:* O ruflar de asas de corvos que se empoleiram nos galhos acima; o coaxar fúnebre de sapos nas poças de lama; e o vento que balança as folhas mortas com som de passos apressados.
-- *Cheiro:* Sangue fresco exposto ao ar frio, vísceras caninas e o cheiro forte de pelo de lobo molhado.
-- *Tato:* A pele do cadáver ainda conserva um resquício de calor tépido nas extremidades; a carta em sua mão está úmida de sangue coagulado.
+- *Visão:* Um cadáver estendido de bruços na lama sob pinheiros; roupas rasgadas por espinhos e sarças; pegadas humanas e de cascos de cavalo que saem da estrada e entram em uma trilha de pedestres batida na mata; árvores com 13 marcas de talha entalhadas na casca.
+- *Sons:* O coaxar solitário de corvos invisíveis; o farfalhar de folhas secas ao vento; e o silêncio pesado e congelante da floresta.
+- *Cheiro:* Terra preta encharcada, chuva ácida e o cheiro doce e pesado de um corpo falecido há poucas horas.
+- *Tato:* A bússola de cobre nas mãos de Dalvan está gélida e sua agulha treme descontroladamente.
 
-**Para narrar:** “Cerca de quatrocentos metros além dos portões de ferro, o cheiro de carniça recente torna-se insuportável. Caído de bruços na sarjeta lamacenta, sob a sombra escura de três pinheiros, jaz o corpo de um homem de cerca de trinta anos vestindo botas de couro batido e um gibão verde-escuro rasgado. Sua garganta foi brutalmente estraçalhada por mandíbulas descomunais, e poças escarlates mancham o musgo cinzento ao redor. Três corvos pousados no galho acima observam o banquete que mal começou. Em sua mão direita, congelada pelo rigor mortis, os dedos retorcidos agarram com desespero um pergaminho grosso selado com cera vermelha marcada pelo brasão de Baróvia.”
+**Para narrar:** “Cerca de quatrocentos metros além dos portões, o olhar de vocês é atraído para a margem lamacenta da estrada. Caído de bruços entre as sarças, jaz o corpo de um jovem baroviano de roupas simples de camponês, rasgadas por espinhos e galhos pontiagudos. Ele não apresenta ferimentos de garras ou presas de feras. Em sua mão direita aberta na lama, repousa uma antiga bússola de cobre desgastada, cuja agulha magnética treme e oscila estranhamente mesmo quando segurada com firmeza. A mão estendida de Dalvan aponta diretamente para o tronco de um pinheiro próximo, onde alguém entalhou treze traços na casca e uma seta rústica apontando para uma trilha estreita que penetra na floresta escura.”
 
-### Investigação do Cadáver de Dalvan
-- *Evidente (Sem teste):* O corpo foi atacado há poucas horas (ainda não endureceu totalmente). A garganta foi rasgada e há marcas de garras nas costas, como se ele estivesse correndo em direção aos portões para escapar do vale.
-- *A Carta Ensanguentada de Kolyan Indirovich:*
-  > *“Aos corajosos e justos que lerem este apelo:*
-  > *Eu, Kolyan Indirovich, Burgomestre de Baróvia, escrevo com a mão trêmula de um pai à beira do túmulo. Minha amada filha adotiva, Ireena Kolyana, foi mordida pela criatura que governa as trevas de Ravenloft. O diabo Strahd a deseja para si e sitiou nossa mansão com alcateias de lobos famintos e mortos-vivos noite após noite.*
-  > *Nossa vila sangra. Nossas forças acabaram. Se ainda houver honra neste mundo, venham à Vila de Baróvia e salvem minha filha antes que o diabo a tome para sempre. Não demorem, pois meus dias na terra estão contados.”*
-- *Instinto (CD 12):* Examinando as pegadas ao redor do cadáver: ele não foi pego por uma alcateia comum. Havia um único lobo monstruoso liderando o ataque, e as pegadas desse alfa dão voltas calmas ao redor do corpo, como se o predador tivesse matado apenas para entregar uma mensagem.
-- *Conhecimento (CD 11):* O brasão no selo de cera é o brasão oficial do Burgomestre da Vila de Baróvia. A caligrafia é elegante mas tremida pelo desespero e pela febre.
-- *Bolsos de Dalvan:* Contêm 7 peças de prata barovianas (com o perfil severo de Strahd cunhado no metal) e uma adaga de caça afiada.
+### Investigação do Cadáver & Da Trilha
+- *Causa da Morte:* Teste de *Instinto / Conhecimento (CD 10)* revela que o homem morreu de pura exaustão física e desidratação; não há marcas de mordidas de lobo ou violência vampírica.
+- *A Bússola de Cobre de Dalvan:* Em Baróvia não existe um "norte magnético" real além das brumas. Conforme a bússola se aproxima da borda enevoada do vale, sua agulha começa a tremer e a girar freneticamente em círculos.
+- *Seguindo a Trilha de Dalvan:*
+  1. **Segunda Árvore:** Seguindo a trilha, os heróis encontram uma segunda árvore com 13 traços e uma seta. Na margem da trilha jaz a carcaça de um **cavalo**, morto por exaustão no mesmo estado que Dalvan.
+  2. **Terceira Árvore:** Outros 13 traços e uma seta apontando para uma muralha impenetrável de névoa branca que engole a mata. Se estiverem com a bússola, a agulha gira em círculos loucos.
+  3. **A Travessia das Brumas:** Entrar na névoa faz o grupo caminhar em círculos por 2d4 minutos, emergindo em outro trecho desconhecido da mata. Cada travessia exige teste de *Resistência (CD 5)* ou sofre 1 nível de Exaustão (a CD aumenta em 5 a cada nova tentativa).
+  4. **Quarta Árvore (O Epitáfio de Dalvan):** Ao emergirem, encontram a quarta árvore com 13 traços, um punhal enferrujado cravado no tronco e um entalhe rústico de um cavaleiro com os dizeres:
+     > **“O CAVALEIRO CAVALGA.”**
+     > **“A VIDENTE FALOU A VERDADE.”**
+- Se os jogadores retornarem à estrada, os restos de Dalvan e do cavalo já terão desaparecido nas brumas (reaparecerão como o Cavaleiro Esquelético no Arco C).
 
-**Daggerheart & Mecânicas:** A leitura da carta entrega o objetivo central do Arco B: chegar à Vila de Baróvia e encontrar o Burgomestre e sua filha Ireena. Conceda **1 Esperança** ao grupo por assumir a responsabilidade moral do resgate.
+**Daggerheart & Mecânicas:** Conceda **1 Ponto de Esperança** pela descoberta da trilha e pela compreensão da mecânica mortal das brumas de Baróvia.
 
-**Transição:** Retomando a estrada através da mata, os aventureiros alcançam a subida de uma crista rochosa que descortina a paisagem do vale (Cena B4 · Mirante da Vila).""",
+**Transição:** Retomando a Estrada Svalich por uma milha (cerca de 20 minutos), o grupo sobe a crista rochosa até o Mirante da Vila (Cena B4).""",
 
-    "B4": """## Roteiro Completo · B4 · Mirante da Vila
+    "B4": """## Roteiro Completo · B4 · Mirante da Vila (Barovian Overlook)
 
-**Objetivo:** Apresentar a vista panorâmica monumental do Vale de Baróvia, revelar a imponência aterrorizante do Castelo Ravenloft sobre seu pináculo de mil pés e contrastá-lo com a desolação da Vila de Baróvia envolta em fumaça fria.
+**Objetivo:** Apresentar a vista panorâmica de tirar o fôlego do Vale de Baróvia, revelar a imensidão do Castelo Ravenloft sobre seu pináculo de pedra e a silhueta da Vila de Baróvia, estabelecendo a distância de duas milhas (40 minutos) até os arredores da vila.
 
-**Contexto & O que Está em Jogo:** Este é o clássico momento de revelação do horror de Ravenloft. Após a claustrofobia da floresta, a estrada sobe até a beira de um precipício monumental. Daqui os jogadores compreendem a escala da armadilha: o Castelo Ravenloft não é uma ruína distante, mas o olho onipresente que vigia cada palmo de terra. Abaixo, na depressão do vale, a Vila de Baróvia parece uma mancha de cinzas e abandono.
+**Contexto & Segredo (DragnaCarta):**
+- Os jogadores emergem da Floresta Svalich a uma milha e vinte minutos após partirem do local do cadáver de Dalvan.
+- Esta cena se desenrola conforme descrito no livro oficial *Curse of Strahd* (Área D, p. 34), adaptado por DragnaCarta.
+- A visão de Ravenloft sobre o pilar de rocha nua demonstra a escala colossal da ameaça que governa o vale.
 
 **Ambiente & Sensações:**
-- *Visão:* A estrada emerge da floresta à beira de um desfiladeiro rochoso. Ao sul, erguendo-se sobre um pináculo vertical de pedra nua de trezentos metros de altura, desponta a silhueta colossal e ameaçadora do Castelo Ravenloft: torres pontiagudas, pontes levadiças suspensas sobre o abismo e janelas escuras como fendas de fornalha fria. Abaixo do castelo, na planície cinzenta, jazem os telhados escuros da Vila de Baróvia, de onde sobem finas colunas de fumaça cinzenta.
-- *Sons:* O uivo cortante do vento que sobe do desfiladeiro; o estrondo distante de relâmpagos avermelhados que cruzam as nuvens ao redor das torres do castelo, sem som de chuva correspondente; e o murmúrio grave do Rio Ivlis serpenteando no fundo do cânion.
-- *Cheiro:* Ar rarefeito e gélido, ozônio elétrico, fumaça de madeira queimada e a frieza de pedra molhada.
-- *Tato:* O vento forte no mirante exige firmar os pés para não cambalear em direção à beirada do abismo.
+- *Visão:* A floresta escura se abre de repente para um vale enevoado e sombrio; montanhas imponentes cercam a depressão; ao norte, um monte pedregoso; ao sul, um pico coberto de neve perpétua. Mais adiante, uma pequena vila aninhada na terra; e muito acima de tudo, o Castelo Ravenloft sobre um pináculo vertical de pedra de trezentos metros de altura.
+- *Sons:* O murmúrio distante e límpido do Rio Ivlis cortando o vale; trovões surdos rolando nas nuvens cinzentas; o estalar de um relâmpago distante nas torres do castelo.
+- *Cheiro:* Ar fresco e gélido de montanha, água limpa de degelo e fumaça fria subindo das chaminés da vila.
+- *Tato:* O vento forte do mirante que puxa as capas dos personagens em direção ao precipício.
 
-**Para narrar:** “A estrada serpenteia pela encosta de uma colina rochosa e de repente rompe a linha das árvores, abrindo-se para um mirante vertiginoso sobre o abismo. À frente de vocês, o Vale de Baróvia revela toda a sua grandiosidade lúgubre. Ao longe, erguendo-se sobre um pináculo de rocha nua de trezentos metros de altura que desafia as leis da natureza, ergue-se o titânico Castelo Ravenloft. Suas torres esguias e ameias pontiagudas parecem garras de ferro perfurando as nuvens de chumbo, enquanto relâmpagos avermelhados sem trovão iluminam suas janelas vazias. Muito abaixo, espremida na sombra eterna do castelo como um cordeiro acuado diante do lobo, repousa a Vila de Baróvia: um punhado de telhados de ardósia cinzenta e chaminés fumegantes cercadas por uma névoa rasteira. O senhor deste vale vigia cada respiração de vocês lá de cima.”
+**Para narrar:** “A floresta escura repentinamente se afasta, revelando um vale enevoado e sombrio salpicado por grossos bancos de névoa.
+Nuvens pesadas de tempestade lançam uma mortalha cinzenta sobre a terra abaixo, sem qualquer sol visível na luz fria e pálida. Pinheiros perenes escalam as encostas das montanhas que cercam o vale: ao norte ergue-se um monte pedregoso com tufos de mata; ao sul, um pico coberto de neve com encostas íngremes ergue-se de forma imperiosa sobre o vale.
+A estrada enlameada continua adiante, passando por pastos amarelados e terras de cultivo até alcançar um povoado pequeno e humilde, aninhado e curvado contra a terra. Ao lado do caminho, um rio corre tão límpido quanto o céu azul de inverno.
+E muito acima da vila, ergue-se um castelo escuro e retorcido, solitário no topo de um pináculo de rocha vertical. Por um instante, uma lança distante de relâmpago faisca nas alturas, iluminando a imponente fortaleza em sombras e luzes cruas — e então um espesso banco de névoa rola pelo cânion, ocultando a vila e o castelo de suas vistas.”
 
 ### Investigação do Mirante
-- *Evidente (Sem teste):* A Vila de Baróvia fica a cerca de 1 hora de caminhada encosta abaixo seguindo a Estrada Svalich. O Castelo Ravenloft ergue-se no penhasco superior e não é acessível diretamente daqui sem subir a encruzilhada de Ravenloft.
-- *Instinto (CD 11):* Observando a vila com atenção: não há movimento normal nas ruas. Há barricadas de troncos montadas nas entradas e várias casas exibem telhados desabados e paredes com marcas de fuligem. A vila está sob ataque recente.
-- *Conhecimento (CD 12):* O pináculo rochoso sobre o qual o castelo repousa chama-se Espire de Ravenloft; diz a lenda que ele foi esculpido em uma única rocha por gigantes a mando do próprio Strahd após sua vitória na guerra.
-- *Presença (CD 12):* Olhando fixamente para a torre mais alta do castelo por mais de dez segundos, um dos personagens sente a impressão nítida de que uma figura de capa carmesim está de pé na sacada superior, olhando diretamente nos olhos dele. Ganha **1 Ponto de Estresse** pelo vislumbre do terror.
+- *Evidente (Sem teste):* A jornada do mirante até os arredores da Vila de Baróvia é de duas milhas de extensão e leva quarenta minutos de caminhada pela estrada.
+- *Instinto (CD 11):* Observando a vila com atenção através da névoa: o vilarejo parece estranhamente silencioso e fortificado; não há carroças transitando pelos campos.
 
-**Daggerheart & Mecânicas:** Conceda um momento para os heróis respirarem e contemplarem o horizonte dramático. Se algum jogador expressar admiração sombria ou medo pelo castelo, o Mestre pode converter isso em um gancho narrativo imediato.
+**Transição:** Descendo a estrada pela encosta até os arredores fortificados do vilarejo, vá para a cena **B5 · Vila sob Cerco / B5a · A Barricada**.""",
 
-**Transição:** Descendo a encosta sinuosa da estrada Svalich em direção ao vale, os personagens chegam aos limites externos fortificados da Vila de Baróvia (Cena B5 · Vila sob Cerco / B5a · Barricada: Encontro com Ismark).""",
+    "B5": """## Roteiro Completo · B5 · A Vila sob Cerco (Visão Geral & Defesas)
 
-    "B5": """## Roteiro Completo · B5 · Vila sob Cerco (Visão Geral & Exploração)
+**Objetivo:** Apresentar a situação de cerco militar desesperado na Vila de Baróvia, as trincheiras com estacas e barricadas erguidas pelos moradores contra as hordas de mortos-vivos de Strahd, e orientar a exploração dos locais do vilarejo.
 
-**Objetivo:** Conduzir a entrada na Vila de Baróvia, apresentar a atmosfera de cerco desesperado, a paranoia dos aldeões sobreviventes, as marcas de ataques de lobos e mortos-vivos, e guiar os heróis pelos pontos centrais do vilarejo.
+**Para narrar:** "A névoa espessa que envolve as encostas do Monte Baróvia abre-se para revelar um vilarejo que se assemelha mais a uma fortaleza militar sitiada do que a uma comunidade pacífica. Trincheiras profundas guarnecidas com estacas pontiagudas cortam a estrada enlameada, e paliçadas improvisadas de madeira negra bloqueiam os becos entre sobrados com venezianas trancadas por tábuas e pregos. O silêncio que paira no ar não é de paz, mas de um desespero vigilante: homens e mulheres de rostos cavados observam por frestas nas barricadas, com lanças e arcos prontos para o próximo ataque das sombras."
 
-**Contexto & O que Está em Jogo:** A Vila de Baróvia está morrendo. Nas últimas semanas, hordas de lobos gigantescos, morcegos e zumbis enviados do Castelo Ravenloft cercaram o vilarejo todas as noites. O Burgomestre Kolyan Indirovich morreu há três dias de um ataque cardíaco fulminante causado pelo estresse do cerco, mas seu corpo não pôde ser enterrado porque o cemitério da igreja foi profanado. As ruas estão vazias durante o dia e barricadas à noite. Apenas a taverna *Sangue da Videira* e o comércio de *Bildrath* permanecem com as portas abertas.
-
-**Ambiente & Sensações:**
-- *Visão:* Ruas de terra enlameada e paralelepípedos gastos ladeadas por sobrados góticos de madeira escura e telhados pontiagudos. A grande maioria das portas e janelas do térreo está lacrada com tábuas grossas de pinho pregadas por fora. Em várias fachadas há marcas profundas de garras e fuligem de labaredas frias.
-- *Sons:* O uivo lamentoso do vento canalizado pelas ruelas estreitas; o som estridente e rítmico de um martelo batendo em madeira em uma barricada distante; o bater repetido de uma veneziana solta; e, subitamente, o choro angustiante e lancinante de uma mulher ecoando de uma das casas fechadas.
-- *Cheiro:* Fumaça de lenha úmida, lama fétida, cal apagada usada para cobrir sepulturas improvisadas e vinho barato azedo.
-- *Tato:* Um silêncio que pesa sobre os ombros; cortinas tremem nas frestas do andar de cima dos sobrados à medida que olhos assustados observam a passagem dos forasteiros armados.
-
-**Para narrar:** “A névoa rasteja pelas ruelas da Vila de Baróvia como um lençol fúnebre arrastado sobre a lama. As casas de madeira escura e telhados íngremes parecem monumentos ao abandono: janelas e portas estão lacradas com pranchas grossas de pinho, exibindo marcas profundas de garras que lascaram o carvalho. Não há crianças brincando, não há mercadores nas praças, não há carroças de suprimentos. Das frestas das venezianas no segundo andar, vocês conseguem vislumbrar rostos cinzentos e aterrorizados espiando a passagem do grupo com desconfiança doentia. Ao fundo, o badalar rouco de um sino fúnebre soa da direção da igreja no topo da colina, enquanto de uma casa próxima ouve-se o pranto desesperado e contínuo de uma mulher chamando por sua filha.”
-
-### Guia Rápido dos Pontos da Vila
-- **B5a · Barricada Oriental:** Ismark o Menor com seis milicianos exaustos reforçando estacas de defesa contra os lobos.
-- **B5b · Praça Central & Aldeões:** Cerca de doze moradores desnutridos e traumatizados que imploram por comida ou notícias dos portões.
-- **B5c · Taverna Sangue da Videira:** Arik o taverneiro sem alma limpando copos, três Vistani silenciosos e o refúgio seguro de Ismark.
-- **B5d · Mansão do Burgomestre:** Residência senhorial fortificada onde Ireena Kolyana vela o caixão de seu pai Kolyan.
-- **B5e · Comércio de Bildrath:** O único armazém da vila, onde suprimentos são vendidos a 10x o preço pelo ganancioso Bildrath e seu guarda-costas Perriwimple.
-- **B5f / B5g · Igreja & Porão:** Padre Donavich orando ensandecido enquanto seu filho Doru ruge faminto no porão.
-- **B5k · Casa de Mad Mary:** A mãe enlouquecida de dor cujo pranto ecoa pelas ruas, segurando a boneca de sua filha Gertruda desaparecida.
-
-**Daggerheart & Mecânicas:** A vila funciona como um hub aberto. Deixe os jogadores decidirem livremente se vão primeiro à barricada de Ismark (B5a), à taverna (B5c), à mansão (B5d) ou à igreja (B5f).
-
-**Transição:** Avance diretamente para a cena escolhida pelos aventureiros na exploração da vila.""",
-
-    "B5a": """## Roteiro Completo · B5a · Barricada: Encontro com Ismark
-
-**Objetivo:** Apresentar Ismark Kolyanovich ("Ismark o Menor") na barricada oriental da vila, estabelecer sua liderança desesperada após a morte do pai e sua necessidade urgente de guerreiros para proteger sua irmã Ireena.
-
-**Contexto & O que Está em Jogo:** Ismark Kolyanovich é o filho legítimo do Burgomestre Kolyan Indirovich. Jovem, habilidoso com a espada e dotado de uma nobreza rara em Baróvia, ele herdou o fardo esmagador de liderar um povo sem esperança. Os moradores o apelidaram de "Ismark o Menor" por duvidarem que ele iguale o pai. Ele passou as últimas três noites sem dormir, liderando a milícia para conter as investidas de lobos e zumbis que tentam invadir o centro da vila. Ao ver aventureiros armados e capazes, ele enxerga a última salvação para Ireena.
+**Contexto & Segredo (DragnaCarta Info Oficial):**
+> **A Vila Fortificada:** A Vila de Baróvia foi fortemente fortificada para se defender do cerco noturno de Strahd. Barricadas compostas por troncos, pranchas e móveis quebrados foram erguidas em todas as entradas principais do povoado, com obstruções adicionais levantadas em cada beco ou fresta entre as casas dos camponeses. Uma trincheira de 1,5 metro de largura por 1,5 metro de profundidade foi cavada ao redor de toda a vila e plantada com centenas de estacas pontiagudas de madeira. Arqueiros patrulham os telhados em todas as horas do dia e da noite.
+> **A Linha do Tempo do Cerco:**
+> - Há 3 meses: Doru liderou a rebelião fracassada contra o castelo, acordando Strahd de sua dormência.
+> - Há 6 noites: As forças mortas-vivas de Strahd começaram a atacar a vila todas as noites.
+> - O Burgomestre Kolyan Indirovich ainda está vivo na mansão (embora ferido e acamado).
+> - Ireena Kolyana ainda NÃO foi mordida por Strahd! O ataque à mansão é iminente.
 
 **Ambiente & Sensações:**
-- *Visão:* Uma barricada improvisada de três metros de altura bloqueia a rua principal: carroças de feno viradas, troncos pontiagudos de pinho e móveis velhos amarrados com cordas grossas. Ismark veste uma cota de malha desgastada sobre túnica azul-marinho; traz uma espada longa de aço na bainha e olheiras profundas sob os olhos azuis alertas. Seis moradores maltrapilhos armados com forcados e lanças toscas trabalham com pás e martelos.
-- *Sons:* O bater seco de martelos cravando pregos em tábuas; a respiração ofegante dos camponeses exaustos; e a voz firme, embora rouca de cansaço, de Ismark coordenando a linha de vigília.
-- *Cheiro:* Pinho fresco recém-cortado misturado a suor humano, feno seco e o fedor de sangue seco em estacas da barricada.
-- *Tato:* O aperto de mão de Ismark é calejado, forte e firme, embora suas mãos tremam de exaustão.
+- *Visão:* Casas góticas de madeira escura com telhados íngremes; ruas enlameadas cercadas por barricadas toscas; janelas com marcas de fuligem e tábuas pregadas; homens e mulheres maltrapilhos armados com bestas nos telhados.
+- *Sons:* O bater de martelos e serras consertando madeira; ordens secas e sussurradas da guarda; o crocitar de corvos nas cumeeiras.
+- *Cheiro:* Pinho recém-cortado, lama fétida, fumaça de madeira queimada e suor de medo.
+- *Tato:* A tensão palpável de uma comunidade que sabe que a noite trará sangue.
 
-**Para narrar:** “Na entrada oriental da vila, uma barricada formidável de troncos pontiagudos, carroças tombadas e paralelepípedos arrancados bloqueia a passagem da rua. Meia dúzia de moradores com rostos pálidos e trapos sujos de terra martelam pranchas de madeira sob a supervisão de um jovem nobre de porte atlético e cabelos loiros desgrenhados. Ele veste uma cota de malha escurecida pelo uso e traz à cintura uma espada longa de fino acabamento. Suas olheiras profundas denunciam noites inteiras sem sono, mas seus olhos azuis brilham com uma determinação feroz. Ao avistar forasteiros armados cruzando a neblina, sua mão pousa no pomo da espada por um instante de reflexo tenso, antes de relaxar em um suspiro de alívio inacreditável.”
+**Daggerheart & Mecânicas:** A vila funciona como um centro de operações. Conduza os heróis diretamente para a barricada principal onde Ismark comanda as defesas (Cena B5a).""",
 
-### NPCs & Diálogos · Ismark Kolyanovich
-- **Aparência e Postura:** 26 anos, postura marcial nobre, exausto mas digno. Trata os heróis com respeito formal de cavalheiro.
-- **Falas do Mestre:**
-  - *“Abaixem as lanças, homens! São viajantes... ou pelo menos não têm presas nem olhos vermelhos.”*
-  - *“Eu sou Ismark Kolyanovich. Se vieram atraídos pela carta do meu pai... receio que tenham chegado tarde demais para salvá-lo. O Burgomestre está morto. Mas sua última vontade ainda vive: minha irmã Ireena precisa ser retirada deste vale.”*
-  - *“A praça não é segura para conversarmos. Os corvos nos telhados têm ouvidos afiados e levam cada palavra ao castelo. Venham até a taverna Sangue da Videira; pagarei um jarro de vinho e explicarei o inferno em que vocês acabaram de pisar.”*
-- **Reação dos Aldeões:**
-  - *Kereza (moradora desconfiada):* *“Mais forasteiros para atrair a ira do diabo! Já não bastam os lobos que comeram o gado do velho Stefanescu?”*
-  - Ismark intervém com autoridade: *“Chega, Kereza! Se nos fecharmos para quem traz aço e coragem, estaremos apenas esperando a cova nos engolir.”*
+    "B5a": """## Roteiro Completo · B5a · A Barricada: Encontro com Ismark
 
-### Investigação da Barricada
-- *Evidente (Sem teste):* As pontas das estacas de madeira têm tufos de pelos cinzentos e pretos de lobo arrancados, além de respingos de sangue negro e viscoso de carniçais.
-- *Instinto (CD 11):* Observando a barricada, percebe-se que as estacas foram projetadas para repelir ataques de feras desprovidas de raciocínio, mas seriam facilmente transpostas por criaturas inteligentes com asas ou capacidade de escalar.
-- *Conhecimento (CD 12):* O trabalho de carpintaria é militar profissional; Ismark clearly tem treinamento de combate formal em cavalaria ou guarda nobre.
+**Objetivo:** Conduzir a aproximação da barricada de entrada, ser desafiado pelos arqueiros Kereza e Korga nos telhados, conhecer Ismark Kolyanovich liderando os reparos, introduzir o corvo de asas azuis Muriel Vinshaw e aceitar o convite para a Taverna Sangue da Videira.
 
-**Daggerheart & Mecânicas:** Ismark oferece um porto seguro na taverna e informações vitais. Não há teste de combate nesta cena; o foco é estabelecer a aliança com o grupo.
-
-**Transição:** Ismark guia os personagens pelas ruelas da vila até a taverna central (Cena B5c · Taverna Sangue da Videira).""",
-
-    "B5c": """## Roteiro Completo · B5c · Taverna Sangue da Videira
-
-**Objetivo:** Proporcionar o primeiro momento de refúgio social na vila, interagir com Arik o taverneiro sem alma e os Vistani misteriosos, e ouvir a exposição completa de Ismark sobre a maldição de Baróvia, o tormento de Ireena e a proposta de escolta para Vallaki.
-
-**Contexto & O que Está em Jogo:** A taverna *Sangue da Videira* é o único estabelecimento social aberto na vila. Antes do cerco, pertencia a três irmãs Vistani; hoje é gerida pelo melancólico Arik. É um lugar sem risos, sem canções e sem alegria. O vinho servido é o azedo *Purple Grapemash No. 3*, o único que ainda chega da vinícola distante. Aqui os personagens descobrem a cosmologia do vale: as brumas que impedem qualquer saída, a tirania imortal de Strahd e o preço da sobrevivência.
+**Contexto & Segredo (DragnaCarta Profile Oficial):**
+> **Perfil de Interpretação: Ismark Kolyanovich**
+> - **Ressonância:** Ismark deve inspirar admiração por seu interesse genuíno e empatia pelos heróis, compaixão por sua culpa e desespero, e carinho por seu anseio de honrar a memória de seu pai e superar a sombra de seu bisavô (Ismark o Grande).
+> - **Emoções:** Preocupado, culpado, acolhedor, melancólico, desafiador, esperançoso e grato.
+> - **Motivações:** Proteger sua vila e sua irmã Ireena, manter viva a memória de seu pai Kolyan, e provar seu valor como líder.
+> - **Inspirações:** Jon Snow (*Game of Thrones*), Faramir (*Senhor dos Anéis*), Trevor Belmont (*Castlevania*).
+> - **Muriel Vinshaw:** O corvo com pontas azuis nas asas pousado no telhado é Muriel, uma **wereraven** disfarçada da *Ordem das Penhas (Keepers of the Feather)*, enviada para vigiar a vila e proteger os forasteiros.
 
 **Ambiente & Sensações:**
-- *Visão:* Um salão amplo com vigas pesadas de carvalho escurecidas por décadas de fuligem de cachimbos e lareira. Uma lareira de pedra rústica na parede norte emite pouco calor e muita fumaça cinzenta. Poucas mesas estão ocupadas. Ao balcão, um homem calvo de olhar vidrado esfrega um copo sujo com um pano encardido sem parar. Em uma mesa de canto bem iluminada, três homens Vistani vestidos com coletes bordados coloridos bebem vinho e jogam cartas em silêncio absoluto.
-- *Sons:* O esfregar rítmico e hipnótico do pano no vidro do copo; o crepitar das toras úmidas na lareira; o barulho de cartas sendo batidas na madeira da mesa dos Vistani; e o silêncio pesado entre os poucos fregueses.
-- *Cheiro:* Vinho tinto azedo, fumaça sufocante de turfa e cachimbo, cera de sebo derretida e o cheiro rançoso de casacos molhados secando perto do fogo.
-- *Tato:* Os bancos de madeira são duros e ásperos; o copo de barro com vinho roxo está lascado na borda e gelado.
+- *Visão:* Uma trincheira de 1,5 metro de largura repleta de estacas pontiagudas como dentes de fera; uma ponte improvisada de madeira cruzando sobre o fosso; uma barricada de dez metros de comprimento feita de carroças e toras. Um homem alto e loiro de armadura de talas comanda os aldeões; um corvo de penas azuladas observa do telhado.
+- *Sons:* O bater seco de martelos em pregos; a voz tensa e desafiadora de uma vigia gritando do telhado com uma besta engatilhada; e a resposta calma e bem-humorada de Ismark acalmando seus homens.
+- *Cheiro:* Pinho cortado, terra revolvida, fuligem de madeira queimada e chuva fresca.
+- *Tato:* O olhar tenso dos aldeões que relaxa ao perceberem que os recém-chegados estão vivos.
 
-**Para narrar:** “Ao empurrarem a pesada porta de madeira da taverna Sangue da Videira, o ranger das dobradiças atrai os olhares de todos os presentes por um instante fugaz antes que a indiferença volte a reinar. O ar no interior é morno, denso e impregnado pelo odor avinagrado do Purple Grapemash No. 3 e pela fumaça de turfa que escapa da lareira de pedra. Atrás do balcão, um taverneiro calvo de olhos vazios e sem brilho esfrega mecanicamente o mesmo copo de estanho com um pano sujo, movendo-se como uma marionete sem vida. Em uma mesa afastada, três Vistani em casacos coloridos de veludo e anéis de prata jogam cartas sob a luz de duas velas de sebo, rindo baixinho entre si. Ismark puxa bancos de pinho para vocês e bate uma moeda de prata no balcão: ‘Um jarro do melhor que você tiver, Arik. Meus amigos precisam de calor antes de falarmos sobre monstros.’”
+**Para narrar:** “Conforme a manhã avança e os céus encobertos clareiam para um cinza fosco e sombrio, os arredores da vila tornam-se nitidamente visíveis. Uma larga trincheira de terra cerca todo o povoado, com um metro e meio de largura e a mesma profundidade, com centenas de estacas afiadas de madeira projetando-se da terra como dentes pontiagudos. Mais adiante, ao lado de uma pilha alta de madeira carbonizada, a estrada cruza sobre uma ponte improvisada de tábuas, onde o solo lamacento dá lugar a paralelepípedos úmidos e escorregadios.
+Barricadas de madeira erguem-se de forma improvisada pelas ruas. As estruturas ao redor exibem marcas de queimaduras profundas e arranhões violentos, e várias casas mostram paredes e telhados parcialmente desabados, permitindo que a névoa fria deslize silenciosamente para dentro.
+Figuras armadas com bestas patrulham os telhados antigos, enquanto meia dúzia de camponeses com rostos assombrados realizam reparos em uma barricada de dez metros de comprimento que bloqueia a rua principal. Um homem alto, de ombros largos, cabelos loiros na altura dos ombros e queixo quadrado lidera os trabalhos, trazendo uma espada longa atada ao quadril e vestindo uma armadura de talas sobre um casaco de gola alta. Um corvo com penas azuis brilhantes na ponta das asas repousa sobre uma das cumeeiras próximas, observando cada movimento de vocês com evidente inteligência.”
 
-### NPCs & Diálogos · Taverna
-- **Arik (O Taverneiro sem Alma):**
-  - Rosto inexpressivo, voz monótona e rouca. Responde apenas o estritamente necessário. Não tem medo, não tem alegria, não tem esperança. Representa os barovianos que nasceram sem alma (uma casca vazia gerada pelas brumas).
-  - *Falas do Mestre:* *“Um jarro. Três peças de cobre. O fogo está aceso. Não há quartos para dormir.”*
-- **Os Três Vistani (Alenka, Mirabel e Sorvia):**
-  - Jogam cartas e observam os aventureiros de soslaio com sorrisos irônicos.
-  - Se abordados com cortesia (*Presença (CD 11)*), avisam em tom enigmático:
-    - *“Aventureiros novos no vale... As brumas sempre trazem carne fresca para o mestre de Ravenloft se divertir.”*
-    - *“Se quiserem entender o destino de vocês, não percam tempo com estes camponeses assustados. Vão até o lago Tser Pool. Madame Eva lê os segredos do passado e do futuro no baralho sagrado de Tarokka.”*
-- **Ismark Kolyanovich (A Proposta de Aliança):**
-  - Ismark enche as canecas de barro e conta a verdade:
-    1. *Strahd von Zarovich:* É o senhor tirano imortal do Castelo Ravenloft. Os barovianos o chamam apenas de "o Diabo" ou "o Mestre". Ele é um vampiro ancestral que controla as brumas, os lobos e o clima.
-    2. *O Tormento de Ireena:* Strahd visitou Ireena duas vezes nas últimas semanas, hipnotizando-a e alimentando-se de seu sangue. A lenda diz que na terceira mordida, a vítima se torna uma cria imortal e é levada para o castelo.
-    3. *A Missão:* Ismark implora que os personagens o ajudem a enterrar o Burgomestre Kolyan Indirovich com dignidade e depois escoltem Ireena até a cidade fortificada de **Vallaki**, protegida por muralhas e pela igreja consagrada de Santo Andral, fora do alcance imediato de Strahd.
+### O Desafio de Kereza & A Intervenção de Ismark
+Uma mulher vigia no telhado aponta uma besta leve para o grupo e grita:
+**Para narrar:** “Do alto de um telhado, uma mulher grita com a besta engatilhada: ‘Alto lá! Declarem-se — são vocês vivos ou mortos?!’ Ao lado dela, um homem sombrio de gibão de couro leva a mão ao virote no quadril.”
+- Kereza desconfia que os aventureiros sejam zumbis ou carniçais disfarçados.
+- Independentemente da resposta, Ismark intervém com bom humor e autoridade: *“Abaixem as armas! Eles estão claramente vivos, assim como nós!”*
+- Ismark abre uma seção móvel da barricada e recebe os heróis com calorosa hospitalidade:
+  - Explica que a vila está sob cerco noturno de hordas de mortos-vivos há várias noites.
+  - Convida o grupo a acompanhá-lo até a **Taverna Sangue da Videira** no centro da vila para tomar um trago e conversar com calma:
+    > *“Temos pelo menos três horas antes do anoitecer,”* diz ele, olhando para o céu cinzento. *“Deve nos dar tempo suficiente antes que os mortos retornem.”*
+- Se os heróis aceitarem, o corvo Muriel alça voo e os acompanha pelo ar até a praça central.
 
-### Investigação na Taverna
-- *Instinto (CD 11):* Percebe que Arik não pisca os olhos com frequência normal e suas pupilas não dilatam; ele é a personificação do vazio espiritual de Baróvia.
-- *Conhecimento (CD 12):* O baralho nas mãos dos Vistani é um autêntico baralho de Tarokka, usado pela nobreza antiga para adivinhação astrológica.
+**Daggerheart & Mecânicas:** A hospitalidade de Ismark estabelece a aliança central do Arco B. Conceda **1 Ponto de Esperança** pela entrada pacífica na vila fortificada.
 
-**Daggerheart & Mecânicas:**
-- A taverna funciona como um local para um descanso curto sem custo de unidades de relógio. Os personagens podem recuperar pontos de esperança e discutir a proposta de Ismark.
-- Se o grupo concordar em ajudar Ismark a proteger Ireena, cada jogador ganha **1 Ponto de Esperança**.
+**Transição:** Caminhando com Ismark pelas ruas barricadas, o grupo chega à praça central e à Taverna Sangue da Videira (Cenas B5b / B5c).""",
 
-**Transição:** Ismark lidera o caminho pelas ruas até a Mansão do Burgomestre para apresentar os heróis a Ireena Kolyana (Cena B5d · Mansão da Família e Pressão dos Moradores).""",
+    "B5b": """## Roteiro Completo · B5b · A Praça da Vila (The Town Square)
 
-    "B5d": """## Roteiro Completo · B5d · Mansão do Burgomestre: Família e Cerco
+**Objetivo:** Conduzir a travessia pela praça central da Vila de Baróvia, testemunhar o terror e o confinamento dos aldeões e observar o poço antigo antes de adentrar a Taverna Sangue da Videira.
 
-**Objetivo:** Entrar na fortificada Mansão do Burgomestre, conhecer Ireena Kolyana, testemunhar a dor pelo falecimento de seu pai Kolyan Indirovich velado na sala de estar, e planejar a saída para o cemitério e a futura fuga para Vallaki.
-
-**Contexto & O que Está em Jogo:** A mansão do Burgomestre Kolyan era o edifício mais nobre da vila, mas agora parece um bunker de guerra. Durante duas semanas ininterruptas, alcateias de lobos monstruosos e enxames de morcegos foram enviados por Strahd para cercar a residência, destruindo o jardim e quebrando janelas. O coração do velho Kolyan não resistiu ao terror e parou há três dias. Ireena recusa-se a deixar a mansão enquanto o corpo de seu pai não for sepultado em terra sagrada na igreja de Baróvia.
+**Contexto & Segredo (DragnaCarta):**
+- A praça central é o coração deserto da vila.
+- Todas as casas residenciais ao redor estão fechadas com trincas e tábuas; os poucos moradores que precisam sair andam colados às paredes, apressados e aterrorizados.
+- As crianças estão trancadas em casa; ninguém confia em ninguém.
 
 **Ambiente & Sensações:**
-- *Visão:* Uma mansão de dois pavimentos em estilo gótico com jardins outrora bem cuidados agora transformados em um atoleiro de lama e raízes arrancadas. As portas duplas de carvalho maciço exibem marcas profundas de garras que parecem feitas por machados. As janelas do térreo foram tapadas com tábuas de pinho pregadas com vigas cruzadas. Na sala de estar iluminada por velas, um caixão simples de madeira tosca repousa sobre duas banquetas, coberto por flores de inverno murchas.
-- *Sons:* O silêncio tenso e pesado da casa fechada; o assobio do vento pelas frestas das tábuas das janelas; o clique metálico de uma besta sendo destravada por trás da cortina quando a porta se abre; e a respiração contida de uma mulher em alerta máximo.
-- *Cheiro:* Velas de cera de abelha, cravos-da-índia e cal hidratada colocados ao redor do caixão para mascarar o odor de decomposição do corpo de Kolyan após três dias.
-- *Tato:* O ar é frio e imóvel como em uma capela ardente.
+- *Visão:* Uma praça ampla com paralelepípedos molhados cobertos por folhas mortas apodrecidas; no centro, um poço circular de pedra com manivela de ferro enferrujada; casas de dois pavimentos com venezianas fechadas onde cortinas se movem discretamente com olhares curiosos e assustados.
+- *Sons:* O som oco das botas na pedra molhada; o vento canalizado pelas esquinas; e o sussurro abafado de vozes dentro das casas trancadas.
+- *Cheiro:* Fumaça de lenha fria, água estagnada do poço e lama.
+- *Tato:* A sensação de estar sendo observado por dezenas de olhos apavorados por trás de cada fresta.
 
-**Para narrar:** “A mansão do Burgomestre ergue-se no final da alameda como uma fortaleza sob cerco. Os portões de ferro do jardim foram arrancados das dobradiças e jazem na lama, cercados por tufos de grama queimada e pegadas descomunais de feras. As paredes de cantaria cinzenta estão crivadas de marcas de garras e fumaça fria. Todas as janelas do térreo foram bloqueadas por pranchas grossas de madeira pregadas com ferrolhos duplos. Quando Ismark bate na porta principal com o código de três batidas compassadas, o trinco de ferro se ergue lentamente. A porta abre-se para uma sala ampla e escura onde dezenas de velas acesas cercam um caixão de madeira fechado no centro do aposento. De pé ao lado do caixão, armada com uma espada de duelo e trajando calças de couro de montaria e uma camisa de linho manchada de fuligem, está uma jovem mulher de postura altiva e cabelos acobreados radiantes. Seus olhos verdes examinam vocês com a mira afiada de uma leoa ferida.”
+**Para narrar:** “A rua principal abre-se para uma praça ampla e desolada, onde paralelepípedos escuros estão cobertos por folhas mortas apodrecidas e poças de chuva cinzenta. No centro do largo, ergue-se um poço circular de cantaria com um balde de carvalho pendurado por uma corda puída. As lojas e sobrados ao redor têm suas portas trancadas com pesadas trancas de ferro e venezianas fechadas. Das frestas das cortinas nos andares superiores, vocês conseguem vislumbrar rostos pálidos e encovados espiando sua passagem com terror silencioso. Nenhuma criança brinca na rua; nenhum comerciante oferece mercadorias. Do outro lado da praça, destacando-se entre os prédios silenciosos, uma placa de madeira entalhada com uma videira pingando uvas arroxeadas balança ao vento acima da única porta aberta da vila: a Taverna Sangue da Videira.”
 
-### NPCs & Diálogos · Ireena Kolyana
-- **Aparência e Postura:** Cerca de 23 anos, beleza marcante com cabelos cor de cobre (característica idêntica à antiga Tatyana Federovna, embora ela ignore essa encarnação). Forte, inteligente, determinada; recusa o papel de vítima indefesa. Em seu pescoço pálido, sob a gola alta de veludo, há duas marcas circulares arroxeadas cobertas por gaze fina — as mordidas do vampiro.
-- **Falas do Mestre:**
-  - *“Ismark! Quem são essas pessoas? Você trouxe mercenários para dentro da nossa casa?”*
-  - *“Eu não sou uma donzela assustada para ser negociada em tavernas. Sei lutar e não pretendo me render àquele monstro sem sangrar primeiro.”*
-  - *“Meu pai morreu de terror defendendo esta casa para me manter a salvo. Seu corpo está há três dias neste caixão improvisado porque os aldeões têm medo até de carregar a madeira até a igreja. Não dou um único passo para fora desta vila até que ele esteja sepultado na terra consagrada do Senhor da Manhã.”*
-  - *Se questionada sobre Strahd:* *“Ele veio nas brumas... Ele entrava pelos meus sonhos primeiro. Sua voz era doce e irresistível como veneno com mel. Quando acordei na manhã seguinte, minhas forças haviam sumido e o sangue manchava meu travesseiro. Ele disse que virá me buscar pela terceira vez e que ninguém neste vale pode me proteger dele.”*
+**Transição:** Ismark empurra a porta de carvalho da taverna e convida os heróis a entrar (Cena B5c · Taverna Sangue da Videira).""",
 
-### Investigação na Mansão
-- *O Caixão do Burgomestre:* O caixão de pinho foi construído pelo próprio Ismark na marcenaria dos fundos.
-  - *Instinto (CD 11):* O corpo precisa ser enterrado antes do anoitecer: a decomposição já atrai moscas e, em Baróvia, corpos insepultos têm uma tendência sobrenatural de se erguerem como zumbis famintos.
-- *Marcas do Cerco:*
-  - *Conhecimento (CD 12):* As marcas de garras nas vigas foram deixadas por lobos atrozes sob comando mental direto — não há marcas de mordidas para alimentação, apenas violência calculada para infligir terror psicológico.
-- *Segredo de Ireena:* Ireena foi adotada por Kolyan aos quatro anos de idade; ninguém na vila conhece suas origens biológicas (ela foi encontrada na floresta nos arredores dos Portões de Baróvia).
+    "B5c": """## Roteiro Completo · B5c · Taverna Sangue da Videira: A Verdade de Baróvia
 
-**Daggerheart & Mecânicas:**
-- Se os heróis concordarem em carregar o caixão do Burgomestre Kolyan Indirovich até a igreja de Baróvia e ajudar a cavar a sepultura, Ireena aceita a escolta até Vallaki com gratidão leal.
-- Cada herói ganha **1 Ponto de Esperança** pela demonstração de honra.
+**Objetivo:** Entrar na Taverna Sangue da Videira com Ismark, conhecer o taverneiro Arik (proprietário único na versão de Reloaded), presenciar a fúria e o choque de Bildrath Cantemir, ouvir o relato de Mary e receber as respostas oficiais de Ismark sobre o vale, a rebelião de Doru e o cerco de Strahd.
 
-**Transição:** O grupo precisa agora transportar o pesado caixão de carvalho pelas ruas da vila até a igreja de Baróvia no topo da colina (Cena B5f · Igreja: Desespero e Gritos / B5h · O Enterro de Kolyan).""",
-
-    "B5f": """## Roteiro Completo · B5f · Igreja de Baróvia: Desespero e Gritos
-
-**Objetivo:** Adentrar a igreja dilapidada do Senhor da Manhã, presenciar o desespero do Padre Donavich orando ensandecido no altar profanado e investigar os gritos aterrorizantes que emanam do porão sob o assoalho.
-
-**Contexto & O que Está em Jogo:** A igreja de Baróvia outrora representava o farol de luz e consolo para o vale sob a bênção de Lathander (o Senhor da Manhã). Hoje é uma casca arruinada. Durante a fracassada rebelião liderada por um poderoso mago estrangeiro há um ano, Doru, o único filho do padre Donavich, marchou com os rebeldes até as portas do Castelo Ravenloft. Todos foram massacrados. Dias depois, Doru retornou transformado em uma cria de vampiro faminta. Donavich, incapaz de destruir o próprio filho, prendeu-o com correntes no porão sob o altar e passa dias e noites rezando desesperadamente pela salvação de sua alma, enlouquecendo com os berros da criatura.
+**Contexto & Segredo (DragnaCarta Original):**
+- **Diferença Vital de Reloaded:** Arik é o **único proprietário** da taverna (as três Vistani Alenka, Mirabel e Sorvia fugiram da vila para Tser Pool no dia anterior ao início do cerco).
+- **A Revelação da História Recente por Ismark:**
+  1. Baróvia é governada por Strahd von Zarovich, um vampiro poderoso que despertou de sua dormência recentemente.
+  2. Há pouco mais de três meses, um jovem chamado **Doru**, filho do padre da vila Donavich, liderou uma rebelião de camponeses contra o Castelo Ravenloft para quebrar as brumas. A revolta foi aniquilada; isso despertou a ira de Strahd contra a vila.
+  3. Dezenas de aldeões fugiram para a cidade murada de Vallaki, a quase um dia de viagem a oeste. Os que ficaram estão determinados a defender seus lares.
+  4. Há seis noites, as hordas de mortos-vivos de Strahd começaram a atacar a vila. Todas as noites as barricadas são testadas por ondas de mortos-vivos.
+  5. O pai de Ismark, o **Burgomestre Kolyan Indirovich**, ainda está VIVO na mansão (embora ferido pelos ataques), e sua irmã Ireena Kolyana ainda NÃO foi mordida!
 
 **Ambiente & Sensações:**
-- *Visão:* Uma imponente estrutura de pedra com abóbadas altas e vitrais artísticos partidos que mostram fragmentos de um sol radiante destruído. O telhado de ardósia ruiu parcialmente na ala norte, permitindo que a chuva e a névoa entrem livremente. As fileiras de bancos de madeira estão tombadas e carcomidas por cupins. No altar ao fundo, dezenas de velas de cera pingam sobre um símbolo solar de bronze torto.
-- *Sons:* O som contínuo e perturbador de um sussurro febril em preces repetidas: *“O Senhor da Manhã é a luz... a luz não falhará... o Senhor da Manhã...”*; e, periodicamente, um berro estridente e gutural vindo diretamente debaixo do assoalho: *“PAI! SANGUE! EU ESTOU COM FOME, PAI! ABRA ESTA PORTA!”*, seguido por unhas arranhando violentamente a madeira por baixo.
-- *Cheiro:* Incenso e mirra velhos queimados em excesso misturados a mofo de chuva, fezes humanas antigas e o cheiro metálico de sangue seco que escapa pelas frestas do alçapão.
-- *Tato:* Umidade glacial penetrante; o chão de pedras está escorregadio pela água da chuva que entra pelo telhado quebrado.
+- *Visão:* Salão amplo com vigas de carvalho escurecidas por fumaça de cachimbo; uma lareira de pedra que emite pouco calor e muita fumaça; poucas mesas ocupadas por aldeões silenciosos e carrancudos.
+- *Sons:* O estalo furioso de um punho batendo na mesa de madeira; o murmúrio tenso de discussão; e o ranger lento de cadeiras de pinho.
+- *Cheiro:* Vinho tinto azedo (*Purple Grapemash No. 3*), fumaça de turfa e ensopado ralo.
+- *Tato:* Os copos de barro com vinho estão gelados e lascados.
 
-**Para narrar:** “A igreja de Baróvia ergue-se sobre uma colina lamacenta como o esqueleto quebrado de uma fé esquecida. Seus vitrais, que outrora retratavam o sol nascente do Senhor da Manhã, foram reduzidos a cacos pontiagudos de vidro colorido manchados de fuligem. A porta principal de carvalho está escancarada, apodrecendo nas dobradiças. Ao entrarem na nave fria e úmida, o silêncio fúnebre é quebrado pelo murmúrio febril de um homem ajoelhado diante do altar desfigurado. É o Padre Donavich, com vestes sacerdotais rasgadas e cabelos brancos emaranhados, rezando sem parar com um rosário de contas esmagadas entre os dedos trêmulos. Mas o horror real vem debaixo de seus pés: das tábuas do assoalho sob o altar, ergue-se um grito desumano, estridente e rouco de agonia que ecoa por toda a nave: ‘PAI! POR FAVOR, PAI! EU SINTO TANTA FOME! ME DÊ SANGUE OU EU VOU DEVORAR MINHA PRÓPRIA LÍNGUA!’ seguido pelo arranhar frenético de garras afiadas contra a madeira do alçapão.”
+**Para narrar:** “Ao entrarem na Taverna Sangue da Videira, o ar morno e denso cheira a fumaça de turfa e ao aroma avinagrado de vinho barato. Atrás do balcão de madeira desgastada, o taverneiro Arik, um homem corpulento de expressão cansada e olhos desprovidos de brilho, limpa uma caneca de barro com um pano úmido.
+Ismark joga três moedas de cobre no balcão e pede um jarro de vinho. Conduzindo vocês a uma mesa redonda no canto do salão, ele puxa os bancos e suspira: ‘Vocês devem ter mil perguntas na cabeça. Não é todo dia que forasteiros cruzam as brumas para cair no meio de uma guerra. Ficarei feliz em responder a tudo o que eu souber.’”
 
-### NPCs & Diálogos · Padre Donavich
-- **Aparência e Postura:** Homem na faixa dos 50 anos, envelhecido pelo trauma para parecer ter 70. Olhos arregalados e injetados de sangue, voz rouca de tanto orar. Vive à base de água da chuva e pão velho há semanas.
-- **Falas do Mestre:**
-  - *“Não olhem para o chão! Não escutem a voz dele! É o demônio tentando enganar meus ouvidos!”*
-  - *“Doru... meu doce menino Doru. Ele foi com o Mago para o castelo libertar Baróvia. Ele só queria nos salvar! Mas o diabo o devolveu assim... Uma fera que queima sob a luz e chora por sangue humano.”*
-  - *“Eu não posso matá-lo! Ele é meu filho, minha única família! O Senhor da Manhã trará a cura se eu orar com fé suficiente... Ele vai me perdoar!”*
-  - *Sobre o enterro de Kolyan:* *“Kolyan... meu velho amigo. Sim, sim, nós devemos sepultá-lo. A terra do cemitério ainda conserva a bênção do sol. Tragam o caixão para a sepultura antes do pôr do sol. Mas não desçam ao porão... eu lhes suplico!”*
+### A Fúria de Bildrath & O Desespero de Mary
+Enquanto Ismark começa a responder as perguntas, um estrondo quebra o silêncio do salão:
+**Para narrar:** “Algo bate com violência brutal contra uma mesa próxima — e o som atrai a atenção de todos para um homem de meia-idade, com roupas de comerciante de boa qualidade mas manchadas de fuligem, batendo o punho na madeira com os olhos chispando de raiva: ‘Mais uma noite, Ismark! Mais uma noite consertando paliçadas enquanto seu pai fica trancado naquela mansão com os soldados dele! Meus depósitos estão quase vazios e os mortos já arranharam minhas portas! Se aquele velho covarde não fizer nada, nós mesmos vamos tomar providências!’”
+- O homem é **Bildrath Cantemir**, dono do único armazém da vila.
+- Ao lado dele, uma mulher magra de olhos vermelhos de tanto chorar — **Mary** — soluça agarrada a um pano: sua filha jovem Gertruda desapareceu há duas noites e ninguém na vila tem forças para procurá-la.
+- Ismark intervém com dignidade e firmeza, prometendo a Bildrath que a milícia segurará a linha leste esta noite e que seu pai está fazendo o possível dentro de seus ferimentos.
 
-### O Dilema Moral de Doru (Daggerheart)
-- O alçapão atrás do altar está trancado com um pesado cadeado de ferro forjado e duas barras de carvalho.
+### O Pedido de Ismark
+Após acalmar a taverna, Ismark volta-se para os personagens e pede seu auxílio:
+1. Precisa de guerreiros capazes para reforçar a **Barricada Oriental** ao cair da noite contra a horda de mortos-vivos.
+2. Convida os heróis para acompanhá-lo imediatamente até a **Mansão do Burgomestre**, onde poderão almoçar com seu pai Kolyan e conhecer sua irmã Ireena Kolyana.
+
+**Daggerheart & Mecânicas:** A conversa revela toda a trama de abertura do Arco B. Conceda **1 Ponto de Esperança** pela aceitação da missão.
+
+**Transição:** Ismark conduz o grupo pelas ruelas barricadas até os portões da Mansão do Burgomestre (Cena B5d).""",
+
+    "B5d": """## Roteiro Completo · B5d · A Mansão do Burgomestre: O Almoço com Kolyan
+
+**Objetivo:** Aproximar-se da Mansão do Burgomestre, lidar com a multidão enfurecida de aldeões liderada por Alenka Konstantinova nos portões, entrar na residência, almoçar com o Burgomestre Kolyan Indirovich (ainda vivo, mas ferido) e conhecer sua corajosa filha Ireena Kolyana.
+
+**Contexto & Segredo (DragnaCarta Original):**
+- **A Multidão Enfurecida:** Cerca de vinte moradores apavorados e armados com tochas e forcados reúnem-se do lado de fora dos portões da mansão, liderados por Alenka Konstantinova (uma aldeã furiosa, não confundir com a Vistani da taverna). Eles acusam o Burgomestre Kolyan de monopolizar os poucos soldados e comida da vila enquanto o povo morre nas barricadas.
+- **O Burgomestre Kolyan Indirovich:** Um nobre idoso e honrado, com o braço em uma tipoia e febril por ferimentos sofridos durante o ataque da noite anterior. Ele ama profundamente seus dois filhos (Ismark e a filha adotiva Ireena) e teme pela vida de todos.
+- **Ireena Kolyana:** Uma jovem de cabelos acobreados radiantes, inteligente, orgulhosa e treinada com florete e besta. Ela recusa a covardia e exige lutar lado a lado com os milicianos nas barricadas esta noite.
+
+**Ambiente & Sensações:**
+- *Visão:* Uma mansão imponente de dois andares com telhado de ardósia e jardim cercado por grades de ferro; tochas acesas nas mãos de camponeses furiosos que gritam na frente do portão; janelas térreas reforçadas com tábuas grossas. No interior, uma sala de jantar aquecida com mesa de mogno posta para o almoço.
+- *Sons:* O clamor caótico e furioso da multidão gritando ofensas e exigindo respostas; a voz firme de Ismark acalmando os ânimos; e o som suave de talheres no interior silencioso da mansão.
+- *Cheiro:* Fumaça de tochas de breu, chuva fina, sopa quente de legumes e pão fresco.
+- *Tato:* A tensão explosiva nos portões que pode explodir em linchamento se não for mediada com tato.
+
+### A Multidão nos Portões (DragnaCarta)
+**Para narrar:** “Ao dobrarem a esquina da alameda que leva à Mansão do Burgomestre, um clamor ensurdecedor de gritos de protesto enche o ar. Cerca de duas dezenas de moradores furiosos e apavorados cercam os portões de ferro da propriedade, empunhando forcados, foices e tochas acesas de breu que lançam fumaça preta no céu cinzento. À frente do grupo, uma mulher de traços duros e voz estridente, Alenka Konstantinova, bate com um cajado nas grades de ferro, gritando a plenos pulmões: ‘Abra os portões, Kolyan! O povo está sangrando nas barricadas enquanto você e sua família comem carne gorda dentro dessa mansão! Se a guarda não descer para a praça, nós mesmos vamos derrubar essas portas!’”
+- *A Resolução da Crise:*
+  - Ismark coloca-se entre a multidão e os portões, pedindo calma.
+  - Os heróis podem intervir com *Presença (CD 12)* para acalmar a multidão, prometendo que lutarão nas barricadas esta noite ao lado dos aldeões.
+  - Sucesso dispersa a multidão pacificamente; falha faz com que Alenka se retire prometendo que "a paciência do povo acabou".
+
+### O Almoço na Mansão & Encontro com Kolyan e Ireena
+Entrando na mansão, os heróis são recebidos na sala de jantar:
+**Para narrar:** “O interior da mansão é silencioso e acolhedor, com uma grande lareira de pedra aquecendo a sala de jantar. Sentado à cabeceira da longa mesa de mogno, com o braço esquerdo enfaixado em uma tipoia ensanguentada e rosto pálido marcado por febre e noites em claro, repousa o velho Burgomestre Kolyan Indirovich. Ao lado dele, de pé com as mãos firmes sobre o espaldar de uma cadeira, trajando calças de couro de montaria e uma camisa de linho nobre com um florete à cintura, está uma jovem mulher de beleza marcante e cabelos acobreados que brilham como brasa: Ireena Kolyana. Seus olhos verdes examinam vocês com altivez e determinação implacável.”
+
+### Diálogos & O Plano de Defesa
+- **Kolyan Indirovich:** Agradece com profunda emoção aos heróis por se unirem a Ismark. Confessa que seus guardas estão exaustos e que os ataques têm sido cada vez mais violentos:
+  > *“Strahd deseja quebrar nosso espírito antes de descer do castelo. Se as barricadas caírem esta noite, a vila inteira será massacrada. Meus filhos são tudo o que me resta nesta vida.”*
+- **Ireena Kolyana:** Deixa claro que não aceitará ficar trancada em um quarto enquanto homens morrem por ela:
+  > *“Eu sei manejar uma lâmina e não pretendo me esconder embaixo da cama como uma criança assustada. Ismark, eu vou para a barricada com você!”*
+  > Ismark e Kolyan imploram para que ela fique protegida dentro da mansão, pois temem que Strahd a capture.
+- Os heróis podem descansar nos quartos de hóspedes da mansão até o entardecer (*Descanso Curto pleno*).
+
+**Daggerheart & Mecânicas:** Conceda **1 Ponto de Esperança** a cada herói pelo almoço reparador e pela aliança formalizada com a família governante de Baróvia.
+
+**Transição:** Ao entardecer, quando as sombras se alongam, os heróis marcham com Ismark para defender a Barricada Oriental contra o cerco dos mortos-vivos (Cena B5f).""",
+
+    "B5e": """## Roteiro Completo · B5e · O Comércio de Bildrath
+
+**Objetivo:** Visitar o único armazém comercial aberto na Vila de Baróvia, negociar com o ganancioso e amargo Bildrath Cantemir (que cobra 10 vezes o preço de tabela de qualquer item) e lidar com a presença intimidadora de seu sobrinho brutamontes Perriwimple.
+
+**Contexto & Segredo (DragnaCarta):**
+- Bildrath Cantemir é o único comerciante que sobrou na vila. Ele perdeu a compaixão há muito tempo: seu lema é que "se você quer sobreviver à noite, ouro não tem valor na cova".
+- Ele vende itens comuns da tabela de equipamentos (cordas, tochas, rações, armas simples, poções) por **10 vezes o valor padrão**.
+- Seu sobrinho, **Perriwimple**, é um homem colossal de dois metros de altura e mente infantil que idolatra o tio e esmaga qualquer um que ameace ou insulte Bildrath.
+
+**Ambiente & Sensações:**
+- *Visão:* Prateleiras empoeiradas com poucos suprimentos restantes; balcão de carvalho com marcas de machadinha; ferramentas agrícolas, sacos de farinha, tochas e correntes. Sentado em um banquinho alto, um homem magro de bigodes finos e olhar avarento anota números em um livro-caixa. No canto, afiando uma barra de ferro com um sorriso bobo, está um brutamontes gigante com braços da grossura de troncos de pinho.
+- *Sons:* O raspar metálico da lima na barra de ferro; o ranger seco da pena de ganso no livro-caixa de Bildrath; e a voz anasalada e desdenhosa do mercador.
+- *Cheiro:* Pimenta seca, couro cru, sebo de vela e pó.
+- *Tato:* Cada moeda entregue a Bildrath é mordida e pesada na balança diante dos olhos dos heróis.
+
+**Para narrar:** “O armazém de Bildrath cheira a feno seco, fumo barato e pó acumulado. As prateleiras exibem uma seleção modesta e encolhida de mantimentos: sacos de grãos, carretéis de corda de cânhamo, archotes de breu e algumas lâminas de ferro rústicas. Atrás do balcão, sentado em uma banqueta alta com um colete de lã surrado, está Bildrath Cantemir, afiando o olhar desconfiado sobre vocês por trás de seus óculos redondos de arame. No canto sombrio da loja, sentado em um barril de farinha e cantarolando uma cantiga infantil enquanto entorta uma ferradura de ferro com as próprias mãos desnudas, ergue-se Perriwimple: um gigante simplório de dois metros de altura e ombros tão largos quanto uma porta de estábulo. Bildrath fecha seu livro-caixa com um estalo e solta um sorriso amarelo: ‘Bem-vindos ao Comércio de Bildrath. Se vocês têm ouro de verdade, temos o que vocês precisam para não morrerem esta noite. Mas adianto: nada aqui sai barato.’”
+
+### Negociação com Bildrath
+- **Tabela de Preços (10x o valor de tabela):**
+  - Tocha: 10 PC (em vez de 1 PC).
+  - Corda de cânhamo (15m): 10 PP (em vez de 1 PP).
+  - Rações de viagem (1 dia): 5 PO (em vez de 5 PP).
+  - Virotes de besta (20): 10 PO.
+- *Tentativa de Desconto:* Bildrath é completamente insensível a apelos morais. Um teste bem-sucedido de *Presença (CD 14)* faz com que ele reduza os preços para **5x o valor de tabela**, resmungando que está "fazendo caridade para forasteiros tolos".
+- *Se tentarem violência:* Bildrath apenas estala os dedos: *"Perriwimple, querido sobrinho... mostre a estes distintos cavalheiros onde fica a porta da rua."*
+  - Perriwimple é um monstro Tier 2 com Força descomunal que pode arremessar personagens através da vitrine de madeira (*Força (CD 15)* para disputar).
+
+**Transição:** Equipados com suprimentos, os heróis retornam às ruas da vila para suas missões (Cena B5f ou B5c).""",
+
+    "B5f": """## Roteiro Completo · B5f · A Barricada Oriental: O Cerco da Noite
+
+**Objetivo:** Assumir posições na Barricada Oriental ao cair da noite com Ismark e a milícia da vila, preparar as defesas e repelir três ondas ferozes de mortos-vivos (esqueletos e zumbis) enviadas por Strahd para testar as muralhas do povoado.
+
+**Contexto & Segredo (DragnaCarta Tactical Siege):**
+- Ao anoitecer, o cerco noturno de Strahd tem início com precisão macabra.
+- Ismark distribui os heróis nos pontos mais vulneráveis da barricada de madeira e da vala de estacas.
+- A batalha ocorre em três ondas coordenadas:
+  1. *Onda 1:* Enxame de zumbis de choque que tentam atravessar a trincheira de estacas.
+  2. *Onda 2:* Esqueletos armados com arcos curtos que disparam do topo das colinas lamacentas para suprimir os milicianos nos telhados.
+  3. *Onda 3:* Um zumbi colossal empunhando uma tora de ariete que tenta arrombar a seção central da barricada.
+- No auge da vitória na Barricada Oriental, o corvo Muriel Vinshaw desce do céu bicando a capa de Ismark em pânico: a Barricada Ocidental foi rompida!
+
+**Ambiente & Sensações:**
+- *Visão:* A escuridão total da noite cai sobre Baróvia; névoa rasteira espalha-se pela lama; archotes de fogo aceso ao longo da barricada iluminam figuras cadavéricas marchando com passos lentos e decididos através dos campos; olhos fosforescentes brilhando na penumbra.
+- *Sons:* O arrastar pesado de pés descalços e carcomidos na lama; o ranger de ossos se movendo; o silvo de virotes de besta cortando o ar; e os gritos de guerra corajosos de Ismark encorajando seus homens.
+- *Cheiro:* Piche queimando nos archotes, carne podre congelada, enxofre e sangue quente.
+- *Tato:* Virotes disparados batendo nas tábuas com impacto que solta farpas; o impacto de lâminas cortando carne ressequida.
+
+**Para narrar:** “O crepúsculo morre rapidamente, engolido por nuvens de tempestade que mergulham a Vila de Baróvia em uma escuridão impenetrável. Ao longo da Barricada Oriental, o fogo alaranjado de meia dúzia de archotes de piche crepita contra a garoa fina, projetando sombras alongadas e trêmulas sobre a trincheira de estacas. Ao lado de vocês, Ismark desembainha sua espada longa com um som metálico afiado e ajeita o escudo de talas, com os olhos fixos na linha das árvores.
+E então, das profundezas da névoa que cobre os pastos fora da vila, ergue-se o som do horror: o arrastar ritmado e contínuo de centenas de passos na lama. Figuras cadavéricas de pele cinzenta apodrecida e olhos leitosos rompem a penumbra aos montes — zumbis com roupas de camponeses mortos e esqueletos de guerreiros antigos segurando lâminas enferrujadas. Ismark ergue a espada aos céus e ruge para os milicianos: ‘MANTENHAM A LINHA! POR BARÓVIA!’”
+
+### O Combate do Cerco (3 Fases Daggerheart)
+1. **Fase 1 · A Trincheira de Estacas:** Zumbis caem nas estacas da vala. Os heróis devem conter o avanço na ponte de madeira (*Combate contra 6 Zumbis Lacaios Nível 1*).
+2. **Fase 2 · A Saraivada de Flechas:** 4 Esqueletos Arqueiros surgem nas elevações atirando contra a barricada (*Agilidade (CD 12)* para se abrigar ou abater os atiradores à distância).
+3. **Fase 3 · O Demolidor:** Um Zumbi Robusto (HP 28, Dano 1d10+2) avança com uma tora pesada tentando rachar o portão central da barricada.
+
+### O Clímax & A Mudança de Frente (Muriel)
+Quando a última criatura tomba e os milicianos comemoram o sucesso da defesa oriental, o corvo de asas azuis Muriel desce em parafuso do céu noturno, crocitar alto e bicando o elmo de Ismark com frenesi desesperado:
+- *Instinto (CD 11):* O corvo aponta com a asa para o outro lado da vila: o lado oeste!
+- Do lado ocidental da vila, gritos ensurdecedores de pânico e o sonido fúnebre de um sino arrebentado ecoam pelas ruas: a outra barricada caiu!
+
+**Daggerheart & Mecânicas:** A defesa bem-sucedida concede **1 Ponto de Esperança** a cada herói. A emergência na Barricada Ocidental exige corrida imediata pela vila (Cena B5g).
+
+**Transição:** Ismark e os heróis correm em disparada pelas ruas escuras da vila até a Barricada Ocidental (Cena B5g).""",
+
+    "B5g": """## Roteiro Completo · B5g · A Barricada Ocidental: A Proclamação de Rahadin
+
+**Objetivo:** Chegar à Barricada Ocidental em colapso, salvar Ismark cercado em sua última resistência heroica contra uma horda de mortos-vivos e testemunhar a chegada aterrorizante de Rahadin em seu garanhão negro, entregando a proclamação oficial de Strahd.
+
+**Contexto & Segredo (DragnaCarta Clímax do Cerco):**
+- A Barricada Ocidental foi uma manobra diversionária de Strahd: enquanto a milícia concentrava suas forças no leste, os mortos-vivos invadiram pelo oeste.
+- Ismark corre para a linha de frente e luta até a exaustão para impedir que os monstros alcancem as casas residenciais.
+- Quando os heróis chegam, Ismark está ferido e encurralado.
+- No ápice da luta, um toque de trombeta de osso silencia todo o campo de batalha: Rahadin, o camareiro elfo de Strahd, cavalga calmamente entre os mortos-vivos e entrega uma proclamação do lorde de Ravenloft exigindo a entrega de Ireena Kolyana.
+
+**Ambiente & Sensações:**
+- *Visão:* A barricada oeste em chamas; estacas quebradas; corpos de três defensores tombados na lama; Ismark de joelhos sangrando com a espada partida em um dos braços; dezenas de zumbis e lobos cercando o jovem nobre. Rompendo a névoa, surge um majestoso garanhão negro com olhos vermelhos montado por um elfo de pele pálida, libré preta e olhar gélido como pedra.
+- *Sons:* O estalo de vigas de madeira ardendo em chamas vermelhas; o rosnar uníssono de lobos e mortos-vivos que subitamente congelam em silêncio absoluto quando a trombeta soa; e o zumbido perturbador e psíquico de milhares de gritos agonizantes que emana de Rahadin (*O Coro da Morte*).
+- *Cheiro:* Pinho em chamas, carne queimada, sangue fresco e o perfume de cravos e mirra que cerca Rahadin.
+- *Tato:* A pressão opressiva que faz o ar parecer pesado demais para ser respirado na presença do camareiro de Ravenloft.
+
+**Para narrar:** “A cena na Barricada Ocidental é de pura carnificina. A paliçada central foi arrebentada e duas carroças ardem em chamas vermelhas que lançam fagulhas no céu noturno. No meio da lama ensanguentada, cercado por uma dúzia de zumbis e quatro lobos gigantescos, Ismark Kolyanovich luta de joelhos com sua espada manchada de sangue negro, com a respiração arfante e o ombro perfurado por garras.
+Antes que as feras deem o bote fatal, o toque agudo e fúnebre de uma trombeta de prata corta a noite.
+Instantaneamente, todos os mortos-vivos e lobos congelam no lugar, recuando como cães açoitados.
+Montado em um garanhão negro de batalha com crina reluzente e olhos de fogo carmesim, um elfo de postura aristocrática impecável, sobretudo militar negro bordado a ouro e rosto esculpido em mármore gélido avança calmamente pela fumaça. Ao redor de seus passos, um sussurro psíquico aterrador de milhares de almas chorando em agonia arrepia os ossos de todos os presentes. É Rahadin, o camareiro de Ravenloft. Ele puxa as rédeas de couro, desenrola um pergaminho com o selo real de Strahd e proclama com voz calma e ressonante que gela o ar da noite.”
+
+### A Proclamação de Rahadin (DragnaCarta)
+**Para narrar:** “Rahadin fixa seus olhos negros e vazios sobre Ismark e sobre vocês, e lê com frieza milimétrica:
+‘Povo da Vila de Baróvia. Meu mestre e lorde soberano, o Conde Strahd von Zarovich, observou sua resistência tola com a paciência que se concede a crianças desobedientes. O sangue derramado esta noite foi uma amostra de sua misericórdia. O lorde de Ravenloft exige que sua amada e prometida, a senhorita Ireena Kolyana, seja entregue à carruagem real que aguardará nos portões da mansão ao pôr do sol de amanhã.
+Se a senhorita Kolyana for entregue com a devida honra, as hostes de mortos-vivos retornarão para a terra e a vila conhecerá a paz de seu senhor. Se ela for ocultada ou se qualquer homem ousar tocar em sua escolta... a Vila de Baróvia será queimada até as cinzas e nenhum coração continuará batendo nestas ruelas.’
+Rahadin enrola o pergaminho, olha diretamente nos olhos de vocês com um sorriso imperceptível e faz seu cavalo dar meia-volta, desaparecendo na névoa enquanto a horda de mortos-vivos recua para a floresta.”
+
+### Resgate de Ismark
+- Ismark está ferido com 2 pontos de estresse e 1 ferimento grave.
+- Os heróis devem ampará-lo e levá-lo de volta para a mansão antes que amanheça.
+
+**Daggerheart & Mecânicas:** Conceda **2 Pontos de Esperança** pela sobrevivência ao cerco e pelo resgate de Ismark.
+
+**Transição:** O grupo carrega Ismark ferido de volta à Mansão do Burgomestre para dar as notícias a Ireena e ao velho Kolyan (Cena B5h).""",
+
+    "B5h": """## Roteiro Completo · B5h · O Retorno à Mansão e a Morte de Kolyan
+
+**Objetivo:** Retornar com Ismark ferido à Mansão do Burgomestre na madrugada após o cerco, presenciar o colapso cardíaco e falecimento do velho Burgomestre Kolyan Indirovich diante da proclamação de Strahd, e testemunhar o luto feroz de Ireena e Ismark planejando o sepultamento e a fuga da vila.
+
+**Contexto & Segredo (DragnaCarta Original):**
+- Quando os heróis chegam à mansão com Ismark ferido, encontram a casa cercada por névoa fria.
+- Ao ouvir a proclamação lida por Rahadin de que Strahd virá buscar Ireena ao pôr do sol, o coração já enfraquecido do velho Kolyan Indirovich não resiste ao desespero e para de bater nos braços de seus filhos.
+- Ireena desaba em luto, mas seu espírito se endurece como ferro: ela não se renderá ao vampiro.
+- O corpo de Kolyan precisa ser velado e sepultado na igreja de Baróvia antes que a carruagem do castelo chegue.
+
+**Ambiente & Sensações:**
+- *Visão:* A sala de estar da mansão na penumbra da madrugada; velas acesas derretendo sobre a mesa de mogno; o velho Kolyan estendido na cama de couro com a mão trêmula segurando o peito; Ireena debruçada em lágrimas silenciosas sobre o corpo do pai.
+- *Sons:* A respiração ofegante e entrecortada de Kolyan que subitamente cessa em um último suspiro rouco; o choro contido de Ireena; o estalar de brasas na lareira; e o silêncio fúnebre da manhã que começa a clarear em cinza lá fora.
+- *Cheiro:* Remédios de ervas amargas, suor de febre, cera de vela e a frieza da morte no quarto.
+- *Tato:* A pele de Kolyan perdendo o calor tépido e esfriando sob os dedos de Ireena.
+
+**Para narrar:** “A madrugada avança fria e cinzenta quando vocês cruzam as portas da Mansão do Burgomestre carregando Ismark ferido nos ombros. Ireena corre pelo corredor com uma tocha na mão, com os olhos arregalados de alívio e pavor ao ver o irmão com vida. Mas o alívio dura apenas um instante fugaz.
+Do quarto do térreo, ouve-se um arquejar violento e sufocado. O velho Kolyan Indirovich, de pé apoiando-se no batente da porta com a camisola de linho ensanguentada, ouviu cada palavra do relato de Ismark sobre a proclamação de Rahadin. Seus olhos esbugalhados fixam-se em Ireena, e sua mão trêmula agarra o peito como se uma garra invisível estivesse esmagando seu coração.
+‘Minha filha... não... ele não pode...’
+Com um suspiro rouco que corta a alma, os joelhos do Burgomestre cedem e ele desaba nos braços de Ismark e dos heróis. Ireena ajoelha-se na madeira molhada de lágrimas, segurando a mão do pai enquanto o último suspiro de vida escapa de seus lábios. O Burgomestre de Baróvia está morto.”
+
+### O Luto & O Juramento de Ireena
+Com o pai sem vida no chão da mansão, Ireena enxuga as lágrimas e seu olhar endurece com uma coragem inabalável:
+- *“Meu pai morreu tentando me proteger deste monstro. Eu não permitirei que o sacrifício dele tenha sido em vão. Nós não entregaremos esta mansão a Rahadin e eu jamais serei uma noiva do castelo.”*
+- *“Mas meu pai merece o descanso sagrado da terra abençoada. Ele será sepultado no cemitério da igreja ao lado de minha mãe antes que o sol se ponha. Ismark, pegue as tábuas na carpintaria. Nós mesmos construiremos o caixão do Burgomestre.”*
+
+**Daggerheart & Mecânicas:** A morte de Kolyan encerra a noite do cerco e estabelece a urgência máxima do Arco B: realizar o funeral do Burgomestre na igreja (Cena B5i / B7) e partir com Ireena antes que as forças de Strahd cheguem ao pôr do sol.
+
+**Transição:** Com o caixão construído e o corpo preparado, os heróis partem com os irmãos Kolyana rumo à Igreja de Baróvia (Cena B5i · A Igreja de Baróvia e Doru).""",
+
+    "B5i": """## Roteiro Completo · B5i · A Igreja de Baróvia, Doru e o Funeral
+
+**Objetivo:** Conduzir o caixão de Kolyan Indirovich até a Igreja de Baróvia, confrontar o estado ensandecido do Padre Donavich, lidar com o horror de seu filho Doru transformado em cria de vampiro faminta no porão sob o altar, e sepultar o Burgomestre no cemitério com a bênção fúnebre.
+
+**Contexto & Segredo (DragnaCarta Original):**
+- A igreja de Baróvia outrora consagrada a Lathander (o Senhor da Manhã) é agora uma ruína de fé e sanidade.
+- Donavich perdeu a cabeça após o retorno de seu filho Doru: o jovem marchou com a rebelião há três meses, foi capturado por Strahd, torturado, transformado em vampiro e enviado de volta para enlouquecer o pai.
+- Donavich recusa-se a destruir Doru, mantendo-o acorrentado no porão sob o assoalho da nave e orando sem parar para que o Senhor da Manhã o cure.
+- Doru berra ensandecido pela sede de sangue humano sempre que alguém pisa no assoalho.
+- DragnaCarta prevê o sepultamento de Kolyan com dignidade no cemitério, enquanto Donavich tenta esconder o segredo do filho.
+
+**Ambiente & Sensações:**
+- *Visão:* Nave gótica com vitrais partidos mostrando o sol quebrado; fileiras de bancos caídos cobertos de poeira e fezes de pombos; o altar de pedra manchado com símbolo solar de bronze torto; Donavich de joelhos com batina esfarrapada e cabelos brancos despenteados.
+- *Sons:* O murmúrio incessante e febril de Donavich recitando ladainhas solares; e, subitamente, um berro desumano e estridente sob o assoalho: *“PAI! SANGUE! EU SINTO CHEIRO DE SANGUE QUENTE! ME ALIMENTE, PAI!”*, acompanhado pelo arranhar violento de unhas pontiagudas contra a madeira de baixo.
+- *Cheiro:* Incenso velho queimado em excesso, fezes secas, mofo e um hálito cáustico e fétido que sobe pelas frestas do alçapão trancado.
+- *Tato:* O assoalho vibra sob os pés a cada pancada que Doru desfere por baixo.
+
+**Para narrar:** “A igreja de Baróvia ergue-se sobre uma colina lamacenta como o esqueleto quebrado de uma fé que definhou. Ao entrarem carregando o caixão de Kolyan, o ranger dos bancos tombados é engolido por um murmúrio febril vindo do presbitério. O Padre Donavich, com vestes sacerdotais rasgadas e olhos vermelhos injetados de lágrimas e vigília, reza ajoelhado diante do altar desfigurado, segurando um rosário de contas esmagadas.
+Mas a oração é subitamente estilhaçada por um rugido aterrador que vem diretamente debaixo das tábuas do chão:
+‘PAI! EU ESTOU COM FOME! TEM GENTE AÍ EM CIMA, PAI! ME DÊ SANGUE OU EU VOU DEVORAR MINHA PRÓPRIA CARNE!’
+Donavich tampa os ouvidos com as mãos trêmulas, soluçando em pânico: ‘Senhor da Manhã, feche os ouvidos dele... tenha piedade de nós!’”
+
+### O Dilema de Doru & Donavich
+- Donavich confessa em pranto que seu filho Doru voltou do castelo amaldiçoado como vampiro:
+  > *“Ele é meu filho! Meu único sangue neste mundo! Eu não posso cravar uma estaca em seu peito! Se eu orar com fé suficiente, o sol o curará!”*
 - **Opções do Grupo:**
-  1. *Deixar Doru trancado:* Respeitar a dor do padre e focar no sepultamento do Burgomestre. O perigo continua latente.
-  2. *Descer ao Porão e Confrontar Doru:* Se o grupo forçar o alçapão (*Força (CD 12)* ou *Ladinagem (CD 11)*), inicia-se o combate em **B5g · Porão da Igreja: O Destino de Doru**.
-  3. *Tentar Acatar ou Acalmar Donavich:* Teste de *Presença (CD 13)* para fazê-lo admitir que Doru já morreu e que sua alma está sendo torturada dentro do corpo vampírico.
+  1. *Confrontar Doru no Porão:* Abrir o alçapão com cadeado desencadeia a luta mortal contra a cria de vampiro (HP 38, Defesa 13, Regeneração). Destruir Doru traz paz à vila, mas deixa Donavich em choque catatônico.
+  2. *Poupar Doru e Conduzir o Funeral:* Focar no sepultamento do Burgomestre e deixar Doru trancado, avisando Ismark para decidir o destino do rapaz após a partida.
 
-**Daggerheart & Mecânicas:**
-- A presença na igreja e os gritos de Doru exigem teste de *Instinto (CD 10)* para não acumular **1 Ponto de Estresse**.
-- Se o grupo realizar o sepultamento de Kolyan com o auxílio do padre, avance para a cena **B5h · O Enterro de Kolyan Indirovich**.
+### O Sepultamento no Cemitério (DragnaCarta)
+No cemitério encharcado ao lado da igreja, os heróis e Ismark cavam a sepultura de Kolyan sob a chuva fina.
+**Para narrar:** “As pás cortam a terra negra e molhada do cemitério da igreja de Baróvia, abrindo a cova ao lado das lápides antigas de sua família. O caixão de carvalho desce lentamente pelas cordas até o fundo da terra fria. Ireena ajoelha-se na beira da vala e lança uma rosa branca sobre a madeira, enquanto Ismark joga o primeiro punhado de terra: ‘Descanse em paz, meu pai. Sua vigília terminou; a nossa apenas começou.’ As orações do Senhor da Manhã ecoam sob o céu cinzento, concedendo ao velho governante o descanso honrado que lhe foi devido.”
 
-**Transição:** Os personagens podem descer ao porão (B5g) ou conduzir o caixão para o cemitério adjacente (B5h).""",
+**Daggerheart & Mecânicas:** Conceda **2 Pontos de Esperança** pelo sepultamento e pela resolução do dilema da igreja.
 
-    "B5g": """## Roteiro Completo · B5g · O Porão da Igreja: O Destino de Doru
+**Transição:** Com Kolyan sepultado e o sol prestes a cair, os heróis preparam as mochilas para deixar a vila rumo ao oeste (Cenas B5j / B5k / B6 / B8).""",
 
-**Objetivo:** Descer ao porão escuro sob a igreja de Baróvia, confrontar a cria de vampiro Doru em um combate tenso e aterrorizante, e decidir o destino trágico do filho do padre Donavich.
+    "B5j": """## Roteiro Completo · B5j · Colina de Lugdana (Lugdana's Knoll)
 
-**Contexto & O que Está em Jogo:** Doru não escolheu se tornar um monstro. Ele era um jovem corajoso que acreditou poder derrubar o diabo de Ravenloft. Strahd o torturou nas catacumbas do castelo, transformou-o em uma cria de vampiro e o enviou de volta como uma arma de destruição psicológica contra seu próprio pai. Ele está trancado no porão escuro há semanas sem se alimentar, à beira da loucura absoluta pela sede de sangue. Se o alçapão for aberto, o cheiro de sangue quente dos personagens desencadeia um frenesi predatório incontrolável.
+**Objetivo:** Explorar a colina consagrada de Lugdana nos arredores sul da vila, encontrar o antigo santuário dedicado à Dama da Floresta e receber a bênção mística da terra que restaura a esperança dos personagens.
 
-**Ambiente & Sensações:**
-- *Visão:* Um porão estreito de alvenaria tosca com teto baixo sustentado por vigas de carvalho. Não há janelas; a escuridão é quase impenetrável sem tochas. Pelo chão de terra batida há palha mofada e ossos roídos de ratos e pombos que o padre jogou pelas frestas. No canto mais escuro, suspenso de ponta-cabeça em uma viga como um morcego monstruoso, está uma figura esguia de pele cinzenta cadavérica e olhos vermelhos brilhantes.
-- *Sons:* O sibilar afiado de presas se chocando; o rosnar gutural de uma fera faminta que perdeu a capacidade de raciocínio; e o choro desesperado do Padre Donavich ajoelhado no topo da escada implorando: *“Tenham misericórdia do meu menino!”*
-- *Cheiro:* Amônia, urina, fezes de animais roídos e o cheiro doce e nauseante de carne putrefata e saliva ácida.
-- *Tato:* O ar é sufocante e pesado de poeira; a criatura se move com velocidade sobrenatural que gera lufadas de ar frio nos rostos dos personagens.
-
-**Para narrar:** “A escada de madeira tosca desce para uma escuridão gélida e sufocante sob o altar. Quando a luz de suas tochas corta a penumbra, as sombras no teto se agitam com violência inumana. Preso pelas pernas a uma viga mestra e contorcendo-se como uma aranha faminta, um jovem de pele lívida e olhos injetados de sangue escarlate fixa o olhar no pescoço de vocês. Suas roupas de miliciano estão reduzidas a trapos imundos, e de seus lábios cinzentos e ressecados projetam-se duas presas afiadas e pingando saliva viscosa. Ele aspira o ar com um ruído gorgolejante de êxtase animalesco e solta um chiado aterrorizante que faz a chama das tochas vacilar: ‘SANGUE QUENTE... VOCÊS TROUXERAM SANGUE QUENTE!’ Com um salto sobrenatural, ele se atira de cabeça contra o primeiro de vocês!”
-
-### Combate Daggerheart · Doru (Cria de Vampiro Faminta)
-- **Classificação:** Monstro Solo Nível 2 (Tier 2).
-- **Estatísticas DH:**
-  - *HP:* 38 | *Defesa:* 13 | *Limiares de Dano:* Menor 6 | Maior 14 | Severo 22.
-  - *Regeneração Vampírica:* Recupera 3 HP no início de cada um de seus turnos se não tiver sofrido dano radiante ou de fogo no turno anterior.
-- **Ataques & Ações:**
-  - *Garras Dilacerantes:* Dano 1d8+3 físico; alcance Corpo a Corpo.
-  - *Mordida Drenante:* Se atingir um alvo Imobilizado ou caído: Dano 1d10+2 físico e Doru cura dano igual ao dano causado. O alvo sofre **1 Ponto de Estresse** e fraqueza temporária.
-  - *Agilidade nas Paredes:* Doru escala paredes e tetos sem penalidade de movimento.
-- **Fraquezas:**
-  - A luz solar direta ou magias radiantes desativam sua regeneração e impõem desvantagem em seus testes.
-  - Uma estaca de madeira cravada no coração enquanto ele estiver inconsciente ou incapacitado encerra sua existência permanentemente.
-
-### Consequências da Batalha
-- **Se Doru for destruído:**
-  - O Padre Donavich desaba em pranto catatônico sobre as cinzas do filho. Conduzir o enterro de Kolyan exigirá que os próprios heróis façam as orações ou reanimem o ânimo do padre com *Presença (CD 13)*.
-  - O Mestre ganha **1 Ponto de Medo**, mas os heróis eliminam uma ameaça letal para a vila e ganham **2 Pontos de Esperança** pela coragem.
-- **Se Doru for poupado e mantido preso:**
-  - O segredo continua enterrado, mas Donavich permanece à beira da loucura e Doru poderá escapar no futuro se Strahd atacar a igreja.
-
-**Transição:** Retornando ao piso superior da nave, os heróis preparam o cortejo para o cemitério sob a névoa fria (Cena B5h · O Enterro de Kolyan Indirovich).""",
-
-    "B5h": """## Roteiro Completo · B5h · O Enterro de Kolyan Indirovich
-
-**Objetivo:** Conduzir o cortejo fúnebre do Burgomestre Kolyan Indirovich até o cemitério encharcado da igreja, cavar a sepultura e realizar os ritos fúnebres sob a névoa, culminando na aparição espectral e observação do próprio Strahd von Zarovich à distância.
-
-**Contexto & O que Está em Jogo:** O enterro de Kolyan é o clímax emocional do cerco à Vila de Baróvia. Ismark e Ireena precisam fechar o ciclo de luto de seu pai para que possam seguir em frente rumo a Vallaki. Mas Baróvia não concede paz nem na morte. Enquanto as pás de terra cobrem o caixão, o vale inteiro parece observar: alcateias de lobos uivam em sincronia perfeita nas colinas e, na orla da floresta, a silhueta solitária do Senhor de Ravenloft observa o funeral de seu antigo rival.
+**Contexto & Segredo (DragnaCarta):**
+- A Colina de Lugdana é um local antigo de poder pagão dedicado a uma das Três Fanes (a Dama da Floresta), outrora guardado por sacerdotisas de Baróvia antes da invasão de Strahd.
+- Uma antiga capela de pedra coberta de hera repousa no topo da colina, com uma fonte de água cristalina que nunca congela.
 
 **Ambiente & Sensações:**
-- *Visão:* Um cemitério antigo com centenas de lápides de pedra tortas, partidas e cobertas por musgo negro e hera venenosa. A terra é escura, pesada e encharcada pela chuva constante. A névoa serpenteia entre as covas como um véu fúnebre. Na orla da mata leste, sobre uma elevação de pedra, uma figura esguia de capa negra forrada de carmesim observa o cemitério imóvel como uma estátua.
-- *Sons:* O som rítmico e pesado das pás cortando a terra molhada; o baque surdo dos primeiros torrões de lama batendo sobre a madeira do caixão; o sermão fúnebre recitado por Donavich ou Ismark com voz embargada; e, subitamente, um uivo uníssono e ensurdecedor de dezenas de lobos que ressoa pelas montanhas ao redor.
-- *Cheiro:* Terra preta revolvida, chuva ácida, lírios brancos murchos e um cheiro tênue de cera e incenso que logo é dispersado pelo vento gelado.
-- *Tato:* A lama do cemitério cola nas botas e nas roupas; o peso do caixão nos ombros de quem o carrega exige esforço físico real.
+- *Visão:* Uma colina suave coberta por grama verde viva que contrasta com a vegetação morta do resto do vale; árvores frutíferas silvestres com botões de flores brancas; um pequeno santuário de pedras esculpidas em espiral.
+- *Sons:* O borbulhar suave da fonte de água límpida; o canto de um pássaro canoro; e uma brisa tépida e perfumada.
+- *Cheiro:* Flores silvestres, grama fresca e água pura de nascente.
+- *Tato:* O ar aqui é mais quente e limpo, aliviando a opressão pesada do vale.
 
-**Para narrar:** “A chuva fina cai como uma cortina de agulhas gélidas sobre o cemitério da igreja de Baróvia. Entre lápides cinzentas tortas e cruzes de ferro carcomidas pelo tempo, a cova recém-aberta parece uma boca escura esperando seu tributo. O caixão de carvalho de Kolyan Indirovich desce lentamente pelas cordas até o fundo da terra encharcada. Ireena atira a primeira rosa branca sobre a madeira, com lágrimas silenciosas escorrendo por suas bochechas pálidas, enquanto Ismark mantém a mão firme no cabo de sua espada. Quando o primeiro torrão de terra é lançado, um uivo assombroso e fúnebre ecoa das colinas ao redor — dezenas de lobos uivando em harmonia como um coro macabro de despedida. E na crista da colina, recortada contra o céu de chumbo a duzentos metros de distância, uma figura alta de capa negra forrada de veludo carmesim observa o funeral em silêncio absoluto. Seus olhos vermelhos queimam na penumbra como brasas vivas. Ele não ataca. Ele apenas inclina a cabeça em uma reverência zombeteira... e desfaz-se em uma revoada de morcegos que sobe em direção ao Castelo Ravenloft.”
+**Para narrar:** “Erguendo-se suavemente ao sul da vila, a Colina de Lugdana surge como uma anomalia miraculosa em meio à desolação de Baróvia. Onde o resto do vale parece sufocado por musgo negro e terra ácida, aqui a encosta está coberta por grama verdejante e flores silvestres de pétalas alvas que desafiam o frio. No cume, cercado por três carvalhos seculares cujas copas filtram a névoa, repousa um santuário circular de pedras antigas esculpidas com espirais que homenageiam a Dama da Floresta. No centro das pedras, uma nascente de água cristalina borbulha com vitalidade pura, refletindo a claridade do céu como uma joia esquecida.”
 
-### O Rito de Sepultamento
-- **Quem Conduz o Rito:**
-  - Se o Padre Donavich estiver presente e são, ele entoa as bênçãos sagradas do Senhor da Manhã:
-    > *“Das brumas viemos, à luz retornaremos. Que o Senhor da Manhã receba a alma de Kolyan Indirovich, servo fiel e pai honrado, e que seus olhos encontrem a alvorada eterna que a este vale foi negada.”*
-  - Se Donavich estiver incapaz, Ismark ou um dos heróis (*Presença (CD 11)*) deve pronunciar o elogio fúnebre para confortar Ireena. Sucesso concede **1 Ponto de Esperança** a todos os presentes.
-- **A Aparição de Strahd:**
-  - Strahd não intervém fisicamente no funeral: seu objetivo era prestar "respeito" sarcástico a Kolyan e lembrar a Ireena que ele continua esperando por ela.
-  - *Instinto (CD 12):* Quem observar a partida de Strahd percebe que a tempestade e os uivos de lobos começam a diminuir no momento em que ele se retira: o clima e os animais do vale obedecem à sua vontade como extensões de seu corpo.
+### A Bênção da Fonte
+- Beber da água da nascente de Lugdana ou rezar no santuário (*Instinto (CD 11)*) purifica o corpo de toxinas e remove **1 Ponto de Estresse** de cada herói.
+- Concede uma bênção temporária: vantagem no próximo teste contra medo ou veneno.
 
-### Decisão de Partida
-- Com o pai enterrado em solo consagrado, Ireena limpa as lágrimas e volta-se para os personagens:
-  > *“Meu dever com meu pai está cumprido. Agora começa minha luta pela vida. Ismark, arrume as mochilas. Nós partiremos para Vallaki ao raiar da manhã.”*
+**Transição:** Retornando aos limites da vila, os heróis preparam a marcha para a partida (Cenas B5k / B6 / B8).""",
 
-**Daggerheart & Mecânicas:**
-- O sepultamento encerra com sucesso a principal pendência emocional do Arco B.
-- Conceda **1 Esperança** a cada herói pela honra demonstrada.
-- O grupo pode passar a noite na mansão protegida (B5i) ou organizar os suprimentos antes da partida definitiva.
+    "B5k": """## Roteiro Completo · B5k · Casa de Mad Mary: A Boneca e as Lágrimas
 
-**Transição:** Os heróis e os irmãos Kolyana preparam as carroças e mantimentos para a jornada perigosa pela Estrada Svalich Ocidental rumo a Vallaki (Cena B6 / B7)."""
+**Objetivo:** Investigar a humilde residência de Mad Mary na vila, responder aos soluços lancinantes que ecoam pela rua, confortar a mãe enlouquecida de dor e receber a missão de resgatar sua filha jovem desaparecida Gertruda.
+
+**Contexto & Segredo (DragnaCarta):**
+- Mad Mary perdeu a sanidade quando sua filha adolescente Gertruda fugiu de casa há duas noites.
+- Mary manteve Gertruda trancada em casa a vida inteira para "protegê-la do mundo lá fora". Gertruda, ingênua e alimentada por contos de fadas românticos, fugiu e caiu direto nos braços de Strahd no Castelo Ravenloft, onde está vivendo em uma ilusão de luxo como hóspede/prisioneira do conde.
+- Mary passa o dia no chão abraçada à boneca de pano de Gertruda chamada **Malavra**.
+
+**Ambiente & Sensações:**
+- *Visão:* Um sobrado estreito e escuro com tábuas soltas; lareira apagada com cinzas espalhadas; móveis revirados. No centro do chão de madeira, uma mulher encurvada de cabelos brancos desgrenhados e olhos vermelhos de pranto balança o corpo para a frente e para trás, embalando uma boneca de pano feia com vestido esfarrapado.
+- *Sons:* O pranto doloroso, agudo e incessante de Mary chamando por *“Gertruda... minha menina... onde você está?”*; o ranger compassado das tábuas do chão.
+- *Cheiro:* Poeira seca, cinzas frias e o cheiro acre de lágrimas e negligência.
+- *Tato:* A mão de Mary é ossuda e gélida ao agarrar o braço de quem se aproximar.
+
+**Para narrar:** “Os soluços lancinantes que vocês ouviram das ruelas ecoam de dentro desta pequena casa geminada de madeira escura. A porta está destrancada, oscilando frouxa nas dobradiças. Ao entrarem na sala gélida e desprovida de fogo na lareira, a penumbra revela uma mulher de meia-idade encolhida no chão, de camisola de linho encardida e cabelos grisalhos emaranhados. Ela balança o corpo em um transe de dor insuportável, apertando contra o peito uma boneca de pano descolorida e de olhos de botão tortos: ‘Gertruda... minha florzinha... volte para a mamãe...’ Ao notar a presença de vocês, ela ergue o rosto banhado em lágrimas e estende os braços ossudos em um apelo desesperado: ‘Vocês viram minha Gertruda? Ela fugiu pela janela... O mundo lá fora é cheio de monstros! Tragam meu anjinho de volta, por favor!’”
+
+### O Apelo de Mary & A Boneca Malavra
+- Mary implora que os heróis procurem por Gertruda pelas estradas ou no castelo.
+- Ela entrega a boneca de pano **Malavra** aos heróis (*“Levem Malavra! Se Gertruda ver a bonequinha dela, ela saberá que a mamãe a perdoa e voltará correndo!”*).
+- *Instinto (CD 11):* Quem examinar o quarto do andar superior vê que a janela estava trancada por fora com ferrolhos: Mary mantinha a filha em cativeiro doméstico por excesso de proteção paranoica, e Gertruda fugiu com cordas de lençol amarradas na cama.
+
+**Daggerheart & Mecânicas:** Aceitar a missão de encontrar Gertruda abre a subtrama de resgate que se conectará com o Castelo Ravenloft (Arcos O / P). Conceda **1 Ponto de Esperança** pela compaixão demonstrada.
+
+**Transição:** Com todas as pendências da vila resolvidas, os heróis encontram Ismark e Ireena armados diante dos portões ocidentais (Cena B6 / B8).""",
+
+    "B6": """## Roteiro Completo · B6 · A Manhã Seguinte: O Plano de Partida
+
+**Objetivo:** Organizar a escolta militar de Ireena Kolyana na manhã seguinte ao funeral, planejar a rota pela Estrada Svalich Ocidental, revisar os perigos do caminho e definir Vallaki como o refúgio seguro da campanha.
+
+**Contexto & Segredo (DragnaCarta):**
+- Com o Burgomestre Kolyan sepultado, Ireena e Ismark estão prontos para partir.
+- Ismark assume seu papel de protetor e líder: ele acompanhará o grupo para garantir a segurança da irmã até que ela esteja abrigada dentro dos muros de Vallaki, sob a guarda da Igreja de Santo Andral.
+- A distância até Vallaki é de quase um dia de marcha forçada através de desfiladeiros e florestas infestadas por lobos e bruxas.
+
+**Ambiente & Sensações:**
+- *Visão:* O céu cinzento de Baróvia clareando em uma manhã gélida; Ismark em cota de malha e capa de viagem revisando arreios de cavalos; Ireena vestindo casaco de montaria e trazendo espada e aljava de virotes nas costas.
+- *Sons:* O relinchar inquieto de dois cavalos de carga; o tinir de fivelas de couro e armas sendo embainhadas; e o murmúrio de despedida dos milicianos que permanecerão para proteger as barricadas da vila.
+- *Cheiro:* Pinho fresco, orvalho gélido e couro engraxado.
+- *Tato:* O aperto de mão resoluto e firme entre Ismark e os aventureiros antes de darem o primeiro passo.
+
+**Para narrar:** “A névoa matinal rasteja baixa pelas ruas da Vila de Baróvia quando as últimas mochilas e alforjes são amarrados aos cavalos de montaria. Diante dos portões ocidentais arrebentados do vilarejo, Ismark ajeita a capa sobre os ombros e empunha sua espada com determinação renovada. Ao lado dele, Ireena Kolyana ajusta as correias de sua aljava, olhando para as casas barricadas da vila com um misto de dor pela perda de seu lar e coragem pelo que está por vir. Ela vira-se para vocês com um sorriso sereno: ‘Meu pai nos ensinou que a honra não morre com a carne. Nós partiremos para o oeste, cruzaremos as montanhas e encontraremos a luz que nos foi tirada. Obrigada por não nos deixarem sozinhos nas sombras.’”
+
+**Transição:** Os heróis e os irmãos Kolyana cruzam os limites da vila e adentram a Estrada Svalich Ocidental rumo ao cânion do Rio Ivlis (Cena B8 · Partida da Vila / Arco C · A Caminho de Vallaki).""",
+
+    "B7": """## Roteiro Completo · B7 · O Funeral de Kolyan Indirovich
+
+**Objetivo:** Conduzir o rito solene de despedida de Kolyan Indirovich no cemitério da igreja de Baróvia, pronunciar o elogio fúnebre e selar a aliança indelével com Ismark e Ireena antes de deixarem o vilarejo.
+
+**Contexto & Segredo (DragnaCarta):**
+- Cena complementar de consagração da memória de Kolyan.
+- O cemitério da igreja ainda conserva traços tênues da consagração original de Lathander, impedindo que o corpo do burgomestre se erga como morto-vivo.
+- O evento conclui formalmente a liderança do patriarca da família e passa o bastão da liderança para Ismark e Ireena.
+
+**Ambiente & Sensações:**
+- *Visão:* Lápides cinzentas tortas cercadas por hera venenosa; o caixão de carvalho repousando no fundo da cova; a luz pálida da manhã filtrando-se pela névoa.
+- *Sons:* O som solene de orações ao Senhor da Manhã; o bater de terra sobre a tampa do caixão; o silêncio respeitoso dos companheiros.
+- *Cheiro:* Terra revolvida e flores silvestres brancas colhidas por Ireena.
+- *Tato:* A lama fria do cemitério e o abraço de gratidão de Ireena aos heróis.
+
+**Para narrar:** “Diante da sepultura recém-fechada do Burgomestre Kolyan Indirovich, a névoa parece abrir um pequeno círculo de respeito ao redor das cruzes de pedra. Ireena deposita a última rosa branca sobre o montículo de terra e Ismark finca uma cruz de carvalho na cabeceira da cova. As palavras finais de despedida ressoam no ar gélido de Baróvia, consagrando o amor de um pai que lutou até o último batimento cardíaco para defender seus filhos das trevas. A partir deste momento, a jornada pela sobrevivência de Baróvia passa para as mãos de vocês.”
+
+**Daggerheart & Mecânicas:** Conceda **1 Ponto de Esperança** a cada herói pelo encerramento nobre do ciclo fúnebre.
+
+**Transição:** Os aventureiros reúnem-se na saída ocidental da vila e iniciam a marcha pela Estrada Svalich (Cena B8).""",
+
+    "B8": """## Roteiro Completo · B8 · Deixando a Vila de Baróvia (Leaving the Village)
+
+**Objetivo:** Cruzar a barricada ocidental definitiva da Vila de Baróvia, iniciar a marcha pela Estrada Svalich Ocidental rumo ao cânion do Rio Ivlis e ao acampamento de Tser Pool, estabelecendo a vigilância e os perigos da jornada selvagem.
+
+**Contexto & Segredo (DragnaCarta):**
+- Esta cena encerra formalmente o **Arco B · O Cerco da Vila de Baróvia** e abre o **Arco C · Rumo ao Vale**.
+- A estrada para o oeste segue ao longo do Rio Ivlis por cânions e florestas fechadas, passando pela encruzilhada da forca, pelas cataratas de Tser e pelo acampamento de Madame Eva.
+- A presença de Ireena com o grupo transforma a comitiva em alvo prioritário de Strahd e de suas feras.
+
+**Ambiente & Sensações:**
+- *Visão:* A estrada de terra afundando em um desfiladeiro arborizado; os telhados cinzentos da vila ficando para trás na névoa; as águas límpidas do Rio Ivlis correndo velozes paralelamente à trilha.
+- *Sons:* O ruído relaxante e contínuo da correnteza do rio; o coaxar de corvos que voam de galho em galho acompanhando o grupo; e os cascos dos cavalos na lama.
+- *Cheiro:* Água fresca corrente, agulhas de pinho esmagadas e ar puro de cânion.
+- *Tato:* O vento que sopra do oeste traz um frescor vigoroso que renova as energias dos heróis.
+
+**Para narrar:** “As últimas casas barricadas da Vila de Baróvia desaparecem lentamente atrás de uma muralha de névoa cinzenta quando vocês cruzam a ponte de madeira sobre a trincheira e tomam a Estrada Svalich em direção ao oeste. À esquerda do caminho, o Rio Ivlis flui rápido e límpido entre pedras redondas de musgo, rompendo o silêncio sufocante da terra com o murmúrio vivo de suas águas. À frente, a estrada sobe em direção a desfiladeiros escarpados onde pinheiros colossais encontram o céu de chumbo. Ao lado de vocês caminham Ismark e Ireena Kolyana, com as mãos no aço e o olhar apontado para o horizonte desconhecido. O cerco da vila ficou para trás... mas a verdadeira Baróvia acabou de começar.”
+
+**Daggerheart & Mecânicas:** A transição para o Arco C restaura os contadores de viagem e concede **1 Ponto de Esperança** a todos os heróis pelo sucesso no resgate e escolta de Ireena.
+
+**Transição:** A estrada segue rumo à Encruzilhada do Rio Ivlis e ao acampamento Vistani de Tser Pool (Cena C1 / C2)."""
 }
